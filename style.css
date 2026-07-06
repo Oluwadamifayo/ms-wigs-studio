@@ -1,10 +1,16 @@
 /* Custom Premium Color Variables */
 :root {
-    --primary-color: #d4a373; /* Elegant Warm Gold/Bronze */
-    --secondary-color: #faedcd; /* Soft Cream Tint */
-    --dark-color: #2b2d42; /* Deep Charcoal Blue */
-    --light-bg: #fefae0; /* Warm Off-White */
-    --accent-pink: #e07a5f; /* Rich Terracotta/Rose */
+    --primary-color: #d4a373; 
+    --secondary-color: #faedcd; 
+    --dark-color: #1a1a1a; /* Darkened to match the dark reference layout */
+    --card-bg: #121212; /* Deep matte black for the direct booking container */
+    --light-bg: #fefae0; 
+    --accent-pink: #e07a5f; 
+    
+    /* Button Colors from Reference Screen */
+    --color-call: #34495e;
+    --color-whatsapp: #2ecc71;
+    --color-email: #2980b9;
 }
 
 body {
@@ -13,7 +19,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: var(--light-bg);
-    color: var(--dark-color);
+    color: #333;
 }
 
 header {
@@ -56,7 +62,7 @@ section {
 
 section h2 {
     font-size: 1.75rem;
-    color: var(--dark-color);
+    color: #1a1a1a;
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
@@ -72,7 +78,7 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* Hero Section Updates */
+/* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--dark-color), var(--accent-pink));
     color: #fff;
@@ -117,7 +123,7 @@ section h2::after {
     border: none;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(43, 45, 66, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     max-width: 280px;
     position: relative;
     transition: transform 0.3s ease;
@@ -168,7 +174,7 @@ section h2::after {
     background-color: var(--primary-color);
 }
 
-/* Services Container Updates */
+/* Services Container */
 .services-section {
     background-color: var(--secondary-color);
 }
@@ -209,7 +215,7 @@ section h2::after {
     color: var(--accent-pink);
 }
 
-/* Forms and Contact Card styling */
+/* Contact Form styling */
 .contact-section {
     background-color: #fff;
     padding-bottom: 20px;
@@ -231,8 +237,8 @@ form input, form textarea {
     background-color: var(--light-bg);
 }
 
-form button {
-    background-color: var(--primary-color);
+.submit-inquiry-btn {
+    background-color: var(--accent-pink); /* Matching the red/coral style button from the image */
     color: white;
     border: none;
     padding: 14px;
@@ -240,56 +246,86 @@ form button {
     border-radius: 8px;
     font-weight: bold;
     font-size: 1rem;
-    transition: background 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s;
 }
 
-form button:hover {
-    background-color: var(--dark-color);
+.submit-inquiry-btn:hover {
+    opacity: 0.9;
 }
 
-/* New Contact Card Section */
-.contact-card-section {
+/* Direct Booking Card (Matches Rubys Lens Screen Exact Design) */
+.direct-booking-section {
     background-color: #fff;
     padding-top: 10px;
     padding-bottom: 60px;
 }
 
-.contact-card {
-    max-width: 450px;
+.direct-booking-card {
+    max-width: 500px;
     margin: 0 auto;
-    background: linear-gradient(135deg, var(--dark-color), #3d405b);
+    background-color: var(--card-bg);
     color: #fff;
-    padding: 30px;
+    padding: 40px 30px;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    text-align: left;
-    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    border-top: 4px solid var(--accent-pink);
 }
 
-.contact-card h3 {
-    margin: 0 0 5px 0;
-    color: var(--secondary-color);
-    font-size: 1.4rem;
+.direct-booking-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
-.contact-card .tagline {
-    margin: 0 0 25px 0;
-    font-style: italic;
-    color: #cbd5e1;
+.direct-subtitle {
+    margin: 0 0 30px 0;
+    color: #aaa;
     font-size: 0.95rem;
 }
 
-.card-details p {
-    margin: 12px 0;
+.booking-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-action {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
     font-size: 1rem;
-    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-action:active {
+    transform: scale(0.98);
+}
+
+.btn-call {
+    background-color: var(--color-call);
+}
+
+.btn-whatsapp {
+    background-color: var(--color-whatsapp);
+}
+
+.btn-email {
+    background-color: var(--color-email);
 }
 
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 30px 20px;
     background: var(--dark-color);
-    color: #fff;
-    border-top: 4px solid var(--primary-color);
-    font-size: 0.9rem;
+    color: #777;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
