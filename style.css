@@ -110,31 +110,61 @@ section h2::after {
     transform: scale(1.05);
 }
 
-/* Gallery and Shop Grid */
-.gallery, .product-grid {
+/* Gallery Grid */
+.gallery {
     display: flex;
     justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
 }
 
-.gallery-item, .product-card {
+.gallery-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    max-width: 280px;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Strict Horizontal Row for Products */
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    overflow-x: auto; /* Adds horizontal swipe on small mobile screens */
+    padding: 15px;
+    white-space: nowrap;
+}
+
+.product-card {
     background: #fff;
     border: none;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 15 rgba(0, 0, 0, 0.08);
-    max-width: 280px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    width: 280px;
+    min-width: 250px; /* Prevents item shrinking */
+    display: inline-block;
+    vertical-align: top;
     position: relative;
     transition: transform 0.3s ease;
+    white-space: normal; /* Fixes title text wrapping */
 }
 
-.gallery-item:hover, .product-card:hover {
+.product-card:hover {
     transform: translateY(-5px);
 }
 
-.gallery-item img, .product-card img {
+.product-card img {
     width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
     border-radius: 8px;
 }
 
@@ -248,10 +278,9 @@ form input, form textarea {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: opacity 0.3s;
 }
 
-/* Direct Booking Card */
+/* Direct Booking Card Layout */
 .direct-booking-section {
     background-color: #fff;
     padding-top: 10px;
@@ -301,7 +330,7 @@ form input, form textarea {
 .btn-whatsapp { background-color: var(--color-whatsapp); }
 .btn-email { background-color: var(--color-email); }
 
-/* Upgraded Floating Shopping Cart wrap with sub-panel */
+/* Floating Shopping Cart wrap */
 .cart-floating-bar {
     position: fixed;
     bottom: 0;
@@ -353,7 +382,6 @@ form input, form textarea {
     align-items: center;
 }
 
-/* Hidden selection modifier block dropdown */
 .cart-items-list {
     max-height: 0;
     overflow-y: auto;
