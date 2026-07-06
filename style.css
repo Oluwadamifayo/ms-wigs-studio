@@ -4,7 +4,7 @@
     --secondary-color: #faedcd; 
     --dark-color: #1a1a1a; 
     --card-bg: #121212; 
-    --light-bg: #fefae0; 
+    --light-bg: #fefae0; /* Off-white color used in portfolio background */
     --accent-pink: #e07a5f; 
     
     --color-call: #34495e;
@@ -78,19 +78,28 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* Hero Section (Updated to a flat plain color matching the theme background) */
+/* Hero Section (Updated to plain background color matching Our Portfolio completely) */
 .hero {
-    background-color: #111111;
-    color: #fff;
-    padding: 100px 20px;
+    background-color: var(--light-bg);
+    color: #1a1a1a;
+    padding: 60px 20px 40px 20px;
 }
 
 .hero h2 {
-    color: #fff;
+    color: #1a1a1a;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
 }
 
 .hero h2::after {
     background-color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #555;
 }
 
 /* Gallery Grid */
