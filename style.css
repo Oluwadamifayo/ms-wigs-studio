@@ -78,11 +78,11 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* Hero Section */
+/* Hero Section (Updated to a flat plain color matching the theme background) */
 .hero {
-    background: linear-gradient(135deg, var(--dark-color), var(--accent-pink));
+    background-color: #111111;
     color: #fff;
-    padding: 80px 20px;
+    padding: 100px 20px;
 }
 
 .hero h2 {
@@ -90,24 +90,7 @@ section h2::after {
 }
 
 .hero h2::after {
-    background-color: var(--secondary-color);
-}
-
-.cta-btn {
-    display: inline-block;
     background-color: var(--primary-color);
-    color: #fff;
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 25px;
-    margin-top: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: transform 0.2s;
-}
-
-.cta-btn:hover {
-    transform: scale(1.05);
 }
 
 /* Gallery Grid */
@@ -136,7 +119,7 @@ section h2::after {
     display: flex;
     justify-content: center;
     gap: 25px;
-    overflow-x: auto; /* Adds horizontal swipe on small mobile screens */
+    overflow-x: auto; 
     padding: 15px;
     white-space: nowrap;
 }
@@ -148,12 +131,12 @@ section h2::after {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     width: 280px;
-    min-width: 250px; /* Prevents item shrinking */
+    min-width: 250px; 
     display: inline-block;
     vertical-align: top;
     position: relative;
     transition: transform 0.3s ease;
-    white-space: normal; /* Fixes title text wrapping */
+    white-space: normal; 
 }
 
 .product-card:hover {
