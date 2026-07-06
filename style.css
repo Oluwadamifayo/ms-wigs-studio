@@ -19,7 +19,7 @@ body {
     box-sizing: border-box;
     background-color: var(--light-bg);
     color: #333;
-    padding-bottom: 90px; /* Leaves clean blank workspace below for floating checkout bar */
+    padding-bottom: 90px; 
 }
 
 header {
@@ -123,7 +123,7 @@ section h2::after {
     border: none;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15 rgba(0, 0, 0, 0.08);
     max-width: 280px;
     position: relative;
     transition: transform 0.3s ease;
@@ -251,7 +251,7 @@ form input, form textarea {
     transition: opacity 0.3s;
 }
 
-/* Direct Booking Card Layout */
+/* Direct Booking Card */
 .direct-booking-section {
     background-color: #fff;
     padding-top: 10px;
@@ -301,25 +301,31 @@ form input, form textarea {
 .btn-whatsapp { background-color: var(--color-whatsapp); }
 .btn-email { background-color: var(--color-email); }
 
-/* Floating WhatsApp Shopping Cart Bar Layout (Matches Reference Screenshot) */
+/* Upgraded Floating Shopping Cart wrap with sub-panel */
 .cart-floating-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #151a21; /* Clean dark tone from your screenshot */
+    background-color: #151a21; 
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.4);
+    z-index: 9999;
+    transform: translateY(100%); 
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-floating-bar.active {
+    transform: translateY(0);
+}
+
+.cart-bar-main {
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
-    z-index: 9999;
-    transform: translateY(100%); /* Stays hidden initially until item selected */
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.cart-floating-bar.active {
-    transform: translateY(0); /* Smooth slide up into view */
+    cursor: pointer;
 }
 
 .cart-info {
@@ -327,28 +333,58 @@ form input, form textarea {
     flex-direction: column;
     color: #9cb3c9;
     font-size: 0.9rem;
-    font-weight: 500;
 }
 
 .cart-total-price {
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-top: 2px;
 }
 
 .whatsapp-checkout-btn {
-    background-color: #2ecc71; /* Pure green from screenshot */
+    background-color: #2ecc71; 
     color: white;
     border: none;
     padding: 14px 22px;
     border-radius: 12px;
     font-weight: bold;
-    font-size: 0.95rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+/* Hidden selection modifier block dropdown */
+.cart-items-list {
+    max-height: 0;
+    overflow-y: auto;
+    background-color: #0f1318;
+    padding: 0 20px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.cart-items-list.open {
+    max-height: 200px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #1f2630;
+}
+
+.cart-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #eee;
+    padding: 8px 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #1a2029;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
 }
 
 footer {
@@ -356,5 +392,4 @@ footer {
     padding: 30px 20px;
     background: var(--dark-color);
     color: #555;
-    font-size: 0.85rem;
 }

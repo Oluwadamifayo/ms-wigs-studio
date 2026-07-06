@@ -124,14 +124,18 @@
     </section>
 
     <div id="cart-floating-bar" class="cart-floating-bar">
-        <div class="cart-info">
-            <span id="cart-count">Selected Items (0)</span>
-            <span id="cart-total" class="cart-total-price">₦0</span>
+        <div id="cart-items-list" class="cart-items-list"></div>
+        
+        <div class="cart-bar-main" onclick="toggleCartList()">
+            <div class="cart-info">
+                <span id="cart-count">Selected Items (0) <span>🔼 View Items</span></span>
+                <span id="cart-total" class="cart-total-price">₦0</span>
+            </div>
+            <button class="whatsapp-checkout-btn" onclick="event.stopPropagation(); sendWhatsAppOrder()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right: 8px;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                Send Order via WhatsApp
+            </button>
         </div>
-        <button class="whatsapp-checkout-btn" onclick="sendWhatsAppOrder()">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right: 8px;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            Send Order via WhatsApp
-        </button>
     </div>
 
     <footer>
@@ -140,27 +144,55 @@
 
     <script>
         let cart = [];
+        let isListOpen = false;
 
         function addToCart(name, price) {
-            // Add selected product to local cart array
             cart.push({ name: name, price: price });
             updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1); // Delete that item from the list array
+            updateCartUI();
+        }
+
+        function toggleCartList() {
+            isListOpen = !isListOpen;
+            const listContainer = document.getElementById('cart-items-list');
+            if (isListOpen && cart.length > 0) {
+                listContainer.classList.add('open');
+            } else {
+                listContainer.classList.remove('open');
+            }
         }
 
         function updateCartUI() {
             const bar = document.getElementById('cart-floating-bar');
             const countText = document.getElementById('cart-count');
             const totalText = document.getElementById('cart-total');
+            const listContainer = document.getElementById('cart-items-list');
             
             if (cart.length > 0) {
-                bar.classList.add('active'); // Show the floating bar
-                countText.innerText = `Selected Items (${cart.length})`;
+                bar.classList.add('active');
+                countText.innerHTML = `Selected Items (${cart.length}) <span style="font-size:0.8rem; text-decoration:underline;">🗂️ View/Edit</span>`;
                 
-                // Calculate entire price sum
                 let total = cart.reduce((sum, item) => sum + item.price, 0);
                 totalText.innerText = `₦${total.toLocaleString()}`;
+                
+                // Build item entries inside the popup list
+                listContainer.innerHTML = `<h4 style="margin: 0 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px;">Your Selections</h4>`;
+                cart.forEach((item, index) => {
+                    listContainer.innerHTML += `
+                        <div class="cart-list-item">
+                            <span>${item.name}</span>
+                            <button class="remove-item-btn" onclick="event.stopPropagation(); removeFromCart(${index})">❌ Remove</button>
+                        </div>
+                    `;
+                });
             } else {
                 bar.classList.remove('active');
+                listContainer.classList.remove('open');
+                isListOpen = false;
             }
         }
 
@@ -170,10 +202,8 @@
             let targetPhoneNumber = "2348138049021";
             let total = cart.reduce((sum, item) => sum + item.price, 0);
             
-            // Build text message format automatically
             let message = "Hello M'S Wigs Studio! I would like to place an order:\n\n";
             
-            // Group items to list out duplicates clearly
             let itemCounts = {};
             cart.forEach(item => {
                 itemCounts[item.name] = (itemCounts[item.name] || 0) + 1;
@@ -185,7 +215,6 @@
 
             message += `\n💰 Total Price: ₦${total.toLocaleString()}\n\nPlease confirm availability! Thanks.`;
             
-            // Safe URL conversion for custom text formatting
             let whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
