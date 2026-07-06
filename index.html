@@ -86,10 +86,10 @@
         <div class="product-grid">
             <div class="product-card">
                 <div class="badge">Hot</div>
-                <img src="https://via.placeholder.com/250" alt="Wig Product">
-                <h3 class="product-title">20" HD Lace Frontal Wig</h3>
-                <p class="price">₦18,000</p>
-                <button class="buy-btn" onclick="addToCart('20\'\' HD Lace Frontal Wig', 18000)">Add to Cart</button>
+                <img src="https://i.ibb.co/j9jvjjxd/85a54d19d6192818e17a31e55013011e.jpg" alt="Water Wave Lace Frontal Human Hair Wig">
+                <h3 class="product-title">Water Wave Lace Frontal Human Hair Wig</h3>
+                <p class="price">₦85,000</p>
+                <button class="buy-btn" onclick="addToCart('Water Wave Lace Frontal Human Hair Wig', 85000)">Add to Cart</button>
             </div>
         </div>
     </section>
@@ -152,7 +152,7 @@
         }
 
         function removeFromCart(index) {
-            cart.splice(index, 1); // Delete that item from the list array
+            cart.splice(index, 1);
             updateCartUI();
         }
 
@@ -179,7 +179,6 @@
                 let total = cart.reduce((sum, item) => sum + item.price, 0);
                 totalText.innerText = `₦${total.toLocaleString()}`;
                 
-                // Build item entries inside the popup list
                 listContainer.innerHTML = `<h4 style="margin: 0 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px;">Your Selections</h4>`;
                 cart.forEach((item, index) => {
                     listContainer.innerHTML += `
