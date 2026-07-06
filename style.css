@@ -54,6 +54,36 @@ section {
     border-radius: 4px;
     width: 100%;
 }
+
+/* Services Section Styling */
+.services-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.service-category h3 {
+    border-bottom: 2px solid #111;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+    font-size: 1.05rem;
+}
+.price-tag {
+    font-weight: bold;
+    color: #111;
+}
+
 form {
     max-width: 500px;
     margin: 0 auto;
@@ -72,4 +102,10 @@ form button {
     color: white;
     border: none;
     cursor: pointer;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #fff;
 }
