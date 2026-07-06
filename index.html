@@ -87,24 +87,21 @@
                 <div class="badge">Hot</div>
                 <img src="https://i.ibb.co/j9jvjjxd/85a54d19d6192818e17a31e55013011e.jpg" alt="Water Wave wig">
                 <h3 class="product-title">Water Wave wig</h3>
-                <p class="price">₦85,000</p>
-                <button class="buy-btn" onclick="addToCart('Water Wave wig', 85000)">Add to Cart</button>
+                <button class="buy-btn" onclick="addToCart('Water Wave wig', 0)">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="badge">New</div>
                 <img src="https://i.ibb.co/1Jw1CD4h/172772-removebg-preview.png" alt="CHINNY | Human Hair & Blend Wig">
                 <h3 class="product-title">CHINNY | Human Hair & Blend Wig</h3>
-                <p class="price">₦55,000</p>
-                <button class="buy-btn" onclick="addToCart('CHINNY | Human Hair & Blend Wig', 55000)">Add to Cart</button>
+                <button class="buy-btn" onclick="addToCart('CHINNY | Human Hair & Blend Wig', 0)">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="badge">Sleek</div>
                 <img src="https://i.ibb.co/QvcB9VVT/173020-removebg-preview.png" alt="Bone Straight">
                 <h3 class="product-title">Bone Straight</h3>
-                <p class="price">₦80,000</p>
-                <button class="buy-btn" onclick="addToCart('Bone Straight', 80000)">Add to Cart</button>
+                <button class="buy-btn" onclick="addToCart('Bone Straight', 0)">Add to Cart</button>
             </div>
         </div>
     </section>
@@ -144,11 +141,10 @@
         <div class="cart-bar-main" onclick="toggleCartList()">
             <div class="cart-info">
                 <span id="cart-count">Selected Items (0) <span>🔼 View Items</span></span>
-                <span id="cart-total" class="cart-total-price">₦0</span>
             </div>
             <button class="whatsapp-checkout-btn" onclick="event.stopPropagation(); sendWhatsAppOrder()">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right: 8px;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                Send Order via WhatsApp
+                Send Inquiry via WhatsApp
             </button>
         </div>
     </div>
@@ -184,15 +180,11 @@
         function updateCartUI() {
             const bar = document.getElementById('cart-floating-bar');
             const countText = document.getElementById('cart-count');
-            const totalText = document.getElementById('cart-total');
             const listContainer = document.getElementById('cart-items-list');
             
             if (cart.length > 0) {
                 bar.classList.add('active');
                 countText.innerHTML = `Selected Items (${cart.length}) <span style="font-size:0.8rem; text-decoration:underline;">🗂️ View/Edit</span>`;
-                
-                let total = cart.reduce((sum, item) => sum + item.price, 0);
-                totalText.innerText = `₦${total.toLocaleString()}`;
                 
                 listContainer.innerHTML = `<h4 style="margin: 0 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px;">Your Selections</h4>`;
                 cart.forEach((item, index) => {
@@ -214,9 +206,8 @@
             if (cart.length === 0) return;
 
             let targetPhoneNumber = "2348138049021";
-            let total = cart.reduce((sum, item) => sum + item.price, 0);
             
-            let message = "Hello M'S Wigs Studio! I would like to place an order:\n\n";
+            let message = "Hello M'S Wigs Studio! I would like to inquire about the following items:\n\n";
             
             let itemCounts = {};
             cart.forEach(item => {
@@ -227,7 +218,7 @@
                 message += `🛍️ ${itemName} (Qty: ${count})\n`;
             }
 
-            message += `\n💰 Total Price: ₦${total.toLocaleString()}\n\nPlease confirm availability! Thanks.`;
+            message += `\nPlease let me know the current prices and availability! Thanks.`;
             
             let whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
