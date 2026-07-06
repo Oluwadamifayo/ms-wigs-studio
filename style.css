@@ -19,15 +19,20 @@ body {
 header {
     background-color: var(--dark-color);
     color: #fff;
-    padding: 25px 20px;
+    padding: 20px;
     text-align: center;
     border-bottom: 4px solid var(--primary-color);
 }
 
-header h1 {
-    margin: 0 0 10px 0;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
+.logo-container {
+    margin-bottom: 15px;
+}
+
+.site-logo {
+    max-width: 220px; /* Adjusts your logo to a perfect professional size */
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 nav a {
