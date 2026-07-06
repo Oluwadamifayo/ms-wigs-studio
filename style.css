@@ -19,17 +19,18 @@ body {
 header {
     background-color: var(--dark-color);
     color: #fff;
-    padding: 20px;
+    padding: 30px 20px; /* Increased padding for breathing room */
     text-align: center;
     border-bottom: 4px solid var(--primary-color);
 }
 
 .logo-container {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .site-logo {
-    max-width: 220px; /* Adjusts your logo to a perfect professional size */
+    max-width: 340px; /* Increased from 220px to make it highly visible */
+    width: 100%; /* Ensures scalability on smaller phone screens */
     height: auto;
     display: block;
     margin: 0 auto;
@@ -40,7 +41,7 @@ nav a {
     margin: 0 12px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem; /* Slightly larger menu text to match the bigger logo */
     transition: color 0.3s ease;
 }
 
