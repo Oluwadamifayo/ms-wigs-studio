@@ -2,12 +2,11 @@
 :root {
     --primary-color: #d4a373; 
     --secondary-color: #faedcd; 
-    --dark-color: #1a1a1a; /* Darkened to match the dark reference layout */
-    --card-bg: #121212; /* Deep matte black for the direct booking container */
+    --dark-color: #1a1a1a; 
+    --card-bg: #121212; 
     --light-bg: #fefae0; 
     --accent-pink: #e07a5f; 
     
-    /* Button Colors from Reference Screen */
     --color-call: #34495e;
     --color-whatsapp: #2ecc71;
     --color-email: #2980b9;
@@ -20,6 +19,7 @@ body {
     box-sizing: border-box;
     background-color: var(--light-bg);
     color: #333;
+    padding-bottom: 90px; /* Leaves clean blank workspace below for floating checkout bar */
 }
 
 header {
@@ -153,8 +153,8 @@ section h2::after {
 
 .price {
     font-weight: bold;
-    color: var(--accent-pink);
-    font-size: 1.25rem;
+    color: #1a1a1a;
+    font-size: 1.35rem;
     margin: 10px 0;
 }
 
@@ -238,7 +238,7 @@ form input, form textarea {
 }
 
 .submit-inquiry-btn {
-    background-color: var(--accent-pink); /* Matching the red/coral style button from the image */
+    background-color: var(--accent-pink); 
     color: white;
     border: none;
     padding: 14px;
@@ -251,11 +251,7 @@ form input, form textarea {
     transition: opacity 0.3s;
 }
 
-.submit-inquiry-btn:hover {
-    opacity: 0.9;
-}
-
-/* Direct Booking Card (Matches Rubys Lens Screen Exact Design) */
+/* Direct Booking Card Layout */
 .direct-booking-section {
     background-color: #fff;
     padding-top: 10px;
@@ -277,13 +273,11 @@ form input, form textarea {
     margin: 0 0 10px 0;
     font-size: 1.8rem;
     font-weight: bold;
-    letter-spacing: 0.5px;
 }
 
 .direct-subtitle {
-    margin: 0 0 30px 0;
     color: #aaa;
-    font-size: 0.95rem;
+    margin: 0 0 30px 0;
 }
 
 .booking-buttons {
@@ -299,33 +293,68 @@ form input, form textarea {
     padding: 15px;
     border-radius: 8px;
     font-weight: bold;
-    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: transform 0.2s, opacity 0.2s;
+    text-align: center;
 }
 
-.btn-action:active {
-    transform: scale(0.98);
+.btn-call { background-color: var(--color-call); }
+.btn-whatsapp { background-color: var(--color-whatsapp); }
+.btn-email { background-color: var(--color-email); }
+
+/* Floating WhatsApp Shopping Cart Bar Layout (Matches Reference Screenshot) */
+.cart-floating-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #151a21; /* Clean dark tone from your screenshot */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transform: translateY(100%); /* Stays hidden initially until item selected */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.btn-call {
-    background-color: var(--color-call);
+.cart-floating-bar.active {
+    transform: translateY(0); /* Smooth slide up into view */
 }
 
-.btn-whatsapp {
-    background-color: var(--color-whatsapp);
+.cart-info {
+    display: flex;
+    flex-direction: column;
+    color: #9cb3c9;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
-.btn-email {
-    background-color: var(--color-email);
+.cart-total-price {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+.whatsapp-checkout-btn {
+    background-color: #2ecc71; /* Pure green from screenshot */
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
 }
 
 footer {
     text-align: center;
     padding: 30px 20px;
     background: var(--dark-color);
-    color: #777;
+    color: #555;
     font-size: 0.85rem;
-    letter-spacing: 1px;
 }
