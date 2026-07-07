@@ -10,7 +10,7 @@
 }
 
 html, body {
-    background-color: #fffbee; 
+    background-color: #f6ebd6; /* Warmer studio beige cream color for the base of the site */
     color: #333;
     line-height: 1.6;
     overflow-x: hidden; 
@@ -88,10 +88,10 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   3. HERO BANNER SECTION
+   3. HERO BANNER SECTION (Light Ivory Cream)
    ========================================================================== */
 .hero {
-    background: #fffbee; 
+    background: #fffdf4; /* Soft, light ivory cream background for the upper fold */
     padding: 80px 20px; 
     text-align: center;
 }
@@ -113,11 +113,11 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. PORTFOLIO GALLERY DESIGN
+   4. PORTFOLIO GALLERY DESIGN (Light Ivory Cream)
    ========================================================================== */
 #portfolio {
     padding: 60px 20px;
-    background: #fffbee;
+    background: #fffdf4; /* Matches upper soft ivory section */
     text-align: center;
 }
 
@@ -154,10 +154,10 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   5. SERVICES PRICING BOARD (Updated Heading Weight)
+   5. SERVICES PRICING BOARD (Warmer Studio Beige)
    ========================================================================== */
 .services-section {
-    background-color: #fffbee;
+    background-color: #f6ebd6; /* Transitions into the warm beige tone shown in your screenshot */
     padding: 60px 20px;
 }
 
@@ -179,15 +179,14 @@ nav a:hover {
     margin-bottom: 0;
 }
 
-/* Thicker styling applied directly to Wig Services and Natural Hair Care labels */
 .service-category h3 {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #111111; /* Changed from gray to dark black for enhanced visual prominence */
-    font-weight: 800; /* Increased thickness significantly for a bold statement */
+    color: #111111; 
+    font-weight: 800; 
     margin-bottom: 18px;
-    border-bottom: 2px solid #111111; /* Made the baseline track thicker to balance the type */
+    border-bottom: 2px solid #111111; 
     padding-bottom: 8px;
 }
 
@@ -200,10 +199,10 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   6. SHOP MODULES & CARD ACCENTS
+   6. SHOP MODULES & CARD ACCENTS (Warmer Studio Beige)
    ========================================================================== */
 #shop {
-    background: #fffbee;
+    background: #f6ebd6; /* Warmer studio beige background */
     padding: 60px 20px;
 }
 
@@ -231,13 +230,13 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   7. CONTACT APPOINTMENT FORM
+   7. CONTACT APPOINTMENT FORM (Warmer Studio Beige)
    ========================================================================== */
 .contact-section {
     padding: 60px 20px;
     max-width: 540px; 
     margin: 0 auto;
-    background: #fffbee;
+    background: #f6ebd6; /* Warmer studio beige background */
 }
 
 .contact-section form {
@@ -270,11 +269,11 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   8. DIRECT CHANNELS (Call, WhatsApp, Email Setup)
+   8. DIRECT CHANNELS (Warmer Studio Beige)
    ========================================================================== */
 .direct-booking-section {
     padding: 40px 20px;
-    background: #fffbee;
+    background: #f6ebd6; /* Warmer studio beige background */
 }
 
 .direct-booking-card {
