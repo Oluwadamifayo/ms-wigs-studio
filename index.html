@@ -88,40 +88,17 @@
 
         <div class="shop-group">
             <h3 class="group-title">STRAIGHT HAIR</h3>
-            <div class="shop-grid">
-                <div class="shop-card" data-id="straight-1">
-                    <div class="card-img-wrapper"><img src="https://i.ibb.co/Vv6XgY7/portfolio1.jpg" alt="Straight Wig Option 1" class="viewable-img"></div>
-                    <div class="card-details"><h3>Classic Straight Unit</h3><p class="price">₦80,000</p><button class="buy-btn">Add to Cart</button></div>
-                </div>
-                <div class="shop-card" data-id="straight-2">
-                    <div class="card-img-wrapper"><img src="https://i.ibb.co/m0Y3pX5/portfolio2.jpg" alt="Straight Wig Option 2" class="viewable-img"></div>
-                    <div class="card-details"><h3>Premium Bone Straight</h3><p class="price">₦120,000</p><button class="buy-btn">Add to Cart</button></div>
-                </div>
-            </div>
+            <div class="shop-grid" id="straight-hair-grid"></div>
         </div>
 
         <div class="shop-group">
             <h3 class="group-title">PISSIE CURLY</h3>
-            <div class="shop-grid">
-                <div class="shop-card" data-id="bouncy-1">
-                    <div class="card-img-wrapper"><img src="https://i.ibb.co/Vv6XgY7/portfolio1.jpg" alt="Bouncy Volume Unit" class="viewable-img"></div>
-                    <div class="card-details"><h3>Water Wave Wig</h3><p class="price">₦85,000</p><button class="buy-btn">Add to Cart</button></div>
-                </div>
-                <div class="shop-card" data-id="bouncy-2">
-                    <div class="card-img-wrapper"><img src="https://i.ibb.co/m0Y3pX5/portfolio2.jpg" alt="Chinny Human Blend" class="viewable-img"></div>
-                    <div class="card-details"><h3>CHINNY Human Blend</h3><p class="price">₦55,000</p><button class="buy-btn">Add to Cart</button></div>
-                </div>
-            </div>
+            <div class="shop-grid" id="pissie-curly-grid"></div>
         </div>
 
         <div class="shop-group">
             <h3 class="group-title">BOUNCY HAIR</h3>
-            <div class="shop-grid">
-                <div class="shop-card placeholder-card">
-                    <div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div>
-                    <div class="card-details"><h3>Bouncy Hair Unit</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div>
-                </div>
-            </div>
+            <div class="shop-grid" id="bouncy-hair-grid"></div>
         </div>
 
     </section>
@@ -166,6 +143,53 @@
     </footer>
 
     <script>
+        // --- 1. DYNAMIC DATA HANDLING ---
+        const defaultProducts = [
+            { id: "straight-1", name: "Classic Straight Unit", price: "₦80,000", image: "https://i.ibb.co/Vv6XgY7/portfolio1.jpg", category: "STRAIGHT HAIR" },
+            { id: "straight-2", name: "Premium Bone Straight", price: "₦120,000", image: "https://i.ibb.co/m0Y3pX5/portfolio2.jpg", category: "STRAIGHT HAIR" },
+            { id: "bouncy-1", name: "Water Wave Wig", price: "₦85,000", image: "https://i.ibb.co/Vv6XgY7/portfolio1.jpg", category: "PISSIE CURLY" },
+            { id: "bouncy-2", name: "CHINNY Human Blend", price: "₦55,000", image: "https://i.ibb.co/m0Y3pX5/portfolio2.jpg", category: "PISSIE CURLY" }
+        ];
+
+        // Load data from storage or load defaults
+        if (!localStorage.getItem('wig_products')) {
+            localStorage.setItem('wig_products', JSON.stringify(defaultProducts));
+        }
+        const activeProducts = JSON.parse(localStorage.getItem('wig_products'));
+
+        // Target catalog containers
+        const straightGrid = document.getElementById('straight-hair-grid');
+        const pissieGrid = document.getElementById('pissie-curly-grid');
+        const bouncyGrid = document.getElementById('bouncy-hair-grid');
+
+        // Dynamically build shop grids
+        activeProducts.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'shop-card';
+            card.setAttribute('data-id', product.id);
+            card.innerHTML = `
+                <div class="card-img-wrapper">
+                    <img src="${product.image || 'https://via.placeholder.com/300x240?text=No+Image'}" alt="${product.name}" class="viewable-img">
+                </div>
+                <div class="card-details">
+                    <h3>${product.name}</h3>
+                    <p class="price">${product.price}</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+            `;
+
+            if (product.category === "STRAIGHT HAIR") straightGrid.appendChild(card);
+            if (product.category === "PISSIE CURLY") pissieGrid.appendChild(card);
+            if (product.category === "BOUNCY HAIR") bouncyGrid.appendChild(card);
+        });
+
+        // Add visual fallback placeholders if an entire category grid finishes empty
+        if (!straightGrid.children.length) { straightGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><h3>Coming Soon</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!pissieGrid.children.length) { pissieGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><h3>Coming Soon</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!bouncyGrid.children.length) { bouncyGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><h3>Coming Soon</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+
+
+        // --- 2. ORIGINAL E-COMMERCE LOGIC ---
         const cart = [];
         const cartCount = document.getElementById('cartCount');
         const floatingCart = document.getElementById('floatingCart');
@@ -219,7 +243,7 @@
             window.open(`https://wa.me/2348158049021?text=${encodeURIComponent(orderText)}`, '_blank');
         });
 
-        // Lightbox feature logic
+        // --- 3. ORIGINAL LIGHTBOX FUNCTIONALITY ---
         const modal = document.getElementById('imageViewer');
         const modalImg = document.getElementById('viewerImg');
         document.querySelectorAll('.viewable-img').forEach(img => {
