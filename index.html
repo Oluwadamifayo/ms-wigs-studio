@@ -5,6 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M'S Wigs and Natural Hair Studio</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific layouts for the new horizontal category grids */
+        .category-container {
+            border-bottom: 2px solid #222;
+            padding: 30px 0;
+            margin-bottom: 20px;
+        }
+        .category-container:last-of-type {
+            border-bottom: none;
+        }
+        .category-title {
+            color: #222;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .horizontal-product-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 10px;
+        }
+        .horizontal-product-grid .product-card {
+            flex: 0 0 250px; /* Forces cards into a horizontal row line */
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .placeholder-box {
+            background: #222; 
+            height: 250px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #aaa;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -87,47 +131,47 @@
         </div>
     </section>
 
-    <section id="shop">
-        <h2>Shop Our Collection</h2>
+    <section id="shop" style="background: #fdfaf4; padding: 60px 20px;">
+        <h2 style="color: #222; text-align: center; margin-bottom: 40px;">Shop Our Collection</h2>
         
-        <div class="shop-category-wrapper" style="margin-bottom: 40px;">
-            <h3 style="color: #fff; border-left: 4px solid #fff; padding-left: 10px; margin-bottom: 20px;">Straight Hair</h3>
-            <div class="product-grid">
+        <div class="category-container">
+            <div class="category-title">Straight Hair</div>
+            <div class="horizontal-product-grid">
                 <div class="product-card">
-                    <div style="background: #222; height: 250px; display: flex; align-items: center; justify-content: center; color: #555;">New Arrival Coming Soon</div>
+                    <div class="placeholder-box">New Arrival Coming Soon</div>
                     <div style="margin-top: 15px;"></div>
                     <button class="buy-btn" onclick="addToCart('Straight Hair Unit', 0)">Add to Cart</button>
                 </div>
             </div>
         </div>
 
-        <div class="shop-category-wrapper" style="margin-bottom: 40px;">
-            <h3 style="color: #fff; border-left: 4px solid #fff; padding-left: 10px; margin-bottom: 20px;">Pixie Curly</h3>
-            <div class="product-grid">
+        <div class="category-container">
+            <div class="category-title">Pissie Curly</div>
+            <div class="horizontal-product-grid">
                 <div class="product-card">
-                    <div style="background: #222; height: 250px; display: flex; align-items: center; justify-content: center; color: #555;">New Arrival Coming Soon</div>
+                    <div class="placeholder-box">New Arrival Coming Soon</div>
                     <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Pixie Curly Unit', 0)">Add to Cart</button>
+                    <button class="buy-btn" onclick="addToCart('Pissie Curly Unit', 0)">Add to Cart</button>
                 </div>
             </div>
         </div>
 
-        <div class="shop-category-wrapper" style="margin-bottom: 40px;">
-            <h3 style="color: #fff; border-left: 4px solid #fff; padding-left: 10px; margin-bottom: 20px;">Bouncy Hair</h3>
-            <div class="product-grid">
+        <div class="category-container">
+            <div class="category-title">Bouncy Hair</div>
+            <div class="horizontal-product-grid">
                 <div class="product-card">
-                    <div style="background: #222; height: 250px; display: flex; align-items: center; justify-content: center; color: #555;">New Arrival Coming Soon</div>
+                    <div class="placeholder-box">New Arrival Coming Soon</div>
                     <div style="margin-top: 15px;"></div>
                     <button class="buy-btn" onclick="addToCart('Bouncy Hair Unit', 0)">Add to Cart</button>
                 </div>
             </div>
         </div>
 
-        <div class="shop-category-wrapper" style="margin-bottom: 20px;">
-            <h3 style="color: #fff; border-left: 4px solid #fff; padding-left: 10px; margin-bottom: 20px;">Deep Wave</h3>
-            <div class="product-grid">
+        <div class="category-container">
+            <div class="category-title">Deep Wave</div>
+            <div class="horizontal-product-grid">
                 <div class="product-card">
-                    <div style="background: #222; height: 250px; display: flex; align-items: center; justify-content: center; color: #555;">New Arrival Coming Soon</div>
+                    <div class="placeholder-box">New Arrival Coming Soon</div>
                     <div style="margin-top: 15px;"></div>
                     <button class="buy-btn" onclick="addToCart('Deep Wave Unit', 0)">Add to Cart</button>
                 </div>
