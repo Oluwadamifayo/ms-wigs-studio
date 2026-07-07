@@ -28,7 +28,7 @@ h2 {
    2. HEADER & NAVIGATION (Original Dark Heading with Logo Back)
    ========================================================================== */
 header {
-    background-color: #1c1c1c; /* Original sleek dark background */
+    background-color: #1c1c1c; 
     display: flex;
     flex-direction: column; 
     align-items: center;
@@ -52,7 +52,7 @@ header {
 }
 
 .site-logo {
-    max-height: 140px; /* Restored height to keep your logo text completely clear */
+    max-height: 140px; 
     width: auto;
     display: block;
     object-fit: contain;
@@ -105,7 +105,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. PORTFOLIO GALLERY DESIGN (Restored Layout for Wig Pictures)
+   4. PORTFOLIO GALLERY DESIGN (Updated: 2x2 Layout with centered last item)
    ========================================================================== */
 #portfolio {
     padding: 40px 20px;
@@ -114,12 +114,11 @@ nav a:hover {
 }
 
 .gallery {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Generates exactly 2 columns */
     gap: 20px;
-    max-width: 1000px;
+    max-width: 700px; /* Limits width to keep the 2-by-2 structure compact */
     margin: 0 auto;
-    flex-wrap: wrap;
 }
 
 .gallery-item {
@@ -127,8 +126,15 @@ nav a:hover {
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 4px;
-    min-width: 240px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Trick: If there is an odd number of elements, center the last item across both columns */
+.gallery-item:last-child:nth-child(odd) {
+    grid-column: span 2;
+    justify-self: center;
+    max-width: calc(50% - 10px); /* Keeps it same scale width as the individual cards above it */
+    width: 100%;
 }
 
 .gallery-item img {
@@ -344,5 +350,11 @@ footer {
     }
     nav {
         gap: 12px 18px;
+    }
+    .gallery {
+        grid-template-columns: 1fr; /* On very narrow phone screens, falls back safely to 1 list card wide */
+    }
+    .gallery-item:last-child:nth-child(odd) {
+        max-width: 100%;
     }
 }
