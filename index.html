@@ -5,57 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M'S Wigs and Natural Hair Studio</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Specific layouts for the horizontal category grids */
-        .category-container {
-            border-bottom: 2px solid #222;
-            padding: 30px 0;
-            margin-bottom: 20px;
-        }
-        .category-container:last-of-type {
-            border-bottom: none;
-        }
-        .category-title {
-            color: #222;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .horizontal-product-grid {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            gap: 20px;
-            padding-bottom: 10px;
-        }
-        .horizontal-product-grid .product-card {
-            flex: 0 0 250px; /* Forces cards into a horizontal row line */
-            background: #fff;
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .placeholder-box {
-            background: #222; 
-            height: 250px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #aaa;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 <body>
 
     <header>
         <div class="logo-container">
             <a href="#home">
-                <img src="https://i.ibb.co/xtr5jLyL/174680-removebg-preview.png" alt="M'S Wigs & Natural Hair Studio" class="site-logo">
+                <img src="https://i.ibb.co/0yXN7vC/logo.png" alt="M'S Wigs & Natural Hair Salon Logo" class="site-logo">
             </a>
         </div>
         <nav>
@@ -78,173 +34,114 @@
         <h2>Our Portfolio</h2>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://i.ibb.co/fzntH478/IMG-20260706-220349.jpg" alt="Studio Styling Portfolio 1" class="viewable-img">
+                <img src="https://i.ibb.co/Vv6XgY7/portfolio1.jpg" alt="Custom Closure Wig" class="viewable-img">
+                <div class="gallery-desc">Custom Closure Wig</div>
             </div>
             <div class="gallery-item">
-                <img src="https://i.ibb.co/ycLdWpm3/IMG-20260706-220426.jpg" alt="Studio Styling Portfolio 2" class="viewable-img">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/wNCg5DFC/IMG-20260706-220454.jpg" alt="Studio Styling Portfolio 3" class="viewable-img">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/PZyC27vT/IMG-20260706-220706.jpg" alt="Studio Styling Portfolio 4" class="viewable-img">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/TMmHNdbq/IMG-20260706-221027.jpg" alt="Studio Styling Portfolio 5" class="viewable-img">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/dJD0zR6N/IMG-20260706-220520.jpg" alt="Studio Styling Portfolio 6" class="viewable-img">
-            </div>
-            <div class="gallery-item" style="grid-column: span 2; justify-self: center; width: calc(50% - 10px); min-width: 200px;">
-                <img src="https://i.ibb.co/CspJmsjF/IMG-20260706-220811.jpg" alt="Studio Styling Portfolio 7" class="viewable-img">
+                <img src="https://i.ibb.co/m0Y3pX5/portfolio2.jpg" alt="Silk Press & Trim" class="viewable-img">
+                <div class="gallery-desc">Silk Press & Trim</div>
             </div>
         </div>
     </section>
 
     <section id="services" class="services-section">
-        <h2>Studio Services</h2>
+        <h2>Studio Services & Pricing</h2>
         <div class="services-container">
+            
             <div class="service-category">
                 <h3>Wig Services</h3>
                 <div class="service-item">
                     <span>Custom Wig Construction (Closure/Frontal)</span>
+                    <strong>₦150,000</strong>
                 </div>
                 <div class="service-item">
                     <span>Wig Installation & Styling</span>
+                    <strong>₦90,000</strong>
                 </div>
                 <div class="service-item">
                     <span>Wig Revamp (Wash, Deep Condition & Style)</span>
+                    <strong>₦65,000</strong>
                 </div>
             </div>
+
             <div class="service-category">
                 <h3>Natural Hair Care</h3>
                 <div class="service-item">
                     <span>Premium Silk Press & Trim</span>
+                    <strong>₦85,000</strong>
                 </div>
                 <div class="service-item">
                     <span>Scalp Treatment & Deep Conditioning</span>
+                    <strong>₦50,000</strong>
                 </div>
                 <div class="service-item">
                     <span>Take Down & Detangle Service</span>
+                    <strong>₦40,000</strong>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <section id="shop" style="background: #fdfaf4; padding: 60px 20px;">
-        <h2 style="color: #222; text-align: center; margin-bottom: 40px;">Shop Our Collection</h2>
-        
-        <div class="category-container">
-            <div class="category-title">Straight Hair</div>
-            <div class="horizontal-product-grid">
-                <div class="product-card">
-                    <img src="https://i.ibb.co/N28RBR5d/IMG-20260706-WA0058.jpg" alt="Straight Hair Unit 1" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Straight Hair Unit 1', 0)">Add to Cart</button>
+    <section id="shop">
+        <h2>Shop Our Collection</h2>
+
+        <div class="shop-group">
+            <h3 class="group-title">STRAIGHT HAIR</h3>
+            <div class="shop-grid">
+                <div class="shop-card" data-id="straight-1">
+                    <div class="card-img-wrapper"><img src="https://i.ibb.co/Vv6XgY7/portfolio1.jpg" alt="Straight Wig Option 1" class="viewable-img"></div>
+                    <div class="card-details"><h3>Classic Straight Unit</h3><p class="price">₦80,000</p><button class="buy-btn">Add to Cart</button></div>
                 </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/27f9c7bj/IMG-20260706-WA0153.jpg" alt="Straight Hair Unit 2" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Straight Hair Unit 2', 0)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/Xrc8HhKs/IMG-20260706-WA0142.jpg" alt="Straight Hair Unit 3" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Straight Hair Unit 3', 0)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/qYsTP3ZX/IMG-20260706-WA0101.jpg" alt="Straight Hair Unit 4" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Straight Hair Unit 4', 0)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/7JWm2pR2/IMG-20260707-WA0044.jpg" alt="Straight Hair Unit 5" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Straight Hair Unit 5', 0)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/Kpsk8PDr/IMG-20260706-WA0099.jpg" alt="Straight Hair Unit 6" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Straight Hair Unit 6', 0)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/C3SKd4zz/IMG-20260707-WA0080.jpg" alt="Straight Hair Unit 7" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Straight Hair Unit 7', 0)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/bgN2bRQZ/IMG-20260707-170718.jpg" alt="Straight Hair Unit 8" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Straight Hair Unit 8', 0)">Add to Cart</button>
+                <div class="shop-card" data-id="straight-2">
+                    <div class="card-img-wrapper"><img src="https://i.ibb.co/m0Y3pX5/portfolio2.jpg" alt="Straight Wig Option 2" class="viewable-img"></div>
+                    <div class="card-details"><h3>Premium Bone Straight</h3><p class="price">₦120,000</p><button class="buy-btn">Add to Cart</button></div>
                 </div>
             </div>
         </div>
 
-        <div class="category-container">
-            <div class="category-title">Bouncy Hair</div>
-            <div class="horizontal-product-grid">
-                <div class="product-card">
-                    <img src="https://i.ibb.co/HLP9tfty/IMG-20260707-WA0085.jpg" alt="Bouncy Hair Unit 1" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Bouncy Hair Unit 1', 0)">Add to Cart</button>
+        <div class="shop-group">
+            <h3 class="group-title">BOUNCY HAIR</h3>
+            <div class="shop-grid">
+                <div class="shop-card" data-id="bouncy-1">
+                    <div class="card-img-wrapper"><img src="https://i.ibb.co/Vv6XgY7/portfolio1.jpg" alt="Bouncy Volume Unit" class="viewable-img"></div>
+                    <div class="card-details"><h3>Water Wave Wig</h3><p class="price">₦85,000</p><button class="buy-btn">Add to Cart</button></div>
                 </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/DfQzXCCF/IMG-20260707-WA0084.jpg" alt="Bouncy Hair Unit 2" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Bouncy Hair Unit 2', 0)">Add to Cart</button>
+                <div class="shop-card" data-id="bouncy-2">
+                    <div class="card-img-wrapper"><img src="https://i.ibb.co/m0Y3pX5/portfolio2.jpg" alt="Chinny Human Blend" class="viewable-img"></div>
+                    <div class="card-details"><h3>CHINNY Human Blend</h3><p class="price">₦55,000</p><button class="buy-btn">Add to Cart</button></div>
                 </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/m58bBbsn/IMG-20260707-WA0083.jpg" alt="Bouncy Hair Unit 3" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Bouncy Hair Unit 3', 0)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/67TVdTyp/IMG-20260707-WA0082.jpg" alt="Bouncy Hair Unit 4" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Bouncy Hair Unit 4', 0)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/79jDhy5/IMG-20260707-WA0081.jpg" alt="Bouncy Hair Unit 5" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Bouncy Hair Unit 5', 0)">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://i.ibb.co/XxpX7Jrg/IMG-20260707-WA0073.jpg" alt="Bouncy Hair Unit 6" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Bouncy Hair Unit 6', 0)">Add to Cart</button>
+                <div class="shop-card" data-id="bouncy-5">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.ibb.co/8gWbYkqc/IMG-20260707-WA0052.jpg" alt="Luxury Bouncy Hair Unit" class="viewable-img">
+                    </div>
+                    <div class="card-details">
+                        <h3>Luxury Bouncy Hair Unit</h3>
+                        <p class="price">₦85,000</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="category-container">
-            <div class="category-title">Pissie Curly</div>
-            <div class="horizontal-product-grid">
-                <div class="product-card">
-                    <div class="placeholder-box">New Arrival Coming Soon</div>
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Pissie Curly Unit', 0)">Add to Cart</button>
+        <div class="shop-group">
+            <h3 class="group-title">PISSIE CURLY</h3>
+            <div class="shop-grid">
+                <div class="shop-card placeholder-card">
+                    <div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div>
+                    <div class="card-details"><h3>Pissie Curly Unit</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div>
                 </div>
             </div>
         </div>
 
-        <div class="category-container">
-            <div class="category-title">Deep Wave</div>
-            <div class="horizontal-product-grid">
-                <div class="product-card">
-                    <div class="placeholder-box">New Arrival Coming Soon</div>
-                    <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Deep Wave Unit', 0)">Add to Cart</button>
-                </div>
-            </div>
-        </div>
     </section>
 
     <section id="contact" class="contact-section">
         <h2>Book an Appointment / Inquire</h2>
-        <form action="https://formspree.io/f/mdarjzgn" method="POST">
+        <form id="appointmentForm">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Describe the service or wig you want..." required></textarea>
+            <textarea name="message" rows="5" placeholder="Describe the service or wig you want..." required></textarea>
             <button type="submit" class="submit-inquiry-btn">Send Inquiry</button>
         </form>
     </section>
@@ -252,39 +149,26 @@
     <section class="direct-booking-section">
         <div class="direct-booking-card">
             <h3>Direct Bookings</h3>
-            <p class="direct-subtitle">Need an immediate quote? Connect instantly below.</p>
-            
+            <p>Need an immediate quote? Connect instantly below.</p>
             <div class="booking-buttons">
-                <a href="tel:08138049021" class="btn-action btn-call">
-                    📞 Call Studio
-                </a>
-                <a href="https://wa.me/2348138049021" target="_blank" class="btn-action btn-whatsapp">
-                    💬 WhatsApp Chat
-                </a>
-                <a href="mailto:oluwamayowasarah442@gmail.com" class="btn-action btn-email">
-                    ✉️ Email Us
-                </a>
+                <a href="tel:+2348158049021" class="btn-action btn-call">CALL STUDIO</a>
+                <a href="https://wa.me/2348158049021" target="_blank" class="btn-action btn-whatsapp">WHATSAPP CHAT</a>
+                <a href="mailto:mswigsstudio@gmail.com" class="btn-action btn-email">EMAIL US</a>
             </div>
         </div>
     </section>
 
-    <div id="cart-floating-bar" class="cart-floating-bar">
-        <div id="cart-items-list" class="cart-items-list"></div>
-        
-        <div class="cart-bar-main" onclick="toggleCartList()">
-            <div class="cart-info">
-                <span id="cart-count">Selected Items (0) <span>🔼 View Items</span></span>
-            </div>
-            <button class="whatsapp-checkout-btn" onclick="event.stopPropagation(); sendWhatsAppOrder()">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right: 8px;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                Send Inquiry via WhatsApp
-            </button>
+    <div id="floatingCart" class="cart-floating-bar">
+        <div class="cart-bar-main" id="cartToggle">
+            <span>Shopping Cart (<span id="cartCount">0</span>)</span>
+            <button id="checkoutBtn" class="whatsapp-checkout-btn">Checkout via WhatsApp</button>
         </div>
+        <div id="cartItemsList" class="cart-items-list"></div>
     </div>
 
-    <div id="image-viewer-modal" class="image-viewer-modal" onclick="closeImageViewer()">
-        <span class="close-viewer-btn">&times;</span>
-        <img id="viewer-display-img" class="viewer-display-img" src="" alt="Full size view">
+    <div id="imageViewer" class="image-viewer-modal">
+        <span class="close-viewer-btn" id="closeViewer">&times;</span>
+        <img class="viewer-display-img" id="viewerImg" alt="Expanded Visual View">
     </div>
 
     <footer>
@@ -292,87 +176,70 @@
     </footer>
 
     <script>
-        let cart = [];
-        let isListOpen = false;
+        const cart = [];
+        const cartCount = document.getElementById('cartCount');
+        const floatingCart = document.getElementById('floatingCart');
+        const cartItemsList = document.getElementById('cartItemsList');
+        const cartToggle = document.getElementById('cartToggle');
 
-        function addToCart(name, price) {
-            cart.push({ name: name, price: price });
-            updateCartUI();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function toggleCartList() {
-            isListOpen = !isListOpen;
-            const listContainer = document.getElementById('cart-items-list');
-            if (isListOpen && cart.length > 0) {
-                listContainer.classList.add('open');
-            } else {
-                listContainer.classList.remove('open');
-            }
-        }
-
-        function updateCartUI() {
-            const bar = document.getElementById('cart-floating-bar');
-            const countText = document.getElementById('cart-count');
-            const listContainer = document.getElementById('cart-items-list');
-            
-            if (cart.length > 0) {
-                bar.classList.add('active');
-                countText.innerHTML = `Selected Items (${cart.length}) <span style="font-size:0.8rem; text-decoration:underline;">🗂️ View/Edit</span>`;
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (btn.hasAttribute('disabled')) return;
+                const card = e.target.closest('.shop-card');
+                const id = card.getAttribute('data-id');
+                const name = card.querySelector('h3').innerText;
+                const price = card.querySelector('.price').innerText;
                 
-                listContainer.innerHTML = `<h4 style="margin: 0 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px;">Your Selections</h4>`;
-                cart.forEach((item, index) => {
-                    listContainer.innerHTML += `
-                        <div class="cart-list-item">
-                            <span>${item.name}</span>
-                            <button class="remove-item-btn" onclick="event.stopPropagation(); removeFromCart(${index})">❌ Remove</button>
-                        </div>
-                    `;
-                });
-            } else {
-                bar.classList.remove('active');
-                listContainer.classList.remove('open');
-                isListOpen = false;
-            }
-        }
-
-        function sendWhatsAppOrder() {
-            if (cart.length === 0) return;
-            let targetPhoneNumber = "2348138049021";
-            let message = "Hello M'S Wigs Studio! I would like to inquire about the following items:\n\n";
-            let itemCounts = {};
-            cart.forEach(item => {
-                itemCounts[item.name] = (itemCounts[item.name] || 0) + 1;
-            });
-            for (const [itemName, count] of Object.entries(itemCounts)) {
-                message += `🛍️ ${itemName} (Qty: ${count})\n`;
-            }
-            message += `\nPlease let me know the current prices and availability! Thanks.`;
-            let whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const viewableImages = document.querySelectorAll('.viewable-img');
-            const modal = document.getElementById('image-viewer-modal');
-            const displayImg = document.getElementById('viewer-display-img');
-
-            viewableImages.forEach(img => {
-                img.addEventListener('click', function() {
-                    displayImg.src = this.src;
-                    modal.classList.add('visible');
-                });
+                cart.push({ id, name, price });
+                cartCount.innerText = cart.length;
+                if(cart.length > 0) floatingCart.classList.add('active');
+                renderCart();
             });
         });
 
-        function closeImageViewer() {
-            document.getElementById('image-viewer-modal').classList.remove('visible');
-        }
-    </script>
+        cartToggle.addEventListener('click', (e) => {
+            if(e.target.id === 'checkoutBtn') return;
+            cartItemsList.classList.toggle('open');
+        });
 
+        function renderCart() {
+            cartItemsList.innerHTML = '';
+            cart.forEach((item, index) => {
+                const row = document.createElement('div');
+                row.className = 'cart-list-item';
+                row.innerHTML = `<span>${item.name} (${item.price})</span><button class="remove-item-btn" onclick="removeItem(${index})">&times;</button>`;
+                cartItemsList.appendChild(row);
+            });
+        }
+
+        window.removeItem = function(index) {
+            cart.splice(index, 1);
+            cartCount.innerText = cart.length;
+            if(cart.length === 0) {
+                floatingCart.classList.remove('active');
+                cartItemsList.classList.remove('open');
+            }
+            renderCart();
+        };
+
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
+            if (cart.length === 0) return;
+            let orderText = "Hello M'S Wigs Studio! I would like to place an order for:\n\n";
+            cart.forEach((item, idx) => { orderText += `${idx + 1}. ${item.name} - ${item.price}\n`; });
+            window.open(`https://wa.me/2348158049021?text=${encodeURIComponent(orderText)}`, '_blank');
+        });
+
+        // Lightbox feature logic
+        const modal = document.getElementById('imageViewer');
+        const modalImg = document.getElementById('viewerImg');
+        document.querySelectorAll('.viewable-img').forEach(img => {
+            img.addEventListener('click', () => {
+                modal.classList.add('visible');
+                modalImg.src = img.src;
+            });
+        });
+        document.getElementById('closeViewer').addEventListener('click', () => modal.classList.remove('visible'));
+        modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('visible'); });
+    </script>
 </body>
 </html>
