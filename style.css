@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #fdfaf4; /* Warm cream background as seen throughout your video */
+    background-color: #fdfaf4; 
     color: #333;
     line-height: 1.6;
 }
@@ -25,34 +25,50 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Sleek Horizontal Top Bar from Video)
+   2. HEADER & NAVIGATION (Dark Theme with Logo Restored)
    ========================================================================== */
 header {
-    background-color: #111111; /* Clean dark top strip */
+    background-color: #111111; /* Dark background so the logo blends perfectly */
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Stacks logo over nav links cleanly */
     align-items: center;
     padding: 15px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .logo-container {
-    display: none; /* Hidden or kept minimal to keep the navigation inline as shown in the video */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Space between logo and menu links */
+}
+
+.logo-container a {
+    display: flex;
+    align-items: center;
+}
+
+.site-logo {
+    max-height: 110px; /* Perfect height to show 'Beauty is a way of life' without wasting space */
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 nav {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 nav a {
     text-decoration: none;
-    color: #ffffff; /* White links */
+    color: #ffffff; /* Crisp white links from your design */
     font-weight: 500;
     font-size: 0.95rem;
     text-transform: capitalize;
@@ -60,14 +76,14 @@ nav a {
 }
 
 nav a:hover {
-    color: #c5a880;
+    color: #c5a880; /* Gold highlight accent on hover */
 }
 
 /* ==========================================================================
    3. HERO BANNER SECTION
    ========================================================================== */
 .hero {
-    background: #fdfaf4; /* Clean cream section background */
+    background: #fdfaf4;
     padding: 60px 20px;
     text-align: center;
 }
@@ -313,4 +329,19 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   11. MOBILE VIEWPORTS
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    .site-logo {
+        max-height: 90px; /* Slightly tighter on small phone screens */
+    }
+    nav {
+        gap: 12px 18px;
+    }
 }
