@@ -13,7 +13,6 @@ html, body {
     background-color: #fffbee; /* Clean warm cream background color from your screenshots */
     color: #333;
     line-height: 1.6;
-    /* Prevent container clipping that breaks sticky navigation panels */
     overflow-x: hidden; 
 }
 
@@ -27,21 +26,19 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Sticky / Fixed with Website)
+   2. HEADER & NAVIGATION (Updated: Moves out of view when scrolling)
    ========================================================================== */
 header {
-    background-color: #141414; /* Match the seamless dark background from your logo image */
+    background-color: #141414; /* Seamless dark background matching the logo graphics */
     display: flex;
     flex-direction: column; 
     align-items: center;
     padding: 45px 24px; 
     
-    /* Forces the header to stay locked at the top of the screen when scrolling */
-    position: -webkit-sticky; /* Support for older mobile browsers */
-    position: sticky;
-    top: 0;
+    /* Changed position to relative so it moves naturally with the page layout */
+    position: relative; 
     
-    z-index: 1000; /* Keeps it layered firmly above the images and text layers below */
+    z-index: 1000; 
     box-shadow: 0 6px 20px rgba(0,0,0,0.25); 
 }
 
