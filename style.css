@@ -9,10 +9,12 @@
     scroll-behavior: smooth;
 }
 
-body {
-    background-color: #fffbee; 
+html, body {
+    background-color: #fffbee; /* Clean warm cream background color from your screenshots */
     color: #333;
     line-height: 1.6;
+    /* Prevent container clipping that breaks sticky navigation panels */
+    overflow-x: hidden; 
 }
 
 h2 {
@@ -25,17 +27,21 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Restored: Height-Driven Large Logo)
+   2. HEADER & NAVIGATION (Sticky / Fixed with Website)
    ========================================================================== */
 header {
-    background-color: #141414; 
+    background-color: #141414; /* Match the seamless dark background from your logo image */
     display: flex;
     flex-direction: column; 
     align-items: center;
     padding: 45px 24px; 
+    
+    /* Forces the header to stay locked at the top of the screen when scrolling */
+    position: -webkit-sticky; /* Support for older mobile browsers */
     position: sticky;
     top: 0;
-    z-index: 1000;
+    
+    z-index: 1000; /* Keeps it layered firmly above the images and text layers below */
     box-shadow: 0 6px 20px rgba(0,0,0,0.25); 
 }
 
@@ -55,7 +61,7 @@ header {
 }
 
 .site-logo {
-    max-height: 220px; /* Restored back to height containment */
+    max-height: 220px; 
     width: auto;
     display: block;
     object-fit: contain;
