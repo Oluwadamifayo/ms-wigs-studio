@@ -25,14 +25,14 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Updated for Logo Fit)
+   2. HEADER & NAVIGATION (Reverted to Original)
    ========================================================================== */
 header {
-    background-color: #fdfaf4; /* Rhymes perfectly with the soft ivory tone of your site */
+    background-color: #fff; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 6%; /* Increased vertical padding to allow the logo to breathe */
+    padding: 10px 6%; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
@@ -45,7 +45,7 @@ header {
 }
 
 .site-logo {
-    max-height: 95px; /* Boosted height so 'Beauty is a way of life' shows fully */
+    max-height: 80px; 
     width: auto;
     display: block;
     object-fit: contain;
