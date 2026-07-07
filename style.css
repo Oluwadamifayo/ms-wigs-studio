@@ -25,14 +25,14 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Updated: Wide Logo Display)
+   2. HEADER & NAVIGATION (Restored: Height-Driven Large Logo)
    ========================================================================== */
 header {
     background-color: #141414; 
     display: flex;
     flex-direction: column; 
     align-items: center;
-    padding: 40px 15px; /* Comfortable padding to give the wide banner breathing room */
+    padding: 45px 24px; 
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -43,7 +43,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px; 
+    margin-bottom: 28px; 
     width: 100%;
 }
 
@@ -55,16 +55,16 @@ header {
 }
 
 .site-logo {
-    width: 85%; /* Let the logo expand naturally sideways across the screen banner */
-    max-width: 500px; /* Safe upper limit so it doesn't get distorted on big screens */
-    height: auto; /* Maintains your logo aspect ratio cleanly without squeezing */
+    max-height: 220px; /* Restored back to height containment */
+    width: auto;
     display: block;
     object-fit: contain;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.5)); 
 }
 
 nav {
     display: flex;
-    gap: 30px; 
+    gap: 35px; 
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -350,10 +350,10 @@ footer {
    ========================================================================== */
 @media (max-width: 768px) {
     header {
-        padding: 30px 10px; 
+        padding: 35px 15px; 
     }
     .site-logo {
-        width: 95%; /* Maximizes available width layout for small phones */
+        max-height: 150px; 
     }
     nav {
         gap: 15px 22px;
