@@ -47,7 +47,7 @@
     <section id="services" class="services-section">
         <h2>Studio Services & Pricing</h2>
         <div class="services-container">
-            
+
             <div class="service-category">
                 <h3>Wig Services</h3>
                 <div class="service-item">
@@ -101,7 +101,7 @@
         </div>
 
         <div class="shop-group">
-            <h3 class="group-title">BOUNCY HAIR</h3>
+            <h3 class="group-title">PISSIE CURLY</h3>
             <div class="shop-grid">
                 <div class="shop-card" data-id="bouncy-1">
                     <div class="card-img-wrapper"><img src="https://i.ibb.co/Vv6XgY7/portfolio1.jpg" alt="Bouncy Volume Unit" class="viewable-img"></div>
@@ -115,11 +115,11 @@
         </div>
 
         <div class="shop-group">
-            <h3 class="group-title">PISSIE CURLY</h3>
+            <h3 class="group-title">BOUNCY HAIR</h3>
             <div class="shop-grid">
                 <div class="shop-card placeholder-card">
                     <div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div>
-                    <div class="card-details"><h3>Pissie Curly Unit</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div>
+                    <div class="card-details"><h3>Bouncy Hair Unit</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div>
                 </div>
             </div>
         </div>
@@ -179,7 +179,7 @@
                 const id = card.getAttribute('data-id');
                 const name = card.querySelector('h3').innerText;
                 const price = card.querySelector('.price').innerText;
-                
+
                 cart.push({ id, name, price });
                 cartCount.innerText = cart.length;
                 if(cart.length > 0) floatingCart.classList.add('active');
