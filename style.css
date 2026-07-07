@@ -1,347 +1,327 @@
-/* Custom Premium Color Variables */
-:root {
-    --primary-color: #d4a373; 
-    --secondary-color: #faedcd; 
-    --dark-color: #1a1a1a; 
-    --card-bg: #121212; 
-    --light-bg: #fefae0; 
-    --accent-pink: #e07a5f; 
-    
-    --color-call: #34495e;
-    --color-whatsapp: #2ecc71;
-    --color-email: #2980b9;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ==========================================================================
+   1. GLOBAL STYLES & RESET
+   ========================================================================== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--light-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fff;
     color: #333;
-    padding-bottom: 90px; 
+    line-height: 1.6;
 }
 
-header {
-    background-color: var(--dark-color);
-    color: #fff;
-    padding: 30px 20px;
+h2 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     text-align: center;
-    border-bottom: 4px solid var(--primary-color);
+    color: #222;
+    margin-bottom: 30px;
 }
 
-.logo-container {
-    margin-bottom: 20px;
+/* ==========================================================================
+   2. HEADER & NAVIGATION (Updated for Logo Fit)
+   ========================================================================== */
+header {
+    background-color: #fdfaf4; /* Rhymes perfectly with the soft ivory tone of your site */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 6%; /* Increased vertical padding to allow the logo to breathe */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container a {
+    display: flex;
+    align-items: center;
 }
 
 .site-logo {
-    max-width: 340px;
-    width: 100%;
-    height: auto;
+    max-height: 95px; /* Boosted height so 'Beauty is a way of life' shows fully */
+    width: auto;
     display: block;
-    margin: 0 auto;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
 }
 
 nav a {
-    color: #fff;
-    margin: 0 12px;
     text-decoration: none;
+    color: #444;
     font-weight: 600;
     font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: var(--primary-color);
+    color: #c5a880;
 }
 
-section {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-section h2 {
-    font-size: 1.75rem;
-    color: #1a1a1a;
-    margin-bottom: 30px;
-    position: relative;
-    display: inline-block;
-}
-
-section h2::after {
-    content: '';
-    display: block;
-    width: 50%;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 8px auto 0 auto;
-    border-radius: 2px;
-}
-
+/* ==========================================================================
+   3. HERO BANNER SECTION
+   ========================================================================== */
 .hero {
-    background-color: var(--light-bg);
-    color: #1a1a1a;
-    padding: 60px 20px 40px 20px;
-}
-
-.hero h2 {
-    color: #1a1a1a;
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-}
-
-.hero h2::after {
-    background-color: var(--primary-color);
-}
-
-.hero p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-    color: #555;
-}
-
-/* Portfolio Gallery - Explicitly set to a 2x2 Clean Layout Grid */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 15px;
-}
-
-.gallery-item {
-    background: #fff;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://i.ibb.co/bgN2bRQZ/IMG-20260707-170718.jpg') no-repeat center center/cover;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay h2 {
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero-overlay p {
+    color: #f0f0f0;
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   4. PORTFOLIO GALLERY DESIGN
+   ========================================================================== */
+#portfolio {
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 350px;
     object-fit: cover;
-    border-radius: 8px;
-}
-
-/* Shop Section Sliding Configuration */
-.product-grid {
-    display: flex;
-    justify-content: flex-start;
-    gap: 25px;
-    overflow-x: auto; 
-    padding: 15px;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-}
-
-.product-card {
-    background: #fff;
-    border: none;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    width: 280px;
-    min-width: 250px; 
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    transition: transform 0.3s ease;
-    white-space: normal; 
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
-    max-height: 250px;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: var(--accent-pink);
-    color: white;
-    padding: 4px 10px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border-radius: 20px;
-    text-transform: uppercase;
-}
-
-.buy-btn {
-    background-color: var(--dark-color);
-    color: white;
-    border: none;
-    padding: 12px 15px;
+    display: block;
     cursor: pointer;
-    border-radius: 6px;
-    width: 100%;
-    font-weight: bold;
-    transition: background 0.3s;
+    transition: transform 0.4s ease;
 }
 
-.buy-btn:hover {
-    background-color: var(--primary-color);
+.gallery-item img:hover {
+    transform: scale(1.05);
 }
 
-/* Services Container */
+/* ==========================================================================
+   5. SERVICES PRICING BOARD
+   ========================================================================== */
 .services-section {
-    background-color: var(--secondary-color);
+    background-color: #fafafa;
+    padding: 60px 20px;
 }
 
 .services-container {
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1100px;
     margin: 0 auto;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
+}
+
+.service-category {
     background: #fff;
     padding: 30px;
-    border-radius: 16px;
+    border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid #222;
 }
 
 .service-category h3 {
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    color: var(--dark-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #222;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 
 .service-item {
     display: flex;
     justify-content: space-between;
     padding: 12px 0;
-    border-bottom: 1px dashed #e5e5e5;
+    border-bottom: 1px dashed #eee;
+    font-size: 1.05rem;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   6. SHOP MODULES & CARD ACCENTS
+   ========================================================================== */
+.buy-btn {
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 12px;
     font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
 }
 
-.price-tag {
-    font-weight: bold;
-    color: var(--accent-pink);
+.buy-btn:hover {
+    background-color: #444;
 }
 
-/* Contact Form styling */
+.viewable-img {
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.viewable-img:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   7. CONTACT APPOINTMENT FORM
+   ========================================================================== */
 .contact-section {
-    background-color: #fff;
-    padding-bottom: 20px;
+    padding: 60px 20px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-form {
-    max-width: 500px;
-    margin: 0 auto;
+.contact-section form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-form input, form textarea {
+.contact-section input, 
+.contact-section textarea {
+    width: 100%;
     padding: 14px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     font-size: 1rem;
-    background-color: var(--light-bg);
+    background: #fff;
 }
 
 .submit-inquiry-btn {
-    background-color: var(--accent-pink); 
+    background-color: #222;
     color: white;
+    padding: 15px;
     border: none;
-    padding: 14px;
-    cursor: pointer;
-    border-radius: 8px;
+    border-radius: 4px;
+    font-size: 1.1rem;
     font-weight: bold;
-    font-size: 1rem;
+    cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    transition: background 0.3s;
 }
 
-/* Direct Booking Card Layout */
+.submit-inquiry-btn:hover {
+    background-color: #444;
+}
+
+/* ==========================================================================
+   8. DIRECT CHANNELS (Call, WhatsApp, Email Setup)
+   ========================================================================== */
 .direct-booking-section {
     background-color: #fff;
-    padding-top: 10px;
-    padding-bottom: 60px;
+    padding: 40px 20px;
 }
 
 .direct-booking-card {
-    max-width: 500px;
+    background: #fdfaf4;
+    border: 1px solid #eaddca;
+    max-width: 700px;
     margin: 0 auto;
-    background-color: var(--card-bg);
-    color: #fff;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    border-top: 4px solid var(--accent-pink);
-}
-
-.direct-booking-card h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.8rem;
-    font-weight: bold;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
 }
 
 .direct-subtitle {
-    color: #aaa;
-    margin: 0 0 30px 0;
+    color: #666;
+    margin-bottom: 25px;
 }
 
 .booking-buttons {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
 }
 
 .btn-action {
-    display: block;
     text-decoration: none;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 50px;
     font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.2s;
 }
 
-.btn-call { background-color: var(--color-call); }
-.btn-whatsapp { background-color: var(--color-whatsapp); }
-.btn-email { background-color: var(--color-email); }
+.btn-action:hover {
+    transform: translateY(-2px);
+}
 
-/* Floating Shopping Cart wrap */
+.btn-call { background-color: #222; }
+.btn-whatsapp { background-color: #25D366; }
+.btn-email { background-color: #dd4b39; }
+
+/* ==========================================================================
+   9. E-COMMERCE FLOATING NOTIFICATION CART
+   ========================================================================== */
 .cart-floating-bar {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #151a21; 
-    box-shadow: 0 -5px 25px rgba(0,0,0,0.4);
-    z-index: 9999;
-    transform: translateY(100%); 
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    background: #111;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 2000;
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 10px 20px;
 }
 
 .cart-floating-bar.active {
-    transform: translateY(0);
+    bottom: 25px;
 }
 
 .cart-bar-main {
-    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -349,18 +329,16 @@ form input, form textarea {
 }
 
 .cart-info {
-    display: flex;
-    flex-direction: column;
-    color: #9cb3c9;
-    font-size: 0.9rem;
+    font-weight: bold;
+    font-size: 0.95rem;
 }
 
 .whatsapp-checkout-btn {
-    background-color: #2ecc71; 
+    background-color: #25D366;
     color: white;
     border: none;
-    padding: 14px 22px;
-    border-radius: 12px;
+    padding: 10px 16px;
+    border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -369,65 +347,51 @@ form input, form textarea {
 
 .cart-items-list {
     max-height: 0;
-    overflow-y: auto;
-    background-color: #0f1318;
-    padding: 0 20px;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: #1a1a1a;
+    border-radius: 10px;
+    margin-bottom: 0;
 }
 
 .cart-items-list.open {
     max-height: 200px;
-    padding: 15px 20px;
-    border-bottom: 1px solid #1f2630;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 10px;
 }
 
 .cart-list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #eee;
     padding: 8px 0;
-    font-size: 0.95rem;
-    border-bottom: 1px solid #1a2029;
+    border-bottom: 1px solid #333;
+    font-size: 0.9rem;
 }
 
 .remove-item-btn {
     background: none;
     border: none;
-    color: #ff6b6b;
+    color: #ff4d4d;
     cursor: pointer;
     font-size: 0.85rem;
-    font-weight: bold;
 }
 
-footer {
-    text-align: center;
-    padding: 30px 20px;
-    background: var(--dark-color);
-    color: #555;
-}
-
-/* Touch-to-View Overlay Styles */
-.viewable-img {
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-}
-
-.viewable-img:active {
-    opacity: 0.7; /* Adds a visual flash response when tapped on touch screens */
-}
-
+/* ==========================================================================
+   10. LIGHTBOX VIEW INTERFACE
+   ========================================================================== */
 .image-viewer-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 100000; 
+    background: rgba(0,0,0,0.9);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    z-index: 3000;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -440,18 +404,52 @@ footer {
 
 .viewer-display-img {
     max-width: 90%;
-    max-height: 80%;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    max-height: 85vh;
+    border-radius: 4px;
 }
 
 .close-viewer-btn {
     position: absolute;
     top: 20px;
-    right: 25px;
+    right: 30px;
     color: #fff;
-    font-size: 35px;
-    font-weight: bold;
+    font-size: 2.5rem;
     cursor: pointer;
+}
+
+/* ==========================================================================
+   11. FOOTER LAYOUT
+   ========================================================================== */
+footer {
+    background-color: #111;
+    color: #888;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   12. MOBILE TARGET ADAPTABILITY (RESPONSIVE VIEWPORT)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-overlay h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero-overlay p {
+        font-size: 1.1rem;
+    }
 }
