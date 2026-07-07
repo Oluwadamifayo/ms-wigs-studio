@@ -25,62 +25,66 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Updated: Wider Padding & Bolder Fonts)
+   2. HEADER & NAVIGATION (Updated: Max Logo Impact)
    ========================================================================== */
 header {
     background-color: #141414; 
     display: flex;
     flex-direction: column; 
     align-items: center;
-    padding: 40px 24px; /* Increased padding to make the header taller and wider */
+    padding: 45px 24px; /* Generous padding gives the bold header breathing room */
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Stronger shadow for a bolder look */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25); 
 }
 
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 24px; /* More spacing below the logo */
+    margin-bottom: 28px; 
+    width: 100%;
 }
 
 .logo-container a {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .site-logo {
-    max-height: 160px; /* Made the logo slightly larger and more impactful */
+    max-height: 220px; /* Increased from 160px to make your emblem look large and prominent */
     width: auto;
     display: block;
     object-fit: contain;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.5)); /* Adds a subtle shadow behind the logo elements for extra boldness */
 }
 
 nav {
     display: flex;
-    gap: 35px; /* Wider spacing between the menu text links */
+    gap: 35px; 
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    max-width: 800px; /* Gives the row a wider, spread-out feel */
+    max-width: 800px; 
 }
 
 nav a {
     text-decoration: none;
     color: #ffffff; 
-    font-weight: 700; /* Bolder font weight */
-    font-size: 1.15rem; /* Larger font size so it stands out */
-    text-transform: uppercase; /* Uppercase for a stronger, modern look */
-    letter-spacing: 1.5px; /* Distinct spacing between letters */
+    font-weight: 700; 
+    font-size: 1.15rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
 nav a:hover {
     color: #c5a880; 
-    transform: scale(1.05); /* Subtle pop on hover */
+    transform: scale(1.05); 
 }
 
 /* ==========================================================================
@@ -346,12 +350,18 @@ footer {
    ========================================================================== */
 @media (max-width: 768px) {
     header {
-        padding: 30px 15px; /* Retains a thick, proud header structure on mobile viewports */
+        padding: 35px 15px; 
     }
     .site-logo {
-        max-height: 120px;
+        max-height: 150px; /* Keeps the logo bold and large on mobile devices too */
     }
     nav {
         gap: 15px 22px;
+    }
+    .gallery {
+        grid-template-columns: 1fr; 
+    }
+    .gallery-item:last-child:nth-child(odd) {
+        max-width: 100%;
     }
 }
