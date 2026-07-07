@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #fdfaf4; 
+    background-color: #fffbee; /* The exact warm cream background color from your screenshots */
     color: #333;
     line-height: 1.6;
 }
@@ -25,10 +25,10 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Original Dark Heading with Logo Back)
+   2. HEADER & NAVIGATION (Deep Dark Heading Background)
    ========================================================================== */
 header {
-    background-color: #1c1c1c; 
+    background-color: #141414; /* Match the seamless dark background from your logo image */
     display: flex;
     flex-direction: column; 
     align-items: center;
@@ -83,7 +83,7 @@ nav a:hover {
    3. HERO BANNER SECTION
    ========================================================================== */
 .hero {
-    background: #fdfaf4;
+    background: #fffbee; /* Cream background matching your screenshots */
     padding: 60px 20px;
     text-align: center;
 }
@@ -105,19 +105,19 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. PORTFOLIO GALLERY DESIGN (Updated: 2x2 Layout with centered last item)
+   4. PORTFOLIO GALLERY DESIGN (2x2 Grid, centered last item)
    ========================================================================== */
 #portfolio {
     padding: 40px 20px;
-    background: #fdfaf4;
+    background: #fffbee;
     text-align: center;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Generates exactly 2 columns */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 20px;
-    max-width: 700px; /* Limits width to keep the 2-by-2 structure compact */
+    max-width: 700px; 
     margin: 0 auto;
 }
 
@@ -129,11 +129,10 @@ nav a:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* Trick: If there is an odd number of elements, center the last item across both columns */
 .gallery-item:last-child:nth-child(odd) {
     grid-column: span 2;
     justify-self: center;
-    max-width: calc(50% - 10px); /* Keeps it same scale width as the individual cards above it */
+    max-width: calc(50% - 10px); 
     width: 100%;
 }
 
@@ -148,7 +147,7 @@ nav a:hover {
    5. SERVICES PRICING BOARD
    ========================================================================== */
 .services-section {
-    background-color: #fdfaf4;
+    background-color: #fffbee;
     padding: 60px 20px;
 }
 
@@ -192,7 +191,7 @@ nav a:hover {
    6. SHOP MODULES & CARD ACCENTS
    ========================================================================== */
 #shop {
-    background: #fdfaf4;
+    background: #fffbee;
     padding: 60px 20px;
 }
 
@@ -224,7 +223,7 @@ nav a:hover {
     padding: 60px 20px;
     max-width: 600px;
     margin: 0 auto;
-    background: #fdfaf4;
+    background: #fffbee;
 }
 
 .contact-section form {
@@ -240,11 +239,11 @@ nav a:hover {
     border: 1px solid #e2d7c7;
     border-radius: 4px;
     font-size: 1rem;
-    background: #fffbe6;
+    background: #fff;
 }
 
 .submit-inquiry-btn {
-    background-color: #ff6b6b;
+    background-color: #222;
     color: white;
     padding: 12px;
     border: none;
@@ -260,7 +259,7 @@ nav a:hover {
    ========================================================================== */
 .direct-booking-section {
     padding: 40px 20px;
-    background: #fdfaf4;
+    background: #fffbee;
 }
 
 .direct-booking-card {
@@ -352,7 +351,7 @@ footer {
         gap: 12px 18px;
     }
     .gallery {
-        grid-template-columns: 1fr; /* On very narrow phone screens, falls back safely to 1 list card wide */
+        grid-template-columns: 1fr; 
     }
     .gallery-item:last-child:nth-child(odd) {
         max-width: 100%;
