@@ -25,14 +25,14 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Dark Theme with Logo Restored)
+   2. HEADER & NAVIGATION (Original Dark Heading with Logo Back)
    ========================================================================== */
 header {
-    background-color: #111111; /* Dark background so the logo blends perfectly */
+    background-color: #1c1c1c; /* Original sleek dark background */
     display: flex;
-    flex-direction: column; /* Stacks logo over nav links cleanly */
+    flex-direction: column; 
     align-items: center;
-    padding: 15px 20px;
+    padding: 20px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -43,7 +43,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px; /* Space between logo and menu links */
+    margin-bottom: 15px;
 }
 
 .logo-container a {
@@ -52,7 +52,7 @@ header {
 }
 
 .site-logo {
-    max-height: 110px; /* Perfect height to show 'Beauty is a way of life' without wasting space */
+    max-height: 140px; /* Restored height to keep your logo text completely clear */
     width: auto;
     display: block;
     object-fit: contain;
@@ -68,15 +68,15 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #ffffff; /* Crisp white links from your design */
-    font-weight: 500;
-    font-size: 0.95rem;
+    color: #ffffff; 
+    font-weight: 600;
+    font-size: 1.05rem;
     text-transform: capitalize;
     transition: color 0.2s ease;
 }
 
 nav a:hover {
-    color: #c5a880; /* Gold highlight accent on hover */
+    color: #c5a880; 
 }
 
 /* ==========================================================================
@@ -105,7 +105,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. PORTFOLIO GALLERY DESIGN
+   4. PORTFOLIO GALLERY DESIGN (Restored Layout for Wig Pictures)
    ========================================================================== */
 #portfolio {
     padding: 40px 20px;
@@ -127,7 +127,8 @@ nav a:hover {
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 4px;
-    min-width: 200px;
+    min-width: 240px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .gallery-item img {
@@ -336,10 +337,10 @@ footer {
    ========================================================================== */
 @media (max-width: 768px) {
     header {
-        padding: 10px;
+        padding: 15px 10px;
     }
     .site-logo {
-        max-height: 90px; /* Slightly tighter on small phone screens */
+        max-height: 110px;
     }
     nav {
         gap: 12px 18px;
