@@ -10,30 +10,30 @@
 }
 
 html, body {
-    background-color: #fffbee; /* Signature warm cream tone */
+    background-color: #fffbee; 
     color: #333;
     line-height: 1.6;
     overflow-x: hidden; 
 }
 
 h2 {
-    font-size: 1.75rem; /* Slightly reduced for better hierarchy */
+    font-size: 1.75rem; 
     text-transform: uppercase;
     letter-spacing: 2px;
     text-align: center;
     color: #222;
-    margin-bottom: 40px; /* More breathing room below titles */
+    margin-bottom: 40px; 
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Sleek & Polished)
+   2. HEADER & NAVIGATION
    ========================================================================== */
 header {
     background-color: #141414; 
     display: flex;
     flex-direction: column; 
     align-items: center;
-    padding: 35px 24px; /* Reduced vertical footprint */
+    padding: 35px 24px; 
     position: relative; 
     z-index: 1000; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.15); 
@@ -55,7 +55,7 @@ header {
 }
 
 .site-logo {
-    max-height: 160px; /* Scaled down logo slightly so it looks integrated and sharp */
+    max-height: 160px; 
     width: auto;
     display: block;
     object-fit: contain;
@@ -92,7 +92,7 @@ nav a:hover {
    ========================================================================== */
 .hero {
     background: #fffbee; 
-    padding: 80px 20px; /* Expanded padding for a premium, airy feel */
+    padding: 80px 20px; 
     text-align: center;
 }
 
@@ -113,7 +113,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. PORTFOLIO GALLERY DESIGN (Dynamic & Scaled Down)
+   4. PORTFOLIO GALLERY DESIGN
    ========================================================================== */
 #portfolio {
     padding: 60px 20px;
@@ -124,8 +124,8 @@ nav a:hover {
 .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
-    gap: 24px; /* Larger gap prevents items from feeling clumped */
-    max-width: 720px; /* Reduced maximum width for a more elegant, centered layout */
+    gap: 24px; 
+    max-width: 720px; 
     margin: 0 auto;
 }
 
@@ -141,12 +141,12 @@ nav a:hover {
 }
 
 .gallery-item:hover {
-    transform: translateY(-4px); /* Subtle dynamic micro-interaction */
+    transform: translateY(-4px); 
 }
 
 .gallery-item img {
     width: 100%;
-    height: 240px; /* Scaled down image height slightly to reduce visual weight */
+    height: 240px; 
     object-fit: cover; 
     display: block;
     border-radius: 6px;
@@ -154,7 +154,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   5. SERVICES PRICING BOARD
+   5. SERVICES PRICING BOARD (Updated Heading Weight)
    ========================================================================== */
 .services-section {
     background-color: #fffbee;
@@ -166,33 +166,35 @@ nav a:hover {
     padding: 40px;
     border-radius: 8px;
     border: 1px solid #eae1d4;
-    max-width: 720px; /* Brought down size alignment to match gallery */
+    max-width: 720px; 
     margin: 0 auto;
     box-shadow: 0 4px 20px rgba(0,0,0,0.02);
 }
 
 .service-category {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .service-category:last-child {
     margin-bottom: 0;
 }
 
+/* Thicker styling applied directly to Wig Services and Natural Hair Care labels */
 .service-category h3 {
     font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #888;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+    letter-spacing: 1.5px;
+    color: #111111; /* Changed from gray to dark black for enhanced visual prominence */
+    font-weight: 800; /* Increased thickness significantly for a bold statement */
+    margin-bottom: 18px;
+    border-bottom: 2px solid #111111; /* Made the baseline track thicker to balance the type */
+    padding-bottom: 8px;
 }
 
 .service-item {
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
+    padding: 10px 0;
     font-size: 0.95rem;
     color: #444;
 }
@@ -233,7 +235,7 @@ nav a:hover {
    ========================================================================== */
 .contact-section {
     padding: 60px 20px;
-    max-width: 540px; /* Slimmed down width to avoid looking bulky */
+    max-width: 540px; 
     margin: 0 auto;
     background: #fffbee;
 }
@@ -369,6 +371,6 @@ footer {
         gap: 14px;
     }
     .gallery-item img {
-        height: 180px; /* Reduced mobile height to maintain the elegant feel */
+        height: 180px; 
     }
 }
