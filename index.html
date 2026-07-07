@@ -34,25 +34,25 @@
         <h2>Our Portfolio</h2>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://i.ibb.co/fzntH478/IMG-20260706-220349.jpg" alt="Studio Styling Portfolio 1">
+                <img src="https://i.ibb.co/fzntH478/IMG-20260706-220349.jpg" alt="Studio Styling Portfolio 1" class="viewable-img">
             </div>
             <div class="gallery-item">
-                <img src="https://i.ibb.co/ycLdWpm3/IMG-20260706-220426.jpg" alt="Studio Styling Portfolio 2">
+                <img src="https://i.ibb.co/ycLdWpm3/IMG-20260706-220426.jpg" alt="Studio Styling Portfolio 2" class="viewable-img">
             </div>
             <div class="gallery-item">
-                <img src="https://i.ibb.co/wNCg5DFC/IMG-20260706-220454.jpg" alt="Studio Styling Portfolio 3">
+                <img src="https://i.ibb.co/wNCg5DFC/IMG-20260706-220454.jpg" alt="Studio Styling Portfolio 3" class="viewable-img">
             </div>
             <div class="gallery-item">
-                <img src="https://i.ibb.co/PZyC27vT/IMG-20260706-220706.jpg" alt="Studio Styling Portfolio 4">
+                <img src="https://i.ibb.co/PZyC27vT/IMG-20260706-220706.jpg" alt="Studio Styling Portfolio 4" class="viewable-img">
             </div>
             <div class="gallery-item">
-                <img src="https://i.ibb.co/TMmHNdbq/IMG-20260706-221027.jpg" alt="Studio Styling Portfolio 5">
+                <img src="https://i.ibb.co/TMmHNdbq/IMG-20260706-221027.jpg" alt="Studio Styling Portfolio 5" class="viewable-img">
             </div>
             <div class="gallery-item">
-                <img src="https://i.ibb.co/dJD0zR6N/IMG-20260706-220520.jpg" alt="Studio Styling Portfolio 6">
+                <img src="https://i.ibb.co/dJD0zR6N/IMG-20260706-220520.jpg" alt="Studio Styling Portfolio 6" class="viewable-img">
             </div>
             <div class="gallery-item" style="grid-column: span 2; justify-self: center; width: calc(50% - 10px); min-width: 200px;">
-                <img src="https://i.ibb.co/CspJmsjF/IMG-20260706-220811.jpg" alt="Studio Styling Portfolio 7">
+                <img src="https://i.ibb.co/CspJmsjF/IMG-20260706-220811.jpg" alt="Studio Styling Portfolio 7" class="viewable-img">
             </div>
         </div>
     </section>
@@ -98,21 +98,21 @@
         <div class="product-grid">
             <div class="product-card">
                 <div class="badge">Hot</div>
-                <img src="https://i.ibb.co/j9jvjjxd/85a54d19d6192818e17a31e55013011e.jpg" alt="Water Wave wig">
+                <img src="https://i.ibb.co/j9jvjjxd/85a54d19d6192818e17a31e55013011e.jpg" alt="Water Wave wig" class="viewable-img">
                 <h3 class="product-title">Water Wave wig</h3>
                 <button class="buy-btn" onclick="addToCart('Water Wave wig', 0)">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="badge">New</div>
-                <img src="https://i.ibb.co/1Jw1CD4h/172772-removebg-preview.png" alt="CHINNY | Human Hair & Blend Wig">
+                <img src="https://i.ibb.co/1Jw1CD4h/172772-removebg-preview.png" alt="CHINNY | Human Hair & Blend Wig" class="viewable-img">
                 <h3 class="product-title">CHINNY | Human Hair & Blend Wig</h3>
                 <button class="buy-btn" onclick="addToCart('CHINNY | Human Hair & Blend Wig', 0)">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="badge">Sleek</div>
-                <img src="https://i.ibb.co/QvcB9VVT/173020-removebg-preview.png" alt="Bone Straight">
+                <img src="https://i.ibb.co/QvcB9VVT/173020-removebg-preview.png" alt="Bone Straight" class="viewable-img">
                 <h3 class="product-title">Bone Straight</h3>
                 <button class="buy-btn" onclick="addToCart('Bone Straight', 0)">Add to Cart</button>
             </div>
@@ -160,6 +160,11 @@
                 Send Inquiry via WhatsApp
             </button>
         </div>
+    </div>
+
+    <div id="image-viewer-modal" class="image-viewer-modal" onclick="closeImageViewer()">
+        <span class="close-viewer-btn">&times;</span>
+        <img id="viewer-display-img" class="viewer-display-img" src="" alt="Full size view">
     </div>
 
     <footer>
@@ -217,24 +222,36 @@
 
         function sendWhatsAppOrder() {
             if (cart.length === 0) return;
-
             let targetPhoneNumber = "2348138049021";
-            
             let message = "Hello M'S Wigs Studio! I would like to inquire about the following items:\n\n";
-            
             let itemCounts = {};
             cart.forEach(item => {
                 itemCounts[item.name] = (itemCounts[item.name] || 0) + 1;
             });
-
             for (const [itemName, count] of Object.entries(itemCounts)) {
                 message += `🛍️ ${itemName} (Qty: ${count})\n`;
             }
-
             message += `\nPlease let me know the current prices and availability! Thanks.`;
-            
             let whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
+        }
+
+        // Touch to view/Lightbox Control Logic
+        document.addEventListener("DOMContentLoaded", function() {
+            const viewableImages = document.querySelectorAll('.viewable-img');
+            const modal = document.getElementById('image-viewer-modal');
+            const displayImg = document.getElementById('viewer-display-img');
+
+            viewableImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    displayImg.src = this.src;
+                    modal.classList.add('visible');
+                });
+            });
+        });
+
+        function closeImageViewer() {
+            document.getElementById('image-viewer-modal').classList.remove('visible');
         }
     </script>
 
