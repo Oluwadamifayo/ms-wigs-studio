@@ -172,6 +172,11 @@
                     <div style="margin-top: 15px;"></div>
                     <button class="buy-btn" onclick="addToCart('Straight Hair Unit 7', 0)">Add to Cart</button>
                 </div>
+                <div class="product-card">
+                    <img src="https://i.ibb.co/bgN2bRQZ/IMG-20260707-170718.jpg" alt="Straight Hair Unit 8" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
+                    <div style="margin-top: 15px;"></div>
+                    <button class="buy-btn" onclick="addToCart('Straight Hair Unit 8', 0)">Add to Cart</button>
+                </div>
             </div>
         </div>
 
@@ -179,9 +184,9 @@
             <div class="category-title">Pissie Curly</div>
             <div class="horizontal-product-grid">
                 <div class="product-card">
-                    <img src="https://i.ibb.co/bgN2bRQZ/IMG-20260707-170718.jpg" alt="Pissie Curly Unit 1" class="viewable-img" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px;">
+                    <div class="placeholder-box">New Arrival Coming Soon</div>
                     <div style="margin-top: 15px;"></div>
-                    <button class="buy-btn" onclick="addToCart('Pissie Curly Unit 1', 0)">Add to Cart</button>
+                    <button class="buy-btn" onclick="addToCart('Pissie Curly Unit', 0)">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -265,6 +270,7 @@
         let cart = [];
         let isListOpen = false;
 
+        // Custom function to handle product details
         function addToCart(name, price) {
             cart.push({ name: name, price: price });
             updateCartUI();
