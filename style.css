@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #fffbee; /* The exact warm cream background color from your screenshots */
+    background-color: #fffbee; 
     color: #333;
     line-height: 1.6;
 }
@@ -25,25 +25,25 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Deep Dark Heading Background)
+   2. HEADER & NAVIGATION (Updated: Wider Padding & Bolder Fonts)
    ========================================================================== */
 header {
-    background-color: #141414; /* Match the seamless dark background from your logo image */
+    background-color: #141414; 
     display: flex;
     flex-direction: column; 
     align-items: center;
-    padding: 20px 20px;
+    padding: 40px 24px; /* Increased padding to make the header taller and wider */
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Stronger shadow for a bolder look */
 }
 
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 24px; /* More spacing below the logo */
 }
 
 .logo-container a {
@@ -52,7 +52,7 @@ header {
 }
 
 .site-logo {
-    max-height: 140px; 
+    max-height: 160px; /* Made the logo slightly larger and more impactful */
     width: auto;
     display: block;
     object-fit: contain;
@@ -60,30 +60,34 @@ header {
 
 nav {
     display: flex;
-    gap: 25px;
+    gap: 35px; /* Wider spacing between the menu text links */
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px; /* Gives the row a wider, spread-out feel */
 }
 
 nav a {
     text-decoration: none;
     color: #ffffff; 
-    font-weight: 600;
-    font-size: 1.05rem;
-    text-transform: capitalize;
-    transition: color 0.2s ease;
+    font-weight: 700; /* Bolder font weight */
+    font-size: 1.15rem; /* Larger font size so it stands out */
+    text-transform: uppercase; /* Uppercase for a stronger, modern look */
+    letter-spacing: 1.5px; /* Distinct spacing between letters */
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 nav a:hover {
     color: #c5a880; 
+    transform: scale(1.05); /* Subtle pop on hover */
 }
 
 /* ==========================================================================
    3. HERO BANNER SECTION
    ========================================================================== */
 .hero {
-    background: #fffbee; /* Cream background matching your screenshots */
+    background: #fffbee; 
     padding: 60px 20px;
     text-align: center;
 }
@@ -342,18 +346,12 @@ footer {
    ========================================================================== */
 @media (max-width: 768px) {
     header {
-        padding: 15px 10px;
+        padding: 30px 15px; /* Retains a thick, proud header structure on mobile viewports */
     }
     .site-logo {
-        max-height: 110px;
+        max-height: 120px;
     }
     nav {
-        gap: 12px 18px;
-    }
-    .gallery {
-        grid-template-columns: 1fr; 
-    }
-    .gallery-item:last-child:nth-child(odd) {
-        max-width: 100%;
+        gap: 15px 22px;
     }
 }
