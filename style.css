@@ -25,15 +25,15 @@ h2 {
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION (Original White Setup)
+   2. HEADER & NAVIGATION (Restored to Original Dark Background)
    ========================================================================== */
 header {
-    background-color: #fff; 
+    background-color: #1c1c1c; /* True original dark color matching your screenshot */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stacks the logo above the nav links like the screenshot */
     align-items: center;
-    padding: 10px 6%; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px 20px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -42,10 +42,12 @@ header {
 .logo-container a {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
 }
 
 .site-logo {
-    max-height: 80px; 
+    max-height: 160px; /* Generous height so "Beauty is a way of life" is completely legible */
     width: auto;
     display: block;
     object-fit: contain;
@@ -54,15 +56,17 @@ header {
 nav {
     display: flex;
     gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav a {
     text-decoration: none;
-    color: #444;
+    color: #ffffff; /* Bright white links matching your image */
     font-weight: 600;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 1.05rem;
+    text-transform: capitalize; /* Matches your screenshot casing */
+    letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
@@ -434,22 +438,10 @@ footer {
    ========================================================================== */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
+        padding: 15px 10px;
     }
     
     nav {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero-overlay h2 {
-        font-size: 2.2rem;
-    }
-
-    .hero-overlay p {
-        font-size: 1.1rem;
+        gap: 15px 20px;
     }
 }
