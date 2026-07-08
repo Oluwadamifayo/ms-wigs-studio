@@ -199,6 +199,11 @@
             <div class="shop-grid" id="bouncy-hair-grid"></div>
         </div>
 
+        <div class="shop-group">
+            <h3 class="group-title">TIWA HAIR</h3>
+            <div class="shop-grid" id="tiwa-hair-grid"></div>
+        </div>
+
     </section>
 
     <section id="contact" class="contact-section">
@@ -241,7 +246,6 @@
     </footer>
 
     <script>
-        // Array expanded to include your twelfth Bouncy Hair product image link
         const defaultProducts = [
             { id: "straight-1", name: "Straight Hair Unit 1", price: "", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
             { id: "straight-2", name: "Straight Hair Unit 2", price: "", image: "https://i.ibb.co/V0yN6qD2/IMG-20260706-WA0104.jpg", category: "STRAIGHT HAIR" },
@@ -284,6 +288,7 @@
         const straightGrid = document.getElementById('straight-hair-grid');
         const pissieGrid = document.getElementById('pissie-curly-grid');
         const bouncyGrid = document.getElementById('bouncy-hair-grid');
+        const tiwaGrid = document.getElementById('tiwa-hair-grid');
 
         activeProducts.forEach(product => {
             const card = document.createElement('div');
@@ -303,11 +308,13 @@
             if (product.category === "STRAIGHT HAIR") straightGrid.appendChild(card);
             if (product.category === "PISSIE CURLY") pissieGrid.appendChild(card);
             if (product.category === "BOUNCY HAIR") bouncyGrid.appendChild(card);
+            if (product.category === "TIWA HAIR") tiwaGrid.appendChild(card);
         });
 
         if (!straightGrid.children.length) { straightGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
         if (!pissieGrid.children.length) { pissieGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
         if (!bouncyGrid.children.length) { bouncyGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!tiwaGrid.children.length) { tiwaGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
 
         const cart = [];
         const cartCount = document.getElementById('cartCount');
