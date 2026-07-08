@@ -6,7 +6,6 @@
     <title>M'S Wigs and Natural Hair Studio</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* --- STICKY SCROLLING ANNOUNCEMENT BAR SYSTEM --- */
         .announcement-bar {
             background-color: #000000;
             color: #ffffff;
@@ -40,7 +39,6 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* --- BOLD LOGO VISIBILITY HEADER --- */
         header {
             position: relative !important;
             top: auto !important;
@@ -58,12 +56,10 @@
             width: 150px !important;
             max-width: 85vw !important;
             height: auto !important;
-            filter: drop-shadow(0px 2px 8px rgba(255, 255, 255, 0.15)) !important;
             display: block;
             margin: 0 auto;
         }
 
-        /* --- DYNAMIC CARD DETAILS ENGINE SYSTEM --- */
         .card-details {
             padding: 10px 5px !important;
             text-align: center;
@@ -85,7 +81,6 @@
             display: block;
         }
 
-        /* --- BROWSE COLLECTIONS DROPDOWN STYLING --- */
         .browse-dropdown-container {
             width: 100%;
             max-width: 600px;
@@ -107,12 +102,6 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            text-align: left;
-            box-sizing: border-box;
-            transition: background 0.2s ease;
-        }
-        .dropdown-trigger:hover {
-            background: #e4e4e7;
         }
         .dropdown-icon {
             font-size: 14px;
@@ -125,17 +114,10 @@
             border-top: none;
             border-radius: 0 0 8px 8px;
             overflow: hidden;
-            margin-top: -4px;
         }
-        .dropdown-content.open {
-            display: block;
-        }
-        .dropdown-trigger.open {
-            border-radius: 8px 8px 0 0;
-        }
-        .dropdown-trigger.open .dropdown-icon {
-            transform: rotate(180deg);
-        }
+        .dropdown-content.open { display: block; }
+        .dropdown-trigger.open { border-radius: 8px 8px 0 0; }
+        .dropdown-trigger.open .dropdown-icon { transform: rotate(180deg); }
         .dropdown-link {
             display: block;
             padding: 14px 20px;
@@ -144,17 +126,8 @@
             font-size: 15px;
             font-weight: 500;
             border-bottom: 1px solid #f4f4f5;
-            transition: background 0.2s ease;
-        }
-        .dropdown-link:last-child {
-            border-bottom: none;
-        }
-        .dropdown-link:hover {
-            background: #f8fafc;
-            color: #1d4ed8;
         }
 
-        /* --- PERSISTENT FLOATING WHATSAPP SYSTEM --- */
         .whatsapp-floating-trigger {
             position: fixed;
             bottom: 85px;
@@ -168,37 +141,8 @@
             justify-content: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             z-index: 4500;
-            text-decoration: none;
-            transition: transform 0.2s ease;
-        }
-        .whatsapp-floating-trigger:active {
-            transform: scale(0.92);
-        }
-        .whatsapp-floating-trigger svg {
-            width: 34px;
-            height: 34px;
-            fill: #ffffff;
-        }
-        .whatsapp-badge-counter {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            background-color: #ea4335;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #25d366;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* --- PORTFOLIO GRID SYSTEM --- */
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -209,33 +153,21 @@
             grid-column: span 2;
             display: flex;
             justify-content: center;
-            align-items: center;
-            width: 100%;
-            background: transparent;
         }
         .gallery-item.final-centered img {
             width: calc(50% - 6px);
-            max-width: 100%;
-            height: auto;
-            display: block;
         }
 
-        /* --- HORIZONTAL SCROLLABLE SHOP ENGINE --- */
         .shop-grid {
             display: flex !important;
             flex-direction: row !important;
-            flex-wrap: nowrap !important;
             overflow-x: auto !important;
-            overflow-y: hidden !important;
             gap: 15px !important;
             padding: 10px 5px !important;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
         }
         .shop-card {
             flex: 0 0 170px !important;
             max-width: 170px !important;
-            box-sizing: border-box;
             background: #111113;
             border-radius: 8px;
             border: 1px solid #1f1f23;
@@ -245,91 +177,14 @@
             width: 100%;
             height: 180px;
             object-fit: cover;
-            display: block;
-        }
-
-        /* --- ADMIN PASSWORD MODAL --- */
-        .admin-modal {
-            display: none;
-            position: fixed;
-            z-index: 5000;
-            left: 0;
-top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            align-items: center;
-            justify-content: center;
-        }
-        .admin-modal-content {
-            background-color: #18181b;
-            border: 1px solid #27272a;
-            padding: 30px;
-            border-radius: 8px;
-            width: 280px;
-            text-align: center;
-        }
-        .admin-modal-content input {
-            width: 100%;
-            padding: 10px;
-            margin: 15px 0;
-            background: #0f0f11;
-            border: 1px solid #3f3f46;
-            color: #fff;
-            border-radius: 6px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-        .admin-modal-btn {
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-        }
-        .admin-close {
-            color: #a1a1aa;
-            float: right;
-            cursor: pointer;
-            font-size: 20px;
-        }
-
-        .footer-admin-link {
-            display: block;
-            margin-top: 10px;
-            color: #a1a1aa;
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
-        .footer-admin-link:hover {
-            color: #ffffff;
         }
 
         @media (min-width: 768px) {
-            .site-logo {
-                width: 180px !important;
-            }
-            .gallery {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
-            }
-            .gallery-item.final-centered {
-                grid-column: 2;
-            }
-            .gallery-item.final-centered img {
-                width: 100%;
-            }
-            .shop-card {
-                flex: 0 0 230px !important;
-                max-width: 230px !important;
-            }
-            .shop-card .card-img-wrapper img {
-                height: 250px;
-            }
+            .gallery { grid-template-columns: repeat(3, 1fr); }
+            .gallery-item.final-centered { grid-column: 2; }
+            .gallery-item.final-centered img { width: 100%; }
+            .shop-card { flex: 0 0 230px !important; max-width: 230px !important; }
+            .shop-card .card-img-wrapper img { height: 250px; }
         }
     </style>
 </head>
@@ -337,10 +192,8 @@ top: 0;
 
     <div class="announcement-bar">
         <div class="announcement-track">
-            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! ENJOY DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE BOOKINGS.</span>
-            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! ENJOY DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE BOOKINGS.</span>
-            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! ENJOY DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE BOOKINGS.</span>
-            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! ENJOY DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE BOOKINGS.</span>
+            <span class="announcement-text">DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WEBSITE BOOKINGS GET DISCOUNTS!</span>
+            <span class="announcement-text">DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WEBSITE BOOKINGS GET DISCOUNTS!</span>
         </div>
     </div>
 
@@ -362,7 +215,6 @@ top: 0;
     <section id="home" class="hero">
         <div class="hero-overlay">
             <h2>Premium Wigs & Natural Hair Care</h2>
-            <p>Unleash your inner confidence with our custom units and expert styling.</p>
         </div>
     </section>
 
@@ -383,45 +235,13 @@ top: 0;
     <section id="portfolio">
         <h2>Our Portfolio</h2>
         <div class="gallery">
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg" alt="Portfolio Image" class="viewable-img">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" alt="Portfolio Image" class="viewable-img">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" alt="Portfolio Image" class="viewable-img">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" alt="Portfolio Image" class="viewable-img">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" alt="Portfolio Image" class="viewable-img">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" alt="Portfolio Image" class="viewable-img">
-            </div>
-            <div class="gallery-item final-centered">
-                <img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" alt="Portfolio Image" class="viewable-img">
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="services-section">
-        <h2>Studio Services</h2>
-        <div class="services-container">
-            <div class="service-category">
-                <h3>Wig Services</h3>
-                <div class="service-item"><span>Custom Wig Construction (Closure/Frontal)</span></div>
-                <div class="service-item"><span>Wig Installation & Styling</span></div>
-                <div class="service-item"><span>Wig Revamp (Wash, Deep Condition & Style)</span></div>
-            </div>
-            <div class="service-category">
-                <h3>Natural Hair Care</h3>
-                <div class="service-item"><span>Premium Silk Press & Trim</span></div>
-                <div class="service-item"><span>Scalp Treatment & Deep Conditioning</span></div>
-                <div class="service-item"><span>Take Down & Detangle Service</span></div>
-            </div>
+            <div class="gallery-item"><img src="https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg" class="viewable-img"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" class="viewable-img"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" class="viewable-img"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" class="viewable-img"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" class="viewable-img"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" class="viewable-img"></div>
+            <div class="gallery-item final-centered"><img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" class="viewable-img"></div>
         </div>
     </section>
 
@@ -434,275 +254,87 @@ top: 0;
         <div class="shop-group" id="our-products-section"><h3 class="group-title">OUR HAIR PRODUCTS</h3><div class="shop-grid" id="our-products-grid"></div></div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2>Book an Appointment / Inquire</h2>
-        <form id="appointmentForm" action="https://formspree.io/f/mdarvwjq" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="_replyto" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Describe the service or wig you want..." required></textarea>
-            <button type="submit" class="submit-inquiry-btn">Send Inquiry</button>
-        </form>
-    </section>
-
-    <section class="direct-booking-section">
-        <div class="direct-booking-card">
-            <h3>Direct Bookings</h3>
-            <p>Need an immediate quote? Connect instantly below.</p>
-            <div class="booking-buttons">
-                <a href="tel:+2348138049021" class="btn-action btn-call">CALL STUDIO</a>
-                <a href="https://wa.me/2348138049021" target="_blank" class="btn-action btn-whatsapp">WHATSAPP CHAT</a>
-                <a href="mailto:oluwamayowasarah442@gmail.com" class="btn-action btn-email">EMAIL US</a>
-            </div>
-        </div>
-    </section>
-
-    <a href="https://wa.me/2348138049021" class="whatsapp-floating-trigger" target="_blank" title="Chat on WhatsApp">
-        <div class="whatsapp-badge-counter">1</div>
-        <svg viewBox="0 0 448 512">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-        </svg>
-    </a>
-
-    <div id="adminModal" class="admin-modal">
-        <div class="admin-modal-content">
-            <span class="admin-close" id="closeAdminModal">&times;</span>
-            <h3>Admin Portal Gate</h3>
-            <input type="password" id="adminPasswordInput" placeholder="Enter Password">
-            <button class="admin-modal-btn" id="loginAdminBtn">Verify Security</button>
-        </div>
-    </div>
-
     <div id="floatingCart" class="cart-floating-bar">
         <div class="cart-bar-main" id="cartToggle">
-            <span>Shopping Cart (<span id="cartCount">0</span>)</span>
-            <button id="checkoutBtn" class="whatsapp-checkout-btn">Checkout via WhatsApp</button>
+            <span>Cart (<span id="cartCount">0</span>)</span>
+            <button id="checkoutBtn" class="whatsapp-checkout-btn">WhatsApp Checkout</button>
         </div>
         <div id="cartItemsList" class="cart-items-list"></div>
     </div>
 
-    <div id="imageViewer" class="image-viewer-modal">
-        <span class="close-viewer-btn" id="closeViewer">&times;</span>
-        <img class="viewer-display-img" id="viewerImg" alt="Expanded Visual View">
-    </div>
-
     <footer>
-        <p>&copy; 2026 M'S WIGS & NATURAL HAIR STUDIO. ALL RIGHTS RESERVED.</p>
-        <a href="#" id="footerAdminTrigger" class="footer-admin-link">Staff Portal Login</a>
+        <p>&copy; 2026 M'S WIGS. ALL RIGHTS RESERVED.</p>
+        <a href="admin.html" class="footer-admin-link">Staff Portal</a>
     </footer>
 
     <script>
-        // --- DROPDOWN ACTION HANDLER ---
         const dropBtn = document.getElementById('collectionDropdownBtn');
         const dropContent = document.getElementById('collectionDropdownContent');
-
         dropBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             dropBtn.classList.toggle('open');
             dropContent.classList.toggle('open');
         });
 
-        document.addEventListener('click', () => {
-            dropBtn.classList.remove('open');
-            dropContent.classList.remove('open');
-        });
-
-        document.querySelectorAll('.dropdown-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // RE-INITIALIZATION FORCING SYSTEM (Updated to force new items live)
-        if (!localStorage.getItem('wig_products_store_v3')) {
-            const defaultProducts = [
-                { id: "straight-1", name: "Straight Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-2", name: "Straight Hair Unit 2", price: "Contact for Price", image: "https://i.ibb.co/V0yN6qD2/IMG-20260706-WA0104.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-3", name: "Straight Hair Unit 3", price: "Contact for Price", image: "https://i.ibb.co/0jPPWY0v/IMG-20260706-WA0113-1.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-4", name: "Straight Hair Unit 4", price: "Contact for Price", image: "https://i.ibb.co/Gvhvgw18/IMG-20260706-WA0099-1.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-5", name: "Straight Hair Unit 5", price: "Contact for Price", image: "https://i.ibb.co/ccW8S8TJ/IMG-20260706-WA0113-1.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-6", name: "Straight Hair Unit 6", price: "Contact for Price", image: "https://i.ibb.co/7JC6951n/IMG-20260706-WA0138.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-7", name: "Straight Hair Unit 7", price: "Contact for Price", image: "https://i.ibb.co/Tx44Lyh7/IMG-20260707-WA0044.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-8", name: "Straight Hair Unit 8", price: "Contact for Price", image: "https://i.ibb.co/FbcHw9C2/IMG-20260707-WA0060.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-9", name: "Straight Hair Unit 9", price: "Contact for Price", image: "https://i.ibb.co/Q7jCMZwy/IMG-20260707-WA0079.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-10", name: "Straight Hair Unit 10", price: "Contact for Price", image: "https://i.ibb.co/C3SKd4zz/IMG-20260707-WA0080.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-11", name: "Straight Hair Unit 11", price: "Contact for Price", image: "https://i.ibb.co/8nyjM9ks/IMG-20260707-WA0075.jpg", category: "STRAIGHT HAIR" },
-                { id: "curly-1", name: "Pissie Curly Unit 1", price: "Contact for Price", image: "https://i.ibb.co/hRkScd6B/IMG-20260707-WA0047.jpg", category: "PISSIE CURLY" },
-                { id: "curly-2", name: "Pissie Curly Unit 2", price: "Contact for Price", image: "https://i.ibb.co/JwWGy9f7/IMG-20260707-WA0059.jpg", category: "PISSIE CURLY" },
-                { id: "curly-3", name: "Pissie Curly Unit 3", price: "Contact for Price", image: "https://i.ibb.co/DfNh0kd7/IMG-20260706-WA0144.jpg", category: "PISSIE CURLY" },
-                { id: "curly-4", name: "Pissie Curly Unit 4", price: "Contact for Price", image: "https://i.ibb.co/pvws1pvr/IMG-20260706-WA0136-1.jpg", category: "PISSIE CURLY" },
-                { id: "curly-5", name: "Pissie Curly Unit 5", price: "Contact for Price", image: "https://i.ibb.co/nMJStJLv/IMG-20260707-WA0061.jpg", category: "PISSIE CURLY" },
-                { id: "curly-6", name: "Pissie Curly Unit 6", price: "Contact for Price", image: "https://i.ibb.co/nMZhPvLn/IMG-20260707-WA0063.jpg", category: "PISSIE CURLY" },
-                { id: "curly-7", name: "Pissie Curly Unit 7", price: "Contact for Price", image: "https://i.ibb.co/HfKSwx3r/IMG-20260707-WA0066.jpg", category: "PISSIE CURLY" },
-                { id: "curly-8", name: "Pissie Curly Unit 8", price: "Contact for Price", image: "https://i.ibb.co/C5WyGgGF/IMG-20260707-WA0064.jpg", category: "PISSIE CURLY" },
-                { id: "curly-9", name: "Pissie Curly Unit 9", price: "Contact for Price", image: "https://i.ibb.co/d01TCb9q/IMG-20260708-WA0014.jpg", category: "PISSIE CURLY" },
-                { id: "curly-10", name: "Pissie Curly Unit 10", price: "Contact for Price", image: "https://i.ibb.co/5f48YGF/IMG-20260708-WA0015.jpg", category: "PISSIE CURLY" },
-                { id: "bouncy-1", name: "Bouncy Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/d0Xcvrnw/IMG-20260706-WA0059.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-2", name: "Bouncy Hair Unit 2", price: "Contact for Price", image: "https://i.ibb.co/1GMZkq90/IMG-20260707-WA0046.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-3", name: "Bouncy Hair Unit 3", price: "Contact for Price", image: "https://i.ibb.co/JWQnkYQ4/IMG-20260707-WA0048.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-4", name: "Bouncy Hair Unit 4", price: "Contact for Price", image: "https://i.ibb.co/VYVB6tRM/IMG-20260707-WA0049.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-5", name: "Bouncy Hair Unit 5", price: "Contact for Price", image: "https://i.ibb.co/8gWbYkqc/IMG-20260707-WA0052.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-6", name: "Bouncy Hair Unit 6", price: "Contact for Price", image: "https://i.ibb.co/S7rrTy61/IMG-20260707-WA0069.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-7", name: "Bouncy Hair Unit 7", price: "Contact for Price", image: "https://i.ibb.co/yBnKXTRv/IMG-20260707-WA0070.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-8", name: "Bouncy Hair Unit 8", price: "Contact for Price", image: "https://i.ibb.co/zTK5SjF1/IMG-20260707-WA0073.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-9", name: "Bouncy Hair Unit 9", price: "Contact for Price", image: "https://i.ibb.co/C30zDqqb/IMG-20260707-WA0081.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-10", name: "Bouncy Hair Unit 10", price: "Contact for Price", image: "https://i.ibb.co/t9BdMVS/IMG-20260707-WA0082.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-11", name: "Bouncy Hair Unit 11", price: "Contact for Price", image: "https://i.ibb.co/DDSFsCfc/IMG-20260707-WA0085.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-12", name: "Bouncy Hair Unit 12", price: "Contact for Price", image: "https://i.ibb.co/C5gsdGgy/IMG-20260707-WA0083.jpg", category: "BOUNCY HAIR" },
-                { id: "tiwa-1", name: "Tiwa Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/MyZkctCP/IMG-20260707-WA0051.jpg", category: "TIWA HAIR" },
-                { id: "tiwa-2", name: "Tiwa Hair Unit 2", price: "Contact for Price", image: "https://i.ibb.co/9HV7rcC0/IMG-20260706-WA0139-1.jpg", category: "TIWA HAIR" },
-                { id: "tiwa-3", name: "Tiwa Hair Unit 3", price: "Contact for Price", image: "https://i.ibb.co/vvZb7MT6/IMG-20260708-WA0039.jpg", category: "TIWA HAIR" },
-                { id: "tiwa-4", name: "Tiwa Hair Unit 4", price: "Contact for Price", image: "https://i.ibb.co/7tPdhfmH/WA-1783517014522.jpg", category: "TIWA HAIR" },
-                
-                // Added items derived from your dashboard updates
-                { id: "prod-brush", name: "HAIR BRUSH", price: "1000", image: "https://via.placeholder.com/300x240?text=Hair+Brush", category: "OUR HAIR PRODUCTS" },
-                { id: "prod-packer", name: "HAIR PACKER", price: "500", image: "https://via.placeholder.com/300x240?text=Hair+Packer", category: "OUR HAIR PRODUCTS" },
-                { id: "prod-bonnet-1", name: "HAIR BONNET", price: "1800", image: "https://via.placeholder.com/300x240?text=Hair+Bonnet", category: "OUR HAIR PRODUCTS" },
-                { id: "prod-bonnet-2", name: "HAIR BONNET", price: "2000", image: "https://via.placeholder.com/300x240?text=Hair+Bonnet", category: "OUR HAIR PRODUCTS" },
-                { id: "prod-relaxer", name: "HAIR RELAXER", price: "1500", image: "https://via.placeholder.com/300x240?text=Hair+Relaxer", category: "OUR HAIR PRODUCTS" }
-            ];
-            localStorage.setItem('wig_products', JSON.stringify(defaultProducts));
-            localStorage.setItem('wig_products_store_v3', 'true');
-        }
-
         function renderProducts() {
             const activeProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
 
-            const straightGrid = document.getElementById('straight-hair-grid');
-            const pissieGrid = document.getElementById('pissie-curly-grid');
-            const bouncyGrid = document.getElementById('bouncy-hair-grid');
-            const tiwaGrid = document.getElementById('tiwa-hair-grid');
-            const productsGrid = document.getElementById('our-products-grid');
+            const categories = {
+                "STRAIGHT HAIR": document.getElementById('straight-hair-grid'),
+                "PISSIE CURLY": document.getElementById('pissie-curly-grid'),
+                "BOUNCY HAIR": document.getElementById('bouncy-hair-grid'),
+                "TIWA HAIR": document.getElementById('tiwa-hair-grid'),
+                "OUR HAIR PRODUCTS": document.getElementById('our-products-grid')
+            };
 
-            straightGrid.innerHTML = '';
-            pissieGrid.innerHTML = '';
-            bouncyGrid.innerHTML = '';
-            tiwaGrid.innerHTML = '';
-            productsGrid.innerHTML = '';
+            Object.values(categories).forEach(grid => { if(grid) grid.innerHTML = ''; });
 
             activeProducts.forEach(product => {
+                const targetGrid = categories[product.category];
+                if (!targetGrid) return;
+
                 const card = document.createElement('div');
                 card.className = 'shop-card';
-                card.setAttribute('data-id', product.id);
-                card.setAttribute('data-name', product.name);
-                card.setAttribute('data-price', product.price || 'Contact for Price');
-
-                // FIXED: Template rendering sanitized string to completely prevent broken HTML leak injection
-                const cleanImgUrl = product.image ? product.image.replace(/"/g, '&quot;') : 'https://via.placeholder.com/300x240?text=No+Image';
+                const cleanImg = product.image ? product.image.replace(/"/g, '&quot;') : '';
 
                 card.innerHTML = `
-                    <div class="card-img-wrapper">
-                        <img src="${cleanImgUrl}" alt="Wig Unit" class="viewable-img">
-                    </div>
+                    <div class="card-img-wrapper"><img src="${cleanImg}" class="viewable-img"></div>
                     <div class="card-details">
                         <h3>${product.name}</h3>
                         <span class="price">${product.price}</span>
-                        <button class="buy-btn">Add to Cart</button>
+                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Add to Cart</button>
                     </div>
                 `;
-
-                if (product.category === "STRAIGHT HAIR") straightGrid.appendChild(card);
-                if (product.category === "PISSIE CURLY") pissieGrid.appendChild(card);
-                if (product.category === "BOUNCY HAIR") bouncyGrid.appendChild(card);
-                if (product.category === "TIWA HAIR") tiwaGrid.appendChild(card);
-                if (product.category === "OUR HAIR PRODUCTS") productsGrid.appendChild(card);
+                targetGrid.appendChild(card);
             });
 
             document.querySelectorAll('.buy-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const card = e.target.closest('.shop-card');
-                    const id = card.getAttribute('data-id');
-                    const name = card.getAttribute('data-name');
-                    const price = card.getAttribute('data-price');
-                    cart.push({ id, name, price });
-                    cartCount.innerText = cart.length;
-                    if(cart.length > 0) floatingCart.classList.add('active');
+                btn.onclick = () => {
+                    cart.push({ id: btn.dataset.id, name: btn.dataset.name, price: btn.dataset.price });
+                    document.getElementById('cartCount').innerText = cart.length;
                     renderCart();
-                });
+                };
             });
         }
 
-        const footerTrigger = document.getElementById('footerAdminTrigger');
-        const adminModal = document.getElementById('adminModal');
-        const closeAdminModal = document.getElementById('closeAdminModal');
-        const loginAdminBtn = document.getElementById('loginAdminBtn');
-        const adminPasswordInput = document.getElementById('adminPasswordInput');
-
-        footerTrigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            adminModal.style.display = "flex";
-            adminPasswordInput.focus();
-        });
-
-        closeAdminModal.addEventListener('click', () => { adminModal.style.display = "none"; });
-
-        loginAdminBtn.addEventListener('click', () => {
-            if(adminPasswordInput.value === "Studio2026") {
-                sessionStorage.setItem('admin_authenticated', 'true');
-                window.location.href = "admin.html";
-            } else {
-                alert("Incorrect Credentials.");
-            }
-        });
-
-        // --- CART ENGINE ---
         const cart = [];
-        const cartCount = document.getElementById('cartCount');
-        const floatingCart = document.getElementById('floatingCart');
-        const cartItemsList = document.getElementById('cartItemsList');
-        const cartToggle = document.getElementById('cartToggle');
-
-        cartToggle.addEventListener('click', (e) => { if(e.target.id !== 'checkoutBtn') cartItemsList.classList.toggle('open'); });
-
         function renderCart() {
-            cartItemsList.innerHTML = '';
-            cart.forEach((item, index) => {
-                const row = document.createElement('div');
-                row.className = 'cart-list-item';
-                row.innerHTML = `<span>${item.name} (${item.price})</span><button class="remove-item-btn" onclick="removeItem(${index})">&times;</button>`;
-                cartItemsList.appendChild(row);
+            const list = document.getElementById('cartItemsList');
+            list.innerHTML = '';
+            cart.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.innerHTML = `<span>${item.name}</span><button onclick="cart.splice(${idx},1); renderCart();">×</button>`;
+                list.appendChild(div);
             });
         }
 
-        window.removeItem = function(index) {
-            cart.splice(index, 1);
-            cartCount.innerText = cart.length;
-            if(cart.length === 0) { floatingCart.classList.remove('active'); cartItemsList.classList.remove('open'); }
-            renderCart();
+        document.getElementById('checkoutBtn').onclick = () => {
+            let msg = "Hello M'S Wigs Studio! I want to order:\n";
+            cart.forEach(i => msg += `- ${i.name} (${i.price})\n`);
+            window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(msg)}`);
         };
 
-        document.getElementById('checkoutBtn').addEventListener('click', () => {
-            if (cart.length === 0) return;
-            let orderText = "Hello M'S Wigs Studio! I would like to order items from your collection:\n\n";
-            cart.forEach(item => {
-                orderText += `- ${item.name} (${item.price})\n`;
-            });
-            window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(orderText)}`, '_blank');
-        });
-
-        const modal = document.getElementById('imageViewer');
-        const modalImg = document.getElementById('viewerImg');
-        document.body.addEventListener('click', (e) => { if(e.target.classList.contains('viewable-img')) { modal.classList.add('visible'); modalImg.src = e.target.src; } });
-        document.getElementById('closeViewer').addEventListener('click', () => modal.classList.remove('visible'));
-
-        // --- URL BAR AUTO-CLEAN ENGINE ---
-        function cleanAddressBar() {
-            let currentUrl = window.location.href;
-            if (currentUrl.includes('index.html') || currentUrl.includes('#')) {
-                let cleanUrl = window.location.origin + window.location.pathname.replace('index.html', '');
-                window.history.replaceState({}, document.title, cleanUrl);
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            renderProducts();
-            cleanAddressBar();
-        });
-        window.addEventListener('hashchange', () => { setTimeout(cleanAddressBar, 100); });
+        window.onload = renderProducts;
     </script>
 </body>
 </html>
