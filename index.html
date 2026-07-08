@@ -117,6 +117,19 @@
             font-size: 20px;
         }
 
+        /* --- FOOTER BUTTON STYLE --- */
+        .footer-admin-link {
+            display: block;
+            margin-top: 10px;
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+        .footer-admin-link:hover {
+            color: #ffffff;
+        }
+
         @media (min-width: 768px) {
             .gallery {
                 grid-template-columns: repeat(3, 1fr);
@@ -142,7 +155,7 @@
 
     <header>
         <div class="logo-container">
-            <a href="#home" id="logoAdminTrigger">
+            <a href="#home">
                 <img src="https://i.ibb.co/4ZXDHZJz/176106-removebg-preview.png" alt="M'S Wigs Logo" class="site-logo">
             </a>
         </div>
@@ -261,6 +274,7 @@
 
     <footer>
         <p>&copy; 2026 M'S WIGS & NATURAL HAIR STUDIO. ALL RIGHTS RESERVED.</p>
+        <a href="#" id="footerAdminTrigger" class="footer-admin-link">Staff Portal Login</a>
     </footer>
 
     <script>
@@ -331,14 +345,15 @@
             if (product.category === "TIWA HAIR") tiwaGrid.appendChild(card);
         });
 
-        // --- ADMIN LOGIN LOGIC ---
-        const logoTrigger = document.getElementById('logoAdminTrigger');
+        // --- NEW SIMPLIFIED FOOTER TRIGGER ENTRY ---
+        const footerTrigger = document.getElementById('footerAdminTrigger');
         const adminModal = document.getElementById('adminModal');
         const closeAdminModal = document.getElementById('closeAdminModal');
         const loginAdminBtn = document.getElementById('loginAdminBtn');
         const adminPasswordInput = document.getElementById('adminPasswordInput');
 
-        logoTrigger.addEventListener('dblclick', (e) => {
+        // Simple click opens the password form instantly
+        footerTrigger.addEventListener('click', (e) => {
             e.preventDefault();
             adminModal.style.display = "flex";
             adminPasswordInput.focus();
@@ -403,8 +418,7 @@
         document.body.addEventListener('click', (e) => { if(e.target.classList.contains('viewable-img')) { modal.classList.add('visible'); modalImg.src = e.target.src; } });
         document.getElementById('closeViewer').addEventListener('click', () => modal.classList.remove('visible'));
 
-        // --- NEW: URL BAR AUTO-CLEAN ENGINE ---
-        // Cleans up the URL dynamically if it detects index.html or hash sections.
+        // --- URL BAR AUTO-CLEAN ENGINE ---
         function cleanAddressBar() {
             let currentUrl = window.location.href;
             if (currentUrl.includes('index.html') || currentUrl.includes('#')) {
@@ -413,13 +427,8 @@
             }
         }
 
-        // Clean immediately on page mount
         window.addEventListener('DOMContentLoaded', cleanAddressBar);
-
-        // Clean after any menu click transitions occur
-        window.addEventListener('hashchange', () => {
-            setTimeout(cleanAddressBar, 100);
-        });
+        window.addEventListener('hashchange', () => { setTimeout(cleanAddressBar, 100); });
     </script>
 </body>
 </html>
