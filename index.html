@@ -41,6 +41,10 @@
         <h2>Our Portfolio</h2>
         <div class="gallery">
             <div class="gallery-item">
+                <img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" alt="Featured Custom Unit" class="viewable-img">
+                <div class="gallery-desc">Featured Custom Unit</div>
+            </div>
+            <div class="gallery-item">
                 <img src="https://i.ibb.co/Vv6XgY7/portfolio1.jpg" alt="Custom Closure Wig" class="viewable-img">
                 <div class="gallery-desc">Custom Closure Wig</div>
             </div>
@@ -245,11 +249,13 @@
 
         const modal = document.getElementById('imageViewer');
         const modalImg = document.getElementById('viewerImg');
-        document.querySelectorAll('.viewable-img').forEach(img => {
-            img.addEventListener('click', () => {
+        
+        // Dynamic handler ensuring newly elements trigger lightbox modal correctly
+        document.body.addEventListener('click', (e) => {
+            if(e.target.classList.contains('viewable-img')) {
                 modal.classList.add('visible');
-                modalImg.src = img.src;
-            });
+                modalImg.src = e.target.src;
+            }
         });
         document.getElementById('closeViewer').addEventListener('click', () => modal.classList.remove('visible'));
         modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('visible'); });
