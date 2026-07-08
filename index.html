@@ -40,7 +40,7 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* --- BOLD LOGO VISIBILITY HEADER UPDATE --- */
+        /* --- BOLD LOGO VISIBILITY HEADER --- */
         header {
             position: relative !important;
             top: auto !important;
@@ -55,20 +55,34 @@
             margin-bottom: 10px;
         }
         .site-logo {
-            width: 150px !important; /* Increased dimension size for high visibility */
+            width: 150px !important;
             max-width: 85vw !important;
             height: auto !important;
-            filter: drop-shadow(0px 2px 8px rgba(255, 255, 255, 0.15)) !important; /* Contrasting glow separation */
+            filter: drop-shadow(0px 2px 8px rgba(255, 255, 255, 0.15)) !important;
             display: block;
             margin: 0 auto;
         }
 
-        .card-details h3, .card-details .price {
-            display: none !important;
-        }
+        /* --- DYNAMIC CARD DETAILS ENGINE SYSTEM --- */
         .card-details {
-            padding: 5px 0 0 0 !important;
+            padding: 10px 5px !important;
             text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .card-details h3 {
+            font-size: 14px;
+            color: #ffffff;
+            margin: 5px 0 2px 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-details .price {
+            font-size: 13px;
+            color: #a1a1aa;
+            margin-bottom: 8px;
+            font-weight: 500;
+            display: block;
         }
 
         /* --- BROWSE COLLECTIONS DROPDOWN STYLING --- */
@@ -219,15 +233,18 @@
             -webkit-overflow-scrolling: touch;
         }
         .shop-card {
-            flex: 0 0 160px !important;
-            max-width: 160px !important;
+            flex: 0 0 170px !important;
+            max-width: 170px !important;
             box-sizing: border-box;
+            background: #111113;
+            border-radius: 8px;
+            border: 1px solid #1f1f23;
+            overflow: hidden;
         }
         .shop-card .card-img-wrapper img {
             width: 100%;
             height: 180px;
             object-fit: cover;
-            border-radius: 6px;
         }
 
         /* --- ADMIN PASSWORD MODAL --- */
@@ -297,7 +314,7 @@
 
         @media (min-width: 768px) {
             .site-logo {
-                width: 180px !important; /* Slightly enlarged desktop optimization rendering scale */
+                width: 180px !important;
             }
             .gallery {
                 grid-template-columns: repeat(3, 1fr);
@@ -310,8 +327,8 @@
                 width: 100%;
             }
             .shop-card {
-                flex: 0 0 220px !important;
-                max-width: 220px !important;
+                flex: 0 0 230px !important;
+                max-width: 230px !important;
             }
             .shop-card .card-img-wrapper img {
                 height: 250px;
@@ -362,6 +379,7 @@
             <a href="#pissie-curly-section" class="dropdown-link">Pissie Curly</a>
             <a href="#bouncy-hair-section" class="dropdown-link">Bouncy Hair</a>
             <a href="#tiwa-hair-section" class="dropdown-link">Tiwa Hair</a>
+            <a href="#our-products-section" class="dropdown-link">Our Hair Products</a>
         </div>
     </div>
 
@@ -416,6 +434,7 @@
         <div class="shop-group" id="pissie-curly-section"><h3 class="group-title">PISSIE CURLY</h3><div class="shop-grid" id="pissie-curly-grid"></div></div>
         <div class="shop-group" id="bouncy-hair-section"><h3 class="group-title">BOUNCY HAIR</h3><div class="shop-grid" id="bouncy-hair-grid"></div></div>
         <div class="shop-group" id="tiwa-hair-section"><h3 class="group-title">TIWA HAIR</h3><div class="shop-grid" id="tiwa-hair-grid"></div></div>
+        <div class="shop-group" id="our-products-section"><h3 class="group-title">OUR HAIR PRODUCTS</h3><div class="shop-grid" id="our-products-grid"></div></div>
     </section>
 
     <section id="contact" class="contact-section">
@@ -503,70 +522,101 @@
 
         if (!localStorage.getItem('wig_products')) {
             const defaultProducts = [
-                { id: "straight-1", name: "Straight Hair Unit 1", price: "", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-2", name: "Straight Hair Unit 2", price: "", image: "https://i.ibb.co/V0yN6qD2/IMG-20260706-WA0104.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-3", name: "Straight Hair Unit 3", price: "", image: "https://i.ibb.co/0jPPWY0v/IMG-20260706-WA0113-1.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-4", name: "Straight Hair Unit 4", price: "", image: "https://i.ibb.co/Gvhvgw18/IMG-20260706-WA0099-1.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-5", name: "Straight Hair Unit 5", price: "", image: "https://i.ibb.co/ccW8S8TJ/IMG-20260706-WA0113-1.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-6", name: "Straight Hair Unit 6", price: "", image: "https://i.ibb.co/7JC6951n/IMG-20260706-WA0138.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-7", name: "Straight Hair Unit 7", price: "", image: "https://i.ibb.co/Tx44Lyh7/IMG-20260707-WA0044.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-8", name: "Straight Hair Unit 8", price: "", image: "https://i.ibb.co/FbcHw9C2/IMG-20260707-WA0060.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-9", name: "Straight Hair Unit 9", price: "", image: "https://i.ibb.co/Q7jCMZwy/IMG-20260707-WA0079.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-10", name: "Straight Hair Unit 10", price: "", image: "https://i.ibb.co/C3SKd4zz/IMG-20260707-WA0080.jpg", category: "STRAIGHT HAIR" },
-                { id: "straight-11", name: "Straight Hair Unit 11", price: "", image: "https://i.ibb.co/8nyjM9ks/IMG-20260707-WA0075.jpg", category: "STRAIGHT HAIR" },
-                { id: "curly-1", name: "Pissie Curly Unit 1", price: "", image: "https://i.ibb.co/hRkScd6B/IMG-20260707-WA0047.jpg", category: "PISSIE CURLY" },
-                { id: "curly-2", name: "Pissie Curly Unit 2", price: "", image: "https://i.ibb.co/JwWGy9f7/IMG-20260707-WA0059.jpg", category: "PISSIE CURLY" },
-                { id: "curly-3", name: "Pissie Curly Unit 3", price: "", image: "https://i.ibb.co/DfNh0kd7/IMG-20260706-WA0144.jpg", category: "PISSIE CURLY" },
-                { id: "curly-4", name: "Pissie Curly Unit 4", price: "", image: "https://i.ibb.co/pvws1pvr/IMG-20260706-WA0136-1.jpg", category: "PISSIE CURLY" },
-                { id: "curly-5", name: "Pissie Curly Unit 5", price: "", image: "https://i.ibb.co/nMJStJLv/IMG-20260707-WA0061.jpg", category: "PISSIE CURLY" },
-                { id: "curly-6", name: "Pissie Curly Unit 6", price: "", image: "https://i.ibb.co/nMZhPvLn/IMG-20260707-WA0063.jpg", category: "PISSIE CURLY" },
-                { id: "curly-7", name: "Pissie Curly Unit 7", price: "", image: "https://i.ibb.co/HfKSwx3r/IMG-20260707-WA0066.jpg", category: "PISSIE CURLY" },
-                { id: "curly-8", name: "Pissie Curly Unit 8", price: "", image: "https://i.ibb.co/C5WyGgGF/IMG-20260707-WA0064.jpg", category: "PISSIE CURLY" },
-                { id: "curly-9", name: "Pissie Curly Unit 9", price: "", image: "https://i.ibb.co/d01TCb9q/IMG-20260708-WA0014.jpg", category: "PISSIE CURLY" },
-                { id: "curly-10", name: "Pissie Curly Unit 10", price: "", image: "https://i.ibb.co/5f48YGF/IMG-20260708-WA0015.jpg", category: "PISSIE CURLY" },
-                { id: "bouncy-1", name: "Bouncy Hair Unit 1", price: "", image: "https://i.ibb.co/d0Xcvrnw/IMG-20260706-WA0059.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-2", name: "Bouncy Hair Unit 2", price: "", image: "https://i.ibb.co/1GMZkq90/IMG-20260707-WA0046.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-3", name: "Bouncy Hair Unit 3", price: "", image: "https://i.ibb.co/JWQnkYQ4/IMG-20260707-WA0048.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-4", name: "Bouncy Hair Unit 4", price: "", image: "https://i.ibb.co/VYVB6tRM/IMG-20260707-WA0049.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-5", name: "Bouncy Hair Unit 5", price: "", image: "https://i.ibb.co/8gWbYkqc/IMG-20260707-WA0052.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-6", name: "Bouncy Hair Unit 6", price: "", image: "https://i.ibb.co/S7rrTy61/IMG-20260707-WA0069.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-7", name: "Bouncy Hair Unit 7", price: "", image: "https://i.ibb.co/yBnKXTRv/IMG-20260707-WA0070.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-8", name: "Bouncy Hair Unit 8", price: "", image: "https://i.ibb.co/zTK5SjF1/IMG-20260707-WA0073.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-9", name: "Bouncy Hair Unit 9", price: "", image: "https://i.ibb.co/C30zDqqb/IMG-20260707-WA0081.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-10", name: "Bouncy Hair Unit 10", price: "", image: "https://i.ibb.co/t9BdMVS/IMG-20260707-WA0082.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-11", name: "Bouncy Hair Unit 11", price: "", image: "https://i.ibb.co/DDSFsCfc/IMG-20260707-WA0085.jpg", category: "BOUNCY HAIR" },
-                { id: "bouncy-12", name: "Bouncy Hair Unit 12", price: "", image: "https://i.ibb.co/C5gsdGgy/IMG-20260707-WA0083.jpg", category: "BOUNCY HAIR" },
-                { id: "tiwa-1", name: "Tiwa Hair Unit 1", price: "", image: "https://i.ibb.co/MyZkctCP/IMG-20260707-WA0051.jpg", category: "TIWA HAIR" },
-                { id: "tiwa-2", name: "Tiwa Hair Unit 2", price: "", image: "https://i.ibb.co/9HV7rcC0/IMG-20260706-WA0139-1.jpg", category: "TIWA HAIR" },
-                { id: "tiwa-3", name: "Tiwa Hair Unit 3", price: "", image: "https://i.ibb.co/vvZb7MT6/IMG-20260708-WA0039.jpg", category: "TIWA HAIR" },
-                { id: "tiwa-4", name: "Tiwa Hair Unit 4", price: "", image: "https://i.ibb.co/7tPdhfmH/WA-1783517014522.jpg", category: "TIWA HAIR" }
+                { id: "straight-1", name: "Straight Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-2", name: "Straight Hair Unit 2", price: "Contact for Price", image: "https://i.ibb.co/V0yN6qD2/IMG-20260706-WA0104.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-3", name: "Straight Hair Unit 3", price: "Contact for Price", image: "https://i.ibb.co/0jPPWY0v/IMG-20260706-WA0113-1.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-4", name: "Straight Hair Unit 4", price: "Contact for Price", image: "https://i.ibb.co/Gvhvgw18/IMG-20260706-WA0099-1.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-5", name: "Straight Hair Unit 5", price: "Contact for Price", image: "https://i.ibb.co/ccW8S8TJ/IMG-20260706-WA0113-1.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-6", name: "Straight Hair Unit 6", price: "Contact for Price", image: "https://i.ibb.co/7JC6951n/IMG-20260706-WA0138.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-7", name: "Straight Hair Unit 7", price: "Contact for Price", image: "https://i.ibb.co/Tx44Lyh7/IMG-20260707-WA0044.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-8", name: "Straight Hair Unit 8", price: "Contact for Price", image: "https://i.ibb.co/FbcHw9C2/IMG-20260707-WA0060.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-9", name: "Straight Hair Unit 9", price: "Contact for Price", image: "https://i.ibb.co/Q7jCMZwy/IMG-20260707-WA0079.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-10", name: "Straight Hair Unit 10", price: "Contact for Price", image: "https://i.ibb.co/C3SKd4zz/IMG-20260707-WA0080.jpg", category: "STRAIGHT HAIR" },
+                { id: "straight-11", name: "Straight Hair Unit 11", price: "Contact for Price", image: "https://i.ibb.co/8nyjM9ks/IMG-20260707-WA0075.jpg", category: "STRAIGHT HAIR" },
+                { id: "curly-1", name: "Pissie Curly Unit 1", price: "Contact for Price", image: "https://i.ibb.co/hRkScd6B/IMG-20260707-WA0047.jpg", category: "PISSIE CURLY" },
+                { id: "curly-2", name: "Pissie Curly Unit 2", price: "Contact for Price", image: "https://i.ibb.co/JwWGy9f7/IMG-20260707-WA0059.jpg", category: "PISSIE CURLY" },
+                { id: "curly-3", name: "Pissie Curly Unit 3", price: "Contact for Price", image: "https://i.ibb.co/DfNh0kd7/IMG-20260706-WA0144.jpg", category: "PISSIE CURLY" },
+                { id: "curly-4", name: "Pissie Curly Unit 4", price: "Contact for Price", image: "https://i.ibb.co/pvws1pvr/IMG-20260706-WA0136-1.jpg", category: "PISSIE CURLY" },
+                { id: "curly-5", name: "Pissie Curly Unit 5", price: "Contact for Price", image: "https://i.ibb.co/nMJStJLv/IMG-20260707-WA0061.jpg", category: "PISSIE CURLY" },
+                { id: "curly-6", name: "Pissie Curly Unit 6", price: "Contact for Price", image: "https://i.ibb.co/nMZhPvLn/IMG-20260707-WA0063.jpg", category: "PISSIE CURLY" },
+                { id: "curly-7", name: "Pissie Curly Unit 7", price: "Contact for Price", image: "https://i.ibb.co/HfKSwx3r/IMG-20260707-WA0066.jpg", category: "PISSIE CURLY" },
+                { id: "curly-8", name: "Pissie Curly Unit 8", price: "Contact for Price", image: "https://i.ibb.co/C5WyGgGF/IMG-20260707-WA0064.jpg", category: "PISSIE CURLY" },
+                { id: "curly-9", name: "Pissie Curly Unit 9", price: "Contact for Price", image: "https://i.ibb.co/d01TCb9q/IMG-20260708-WA0014.jpg", category: "PISSIE CURLY" },
+                { id: "curly-10", name: "Pissie Curly Unit 10", price: "Contact for Price", image: "https://i.ibb.co/5f48YGF/IMG-20260708-WA0015.jpg", category: "PISSIE CURLY" },
+                { id: "bouncy-1", name: "Bouncy Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/d0Xcvrnw/IMG-20260706-WA0059.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-2", name: "Bouncy Hair Unit 2", price: "Contact for Price", image: "https://i.ibb.co/1GMZkq90/IMG-20260707-WA0046.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-3", name: "Bouncy Hair Unit 3", price: "Contact for Price", image: "https://i.ibb.co/JWQnkYQ4/IMG-20260707-WA0048.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-4", name: "Bouncy Hair Unit 4", price: "Contact for Price", image: "https://i.ibb.co/VYVB6tRM/IMG-20260707-WA0049.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-5", name: "Bouncy Hair Unit 5", price: "Contact for Price", image: "https://i.ibb.co/8gWbYkqc/IMG-20260707-WA0052.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-6", name: "Bouncy Hair Unit 6", price: "Contact for Price", image: "https://i.ibb.co/S7rrTy61/IMG-20260707-WA0069.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-7", name: "Bouncy Hair Unit 7", price: "Contact for Price", image: "https://i.ibb.co/yBnKXTRv/IMG-20260707-WA0070.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-8", name: "Bouncy Hair Unit 8", price: "Contact for Price", image: "https://i.ibb.co/zTK5SjF1/IMG-20260707-WA0073.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-9", name: "Bouncy Hair Unit 9", price: "Contact for Price", image: "https://i.ibb.co/C30zDqqb/IMG-20260707-WA0081.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-10", name: "Bouncy Hair Unit 10", price: "Contact for Price", image: "https://i.ibb.co/t9BdMVS/IMG-20260707-WA0082.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-11", name: "Bouncy Hair Unit 11", price: "Contact for Price", image: "https://i.ibb.co/DDSFsCfc/IMG-20260707-WA0085.jpg", category: "BOUNCY HAIR" },
+                { id: "bouncy-12", name: "Bouncy Hair Unit 12", price: "Contact for Price", image: "https://i.ibb.co/C5gsdGgy/IMG-20260707-WA0083.jpg", category: "BOUNCY HAIR" },
+                { id: "tiwa-1", name: "Tiwa Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/MyZkctCP/IMG-20260707-WA0051.jpg", category: "TIWA HAIR" },
+                { id: "tiwa-2", name: "Tiwa Hair Unit 2", price: "Contact for Price", image: "https://i.ibb.co/9HV7rcC0/IMG-20260706-WA0139-1.jpg", category: "TIWA HAIR" },
+                { id: "tiwa-3", name: "Tiwa Hair Unit 3", price: "Contact for Price", image: "https://i.ibb.co/vvZb7MT6/IMG-20260708-WA0039.jpg", category: "TIWA HAIR" },
+                { id: "tiwa-4", name: "Tiwa Hair Unit 4", price: "Contact for Price", image: "https://i.ibb.co/7tPdhfmH/WA-1783517014522.jpg", category: "TIWA HAIR" }
             ];
             localStorage.setItem('wig_products', JSON.stringify(defaultProducts));
         }
 
-        const activeProducts = JSON.parse(localStorage.getItem('wig_products'));
-        const straightGrid = document.getElementById('straight-hair-grid');
-        const pissieGrid = document.getElementById('pissie-curly-grid');
-        const bouncyGrid = document.getElementById('bouncy-hair-grid');
-        const tiwaGrid = document.getElementById('tiwa-hair-grid');
+        function renderProducts() {
+            const activeProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
+            
+            const straightGrid = document.getElementById('straight-hair-grid');
+            const pissieGrid = document.getElementById('pissie-curly-grid');
+            const bouncyGrid = document.getElementById('bouncy-hair-grid');
+            const tiwaGrid = document.getElementById('tiwa-hair-grid');
+            const productsGrid = document.getElementById('our-products-grid');
 
-        activeProducts.forEach(product => {
-            const card = document.createElement('div');
-            card.className = 'shop-card';
-            card.setAttribute('data-id', product.id);
-            card.innerHTML = `
-                <div class="card-img-wrapper">
-                    <img src="${product.image || 'https://via.placeholder.com/300x240?text=No+Image'}" alt="Wig Unit" class="viewable-img">
-                </div>
-                <div class="card-details">
-                    <button class="buy-btn">Add to Cart</button>
-                </div>
-            `;
-            if (product.category === "STRAIGHT HAIR") straightGrid.appendChild(card);
-            if (product.category === "PISSIE CURLY") pissieGrid.appendChild(card);
-            if (product.category === "BOUNCY HAIR") bouncyGrid.appendChild(card);
-            if (product.category === "TIWA HAIR") tiwaGrid.appendChild(card);
-        });
+            straightGrid.innerHTML = '';
+            pissieGrid.innerHTML = '';
+            bouncyGrid.innerHTML = '';
+            tiwaGrid.innerHTML = '';
+            productsGrid.innerHTML = '';
+
+            activeProducts.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'shop-card';
+                card.setAttribute('data-id', product.id);
+                card.setAttribute('data-name', product.name);
+                card.setAttribute('data-price', product.price || 'Contact for Price');
+                
+                card.innerHTML = `
+                    <div class="card-img-wrapper">
+                        <img src="${product.image || 'https://via.placeholder.com/300x240?text=No+Image'}" alt="Wig Unit" class="viewable-img">
+                    </div>
+                    <div class="card-details">
+                        <h3>${product.name}</h3>
+                        <span class="price">${product.price || 'Contact for Price'}</span>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                `;
+                
+                if (product.category === "STRAIGHT HAIR") straightGrid.appendChild(card);
+                if (product.category === "PISSIE CURLY") pissieGrid.appendChild(card);
+                if (product.category === "BOUNCY HAIR") bouncyGrid.appendChild(card);
+                if (product.category === "TIWA HAIR") tiwaGrid.appendChild(card);
+                if (product.category === "OUR HAIR PRODUCTS") productsGrid.appendChild(card);
+            });
+
+            // Re-attach event listeners to new buttons
+            document.querySelectorAll('.buy-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const card = e.target.closest('.shop-card');
+                    const id = card.getAttribute('data-id');
+                    const name = card.getAttribute('data-name');
+                    const price = card.getAttribute('data-price');
+                    cart.push({ id, name, price });
+                    cartCount.innerText = cart.length;
+                    if(cart.length > 0) floatingCart.classList.add('active');
+                    renderCart();
+                });
+            });
+        }
 
         const footerTrigger = document.getElementById('footerAdminTrigger');
         const adminModal = document.getElementById('adminModal');
@@ -598,17 +648,6 @@
         const cartItemsList = document.getElementById('cartItemsList');
         const cartToggle = document.getElementById('cartToggle');
 
-        document.querySelectorAll('.buy-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const card = e.target.closest('.shop-card');
-                const id = card.getAttribute('data-id');
-                cart.push({ id, name: "Wig Unit Choice", price: "" });
-                cartCount.innerText = cart.length;
-                if(cart.length > 0) floatingCart.classList.add('active');
-                renderCart();
-            });
-        });
-
         cartToggle.addEventListener('click', (e) => { if(e.target.id !== 'checkoutBtn') cartItemsList.classList.toggle('open'); });
 
         function renderCart() {
@@ -616,7 +655,7 @@
             cart.forEach((item, index) => {
                 const row = document.createElement('div');
                 row.className = 'cart-list-item';
-                row.innerHTML = `<span>${item.name}</span><button class="remove-item-btn" onclick="removeItem(${index})">&times;</button>`;
+                row.innerHTML = `<span>${item.name} (${item.price})</span><button class="remove-item-btn" onclick="removeItem(${index})">&times;</button>`;
                 cartItemsList.appendChild(row);
             });
         }
@@ -630,7 +669,10 @@
 
         document.getElementById('checkoutBtn').addEventListener('click', () => {
             if (cart.length === 0) return;
-            let orderText = "Hello M'S Wigs Studio! I would like to order items from your collection:\n";
+            let orderText = "Hello M'S Wigs Studio! I would like to order items from your collection:\n\n";
+            cart.forEach(item => {
+                orderText += `- ${item.name} (${item.price})\n`;
+            });
             window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(orderText)}`, '_blank');
         });
 
@@ -648,7 +690,10 @@
             }
         }
 
-        window.addEventListener('DOMContentLoaded', cleanAddressBar);
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            cleanAddressBar();
+        });
         window.addEventListener('hashchange', () => { setTimeout(cleanAddressBar, 100); });
     </script>
 </body>
