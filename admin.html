@@ -147,7 +147,7 @@
         saveProductBtn.addEventListener('click', () => {
             const name = document.getElementById('prodName').value.trim();
             const price = document.getElementById('prodPrice').value.trim();
-            const image = document.getElementById('prodImage').value.trim();
+            let image = document.getElementById('prodImage').value.trim();
             const category = document.getElementById('prodCategory').value;
             const currentId = editingProductId.value;
 
@@ -156,10 +156,17 @@
                 return;
             }
 
+            // Sanitization filter to strip stray HTML snippet data from raw image links
+            if (image.includes('<img') || image.includes('src=')) {
+                const match = image.match(/src=["']([^"']+)["']/);
+                if (match && match[1]) {
+                    image = match[1];
+                }
+            }
+
             let products = JSON.parse(localStorage.getItem('wig_products')) || [];
 
             if (currentId) {
-                // Editing an existing product
                 products = products.map(prod => {
                     if (prod.id === currentId) {
                         return { ...prod, name, price: price || 'Contact for Price', image, category };
@@ -168,7 +175,6 @@
                 });
                 alert('Product updated successfully!');
             } else {
-                // Creating a brand new product
                 const newProduct = {
                     id: 'custom-' + Date.now(),
                     name: name,

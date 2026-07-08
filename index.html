@@ -245,6 +245,7 @@
             width: 100%;
             height: 180px;
             object-fit: cover;
+            display: block;
         }
 
         /* --- ADMIN PASSWORD MODAL --- */
@@ -450,7 +451,7 @@
     <section class="direct-booking-section">
         <div class="direct-booking-card">
             <h3>Direct Bookings</h3>
-            <p>Direct bookings? Connect instantly below.</p>
+            <p>Need an immediate quote? Connect instantly below.</p>
             <div class="booking-buttons">
                 <a href="tel:+2348138049021" class="btn-action btn-call">CALL STUDIO</a>
                 <a href="https://wa.me/2348138049021" target="_blank" class="btn-action btn-whatsapp">WHATSAPP CHAT</a>
@@ -585,6 +586,7 @@
                 card.setAttribute('data-name', product.name);
                 card.setAttribute('data-price', product.price || 'Contact for Price');
                 
+                // Clean HTML generation script to prevent visual card breaking leaks
                 card.innerHTML = `
                     <div class="card-img-wrapper">
                         <img src="${product.image || 'https://via.placeholder.com/300x240?text=No+Image'}" alt="Wig Unit" class="viewable-img">
