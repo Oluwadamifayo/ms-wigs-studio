@@ -264,7 +264,6 @@
     </footer>
 
     <script>
-        // --- PERSISTENT LOGIC: ONLY LOAD DEFAULTS IF DATA DOES NOT ALREADY EXIST ---
         if (!localStorage.getItem('wig_products')) {
             const defaultProducts = [
                 { id: "straight-1", name: "Straight Hair Unit 1", price: "", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
@@ -309,7 +308,6 @@
         }
 
         const activeProducts = JSON.parse(localStorage.getItem('wig_products'));
-
         const straightGrid = document.getElementById('straight-hair-grid');
         const pissieGrid = document.getElementById('pissie-curly-grid');
         const bouncyGrid = document.getElementById('bouncy-hair-grid');
@@ -333,14 +331,13 @@
             if (product.category === "TIWA HAIR") tiwaGrid.appendChild(card);
         });
 
-        // --- HIDDEN ENTRY GATE MECHANICS ---
+        // --- ADMIN LOGIN LOGIC ---
         const logoTrigger = document.getElementById('logoAdminTrigger');
         const adminModal = document.getElementById('adminModal');
         const closeAdminModal = document.getElementById('closeAdminModal');
         const loginAdminBtn = document.getElementById('loginAdminBtn');
         const adminPasswordInput = document.getElementById('adminPasswordInput');
 
-        // Open login gate instantly via a double-click/tap on the logo
         logoTrigger.addEventListener('dblclick', (e) => {
             e.preventDefault();
             adminModal.style.display = "flex";
@@ -358,7 +355,7 @@
             }
         });
 
-        // Interactive Shopping Cart System
+        // --- CART ENGINE ---
         const cart = [];
         const cartCount = document.getElementById('cartCount');
         const floatingCart = document.getElementById('floatingCart');
@@ -405,6 +402,24 @@
         const modalImg = document.getElementById('viewerImg');
         document.body.addEventListener('click', (e) => { if(e.target.classList.contains('viewable-img')) { modal.classList.add('visible'); modalImg.src = e.target.src; } });
         document.getElementById('closeViewer').addEventListener('click', () => modal.classList.remove('visible'));
+
+        // --- NEW: URL BAR AUTO-CLEAN ENGINE ---
+        // Cleans up the URL dynamically if it detects index.html or hash sections.
+        function cleanAddressBar() {
+            let currentUrl = window.location.href;
+            if (currentUrl.includes('index.html') || currentUrl.includes('#')) {
+                let cleanUrl = window.location.origin + window.location.pathname.replace('index.html', '');
+                window.history.replaceState({}, document.title, cleanUrl);
+            }
+        }
+
+        // Clean immediately on page mount
+        window.addEventListener('DOMContentLoaded', cleanAddressBar);
+
+        // Clean after any menu click transitions occur
+        window.addEventListener('hashchange', () => {
+            setTimeout(cleanAddressBar, 100);
+        });
     </script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <title>Studio Hub - Management Suite</title>
     <script>
         if (sessionStorage.getItem('admin_authenticated') !== 'true') {
-            window.location.replace("index.html");
+            window.location.replace("/");
         }
     </script>
     <style>
@@ -38,7 +38,7 @@
 
 <div class="dashboard-container">
     <button class="logout-btn" onclick="logoutAdmin()">Secure Exit</button>
-    <a href="index.html" class="back-link">&larr; Return to Storefront</a>
+    <a href="/" class="back-link">&larr; Return to Storefront</a>
     <h1>Studio Store Inventory Suite</h1>
     
     <div class="stats-row">
@@ -96,7 +96,6 @@
     function renderInventory() {
         const data = JSON.parse(localStorage.getItem('wig_products')) || [];
         document.getElementById('totalCount').innerText = `${data.length} Units`;
-        
         const tbody = document.getElementById('inventoryTableBody');
         tbody.innerHTML = '';
         
@@ -157,7 +156,8 @@
 
     window.logoutAdmin = function() {
         sessionStorage.removeItem('admin_authenticated');
-        window.location.replace("index.html");
+        // Points back to your root directory domain cleanly
+        window.location.replace("/");
     }
 
     document.addEventListener('DOMContentLoaded', renderInventory);
