@@ -6,16 +6,18 @@
     <title>M'S Wigs and Natural Hair Studio</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* --- SCROLLING ANNOUNCEMENT BAR SYSTEM --- */
+        /* --- STICKY SCROLLING ANNOUNCEMENT BAR SYSTEM --- */
         .announcement-bar {
             background-color: #000000;
             color: #ffffff;
             overflow: hidden;
-            position: relative;
+            position: sticky; /* Keeps the bar pinned at the top while scrolling */
+            top: 0;
+            left: 0;
             box-sizing: border-box;
             padding: 10px 0;
             border-bottom: 1px solid #27272a;
-            z-index: 6000;
+            z-index: 6000; /* Keeps it above the header navigation elements */
             width: 100%;
         }
         .announcement-track {
