@@ -37,7 +37,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            background: transparent; /* Removes any accidental frame background spillover */
+            background: transparent;
         }
         
         /* Restricts the image frame tightly so it matches the 2x2 grid boxes with no extra side spaces */
@@ -55,10 +55,10 @@
                 gap: 15px;
             }
             .gallery-item.final-centered {
-                grid-column: 2; /* Naturally aligns directly in the middle column on wide desktop viewports */
+                grid-column: 2;
             }
             .gallery-item.final-centered img {
-                width: 100%; /* Restores full column width fit on desktop grids */
+                width: 100%;
             }
         }
     </style>
@@ -108,29 +108,26 @@
             <div class="gallery-item">
                 <img src="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" alt="Portfolio Image" class="viewable-img">
             </div>
-            <div class="gallery-item final-centered">
+            <div class="gallery-item.final-centered">
                 <img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" alt="Portfolio Image" class="viewable-img">
             </div>
         </div>
     </section>
 
     <section id="services" class="services-section">
-        <h2>Studio Services & Pricing</h2>
+        <h2>Studio Services</h2>
         <div class="services-container">
 
             <div class="service-category">
                 <h3>Wig Services</h3>
                 <div class="service-item">
                     <span>Custom Wig Construction (Closure/Frontal)</span>
-                    <strong>₦150,000</strong>
                 </div>
                 <div class="service-item">
                     <span>Wig Installation & Styling</span>
-                    <strong>₦90,000</strong>
                 </div>
                 <div class="service-item">
                     <span>Wig Revamp (Wash, Deep Condition & Style)</span>
-                    <strong>₦65,000</strong>
                 </div>
             </div>
 
@@ -138,15 +135,12 @@
                 <h3>Natural Hair Care</h3>
                 <div class="service-item">
                     <span>Premium Silk Press & Trim</span>
-                    <strong>₦85,000</strong>
                 </div>
                 <div class="service-item">
                     <span>Scalp Treatment & Deep Conditioning</span>
-                    <strong>₦50,000</strong>
                 </div>
                 <div class="service-item">
                     <span>Take Down & Detangle Service</span>
-                    <strong>₦40,000</strong>
                 </div>
             </div>
 
