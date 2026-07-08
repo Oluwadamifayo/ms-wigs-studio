@@ -40,10 +40,29 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
+        /* --- BOLD LOGO VISIBILITY HEADER UPDATE --- */
         header {
             position: relative !important;
             top: auto !important;
+            padding: 15px 10px !important;
+            background: #000000 !important;
         }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .site-logo {
+            width: 150px !important; /* Increased dimension size for high visibility */
+            max-width: 85vw !important;
+            height: auto !important;
+            filter: drop-shadow(0px 2px 8px rgba(255, 255, 255, 0.15)) !important; /* Contrasting glow separation */
+            display: block;
+            margin: 0 auto;
+        }
+
         .card-details h3, .card-details .price {
             display: none !important;
         }
@@ -124,7 +143,7 @@
         /* --- PERSISTENT FLOATING WHATSAPP SYSTEM --- */
         .whatsapp-floating-trigger {
             position: fixed;
-            bottom: 85px; /* Offset to float safely above the standard shopping cart panel */
+            bottom: 85px;
             right: 20px;
             width: 60px;
             height: 60px;
@@ -146,7 +165,6 @@
             height: 34px;
             fill: #ffffff;
         }
-        /* Notification Alert Badge Element */
         .whatsapp-badge-counter {
             position: absolute;
             top: -2px;
@@ -278,6 +296,9 @@
         }
 
         @media (min-width: 768px) {
+            .site-logo {
+                width: 180px !important; /* Slightly enlarged desktop optimization rendering scale */
+            }
             .gallery {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 15px;
