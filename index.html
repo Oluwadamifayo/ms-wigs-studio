@@ -22,35 +22,40 @@
         }
 
         /* --- PORTFOLIO GRID SYSTEM --- */
-        /* Base layout: 2 columns for mobile screens */
+        /* Base mobile layout: 2 columns */
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             padding: 10px 0;
         }
-        /* Force the 7th image to span across both columns and center itself */
+        
+        /* Makes the 7th item span 2 columns and forces content inside to center perfectly */
         .gallery-item.final-centered {
             grid-column: span 2;
             display: flex;
             justify-content: center;
-        }
-        .gallery-item.final-centered img {
+            align-items: center;
             width: 100%;
-            max-width: calc(50% - 6px); /* Matches the size of a single grid item exactly */
+        }
+        
+        /* Keeps the centered image the exact same size as your regular 2x2 grid boxes */
+        .gallery-item.final-centered img {
+            width: calc(50% - 6px);
+            height: auto;
         }
 
-        /* Desktop view: Scales seamlessly into 3 columns */
+        /* Desktop layout scales smoothly into 3 columns */
         @media (min-width: 768px) {
             .gallery {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 15px;
             }
             .gallery-item.final-centered {
-                grid-column: 2; /* Naturally centers the odd item in column 2 of 3 */
+                grid-column: 2; /* Positions nicely in the middle column on wide desktops */
             }
             .gallery-item.final-centered img {
-                max-width: 100%; /* Reverts back to standard filling for desktop card boxes */
+                width: 100%; /* Reverts back to regular column width on desktop scaling */
             }
         }
     </style>
