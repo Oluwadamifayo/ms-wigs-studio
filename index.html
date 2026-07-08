@@ -11,13 +11,13 @@
             background-color: #000000;
             color: #ffffff;
             overflow: hidden;
-            position: sticky; /* Keeps the bar pinned at the top while scrolling */
+            position: sticky;
             top: 0;
             left: 0;
             box-sizing: border-box;
             padding: 10px 0;
             border-bottom: 1px solid #27272a;
-            z-index: 6000; /* Keeps it above the header navigation elements */
+            z-index: 6000;
             width: 100%;
         }
         .announcement-track {
@@ -31,7 +31,7 @@
             font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding-right: 50px; /* Gap between repeating messages */
+            padding-right: 50px;
             white-space: nowrap;
         }
 
@@ -50,6 +50,75 @@
         .card-details {
             padding: 5px 0 0 0 !important;
             text-align: center;
+        }
+
+        /* --- BROWSE COLLECTIONS DROPDOWN STYLING --- */
+        .browse-dropdown-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .dropdown-trigger {
+            width: 100%;
+            background: #f4f4f5;
+            color: #09090b;
+            border: 1px solid #e4e4e7;
+            border-radius: 8px;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            box-sizing: border-box;
+            transition: background 0.2s ease;
+        }
+        .dropdown-trigger:hover {
+            background: #e4e4e7;
+        }
+        .dropdown-icon {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+        .dropdown-content {
+            display: none;
+            background: #ffffff;
+            border: 1px solid #e4e4e7;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+            margin-top: -4px;
+        }
+        .dropdown-content.open {
+            display: block;
+        }
+        .dropdown-trigger.open {
+            border-radius: 8px 8px 0 0;
+        }
+        .dropdown-trigger.open .dropdown-icon {
+            transform: rotate(180deg);
+        }
+        .dropdown-link {
+            display: block;
+            padding: 14px 20px;
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            border-bottom: 1px solid #f4f4f5;
+            transition: background 0.2s ease;
+        }
+        .dropdown-link:last-child {
+            border-bottom: none;
+        }
+        .dropdown-link:hover {
+            background: #f8fafc;
+            color: #1d4ed8;
         }
 
         /* --- PORTFOLIO GRID SYSTEM --- */
@@ -217,6 +286,19 @@
         </div>
     </section>
 
+    <div class="browse-dropdown-container">
+        <button class="dropdown-trigger" id="collectionDropdownBtn">
+            <span>Browse Collections</span>
+            <span class="dropdown-icon">▼</span>
+        </button>
+        <div class="dropdown-content" id="collectionDropdownContent">
+            <a href="#straight-hair-section" class="dropdown-link">Straight Hair</a>
+            <a href="#pissie-curly-section" class="dropdown-link">Pissie Curly</a>
+            <a href="#bouncy-hair-section" class="dropdown-link">Bouncy Hair</a>
+            <a href="#tiwa-hair-section" class="dropdown-link">Tiwa Hair</a>
+        </div>
+    </div>
+
     <section id="portfolio">
         <h2>Our Portfolio</h2>
         <div class="gallery">
@@ -264,10 +346,10 @@
 
     <section id="shop">
         <h2>Shop Our Collection</h2>
-        <div class="shop-group"><h3 class="group-title">STRAIGHT HAIR</h3><div class="shop-grid" id="straight-hair-grid"></div></div>
-        <div class="shop-group"><h3 class="group-title">PISSIE CURLY</h3><div class="shop-grid" id="pissie-curly-grid"></div></div>
-        <div class="shop-group"><h3 class="group-title">BOUNCY HAIR</h3><div class="shop-grid" id="bouncy-hair-grid"></div></div>
-        <div class="shop-group"><h3 class="group-title">TIWA HAIR</h3><div class="shop-grid" id="tiwa-hair-grid"></div></div>
+        <div class="shop-group" id="straight-hair-section"><h3 class="group-title">STRAIGHT HAIR</h3><div class="shop-grid" id="straight-hair-grid"></div></div>
+        <div class="shop-group" id="pissie-curly-section"><h3 class="group-title">PISSIE CURLY</h3><div class="shop-grid" id="pissie-curly-grid"></div></div>
+        <div class="shop-group" id="bouncy-hair-section"><h3 class="group-title">BOUNCY HAIR</h3><div class="shop-grid" id="bouncy-hair-grid"></div></div>
+        <div class="shop-group" id="tiwa-hair-section"><h3 class="group-title">TIWA HAIR</h3><div class="shop-grid" id="tiwa-hair-grid"></div></div>
     </section>
 
     <section id="contact" class="contact-section">
@@ -320,6 +402,34 @@
     </footer>
 
     <script>
+        // --- DROPDOWN ACTION HANDLER ---
+        const dropBtn = document.getElementById('collectionDropdownBtn');
+        const dropContent = document.getElementById('collectionDropdownContent');
+
+        dropBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropBtn.classList.toggle('open');
+            dropContent.classList.toggle('open');
+        });
+
+        // Close dropdown if user clicks anywhere outside of it
+        document.addEventListener('click', () => {
+            dropBtn.classList.remove('open');
+            dropContent.classList.remove('open');
+        });
+
+        // Setup smooth anchor scrolling when clicking a collection dropdown item
+        document.querySelectorAll('.dropdown-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
         if (!localStorage.getItem('wig_products')) {
             const defaultProducts = [
                 { id: "straight-1", name: "Straight Hair Unit 1", price: "", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
