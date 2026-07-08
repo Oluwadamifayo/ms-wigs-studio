@@ -269,10 +269,6 @@
             width: 280px;
             text-align: center;
         }
-        .admin-modal-content h3 {
-            margin-top: 0;
-            color: #fff;
-        }
         .admin-modal-content input {
             width: 100%;
             padding: 10px;
@@ -521,7 +517,9 @@
             });
         });
 
-        if (!localStorage.getItem('wig_products')) {
+        // RE-INITIALIZATION FORCING SYSTEM
+        // Increment 'version_v1' to 'version_v2' if you ever need to manually reset the store defaults again
+        if (!localStorage.getItem('wig_products_store_version_v1')) {
             const defaultProducts = [
                 { id: "straight-1", name: "Straight Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
                 { id: "straight-2", name: "Straight Hair Unit 2", price: "Contact for Price", image: "https://i.ibb.co/V0yN6qD2/IMG-20260706-WA0104.jpg", category: "STRAIGHT HAIR" },
@@ -559,14 +557,16 @@
                 { id: "tiwa-1", name: "Tiwa Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/MyZkctCP/IMG-20260707-WA0051.jpg", category: "TIWA HAIR" },
                 { id: "tiwa-2", name: "Tiwa Hair Unit 2", price: "Contact for Price", image: "https://i.ibb.co/9HV7rcC0/IMG-20260706-WA0139-1.jpg", category: "TIWA HAIR" },
                 { id: "tiwa-3", name: "Tiwa Hair Unit 3", price: "Contact for Price", image: "https://i.ibb.co/vvZb7MT6/IMG-20260708-WA0039.jpg", category: "TIWA HAIR" },
-                { id: "tiwa-4", name: "Tiwa Hair Unit 4", price: "Contact for Price", image: "https://i.ibb.co/7tPdhfmH/WA-1783517014522.jpg", category: "TIWA HAIR" }
+                { id: "tiwa-4", name: "Tiwa Hair Unit 4", price: "Contact for Price", image: "https://i.ibb.co/7tPdhfmH/WA-1783517014522.jpg", category: "TIWA HAIR" },
+                { id: "custom-hairpacker", name: "Hair Packer", price: "Contact for Price", image: "https://i.ibb.co/a8ad4dbc-3cc0-417d-9d02-bd99c84bc499/image.jpg", category: "OUR HAIR PRODUCTS" }
             ];
             localStorage.setItem('wig_products', JSON.stringify(defaultProducts));
+            localStorage.setItem('wig_products_store_version_v1', 'true');
         }
 
         function renderProducts() {
             const activeProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
-            
+
             const straightGrid = document.getElementById('straight-hair-grid');
             const pissieGrid = document.getElementById('pissie-curly-grid');
             const bouncyGrid = document.getElementById('bouncy-hair-grid');
@@ -585,8 +585,7 @@
                 card.setAttribute('data-id', product.id);
                 card.setAttribute('data-name', product.name);
                 card.setAttribute('data-price', product.price || 'Contact for Price');
-                
-                // Clean HTML generation script to prevent visual card breaking leaks
+
                 card.innerHTML = `
                     <div class="card-img-wrapper">
                         <img src="${product.image || 'https://via.placeholder.com/300x240?text=No+Image'}" alt="Wig Unit" class="viewable-img">
@@ -597,7 +596,7 @@
                         <button class="buy-btn">Add to Cart</button>
                     </div>
                 `;
-                
+
                 if (product.category === "STRAIGHT HAIR") straightGrid.appendChild(card);
                 if (product.category === "PISSIE CURLY") pissieGrid.appendChild(card);
                 if (product.category === "BOUNCY HAIR") bouncyGrid.appendChild(card);
@@ -605,7 +604,6 @@
                 if (product.category === "OUR HAIR PRODUCTS") productsGrid.appendChild(card);
             });
 
-            // Re-attach event listeners to new buttons
             document.querySelectorAll('.buy-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const card = e.target.closest('.shop-card');
