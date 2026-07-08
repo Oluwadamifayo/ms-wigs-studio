@@ -144,25 +144,40 @@
         const editingProductId = document.getElementById('editingProductId');
         const formTitle = document.getElementById('formTitle');
 
+        // ULTRA-CLEAN LINK EXTRACTION FUNCTION
+        function extractCleanUrl(inputStr) {
+            let targetStr = inputStr.trim();
+            
+            // If user pasted a full HTML image tag or anchor tag, pull out just the src URL
+            if (targetStr.includes('<') || targetStr.includes('>')) {
+                const srcMatch = targetStr.match(/src=["']([^"']+)["']/i);
+                if (srcMatch && srcMatch[1]) {
+                    return srcMatch[1].trim();
+                }
+                const hrefMatch = targetStr.match(/href=["']([^"']+)["']/i);
+                if (hrefMatch && hrefMatch[1]) {
+                    return hrefMatch[1].trim();
+                }
+            }
+            
+            // Strip out any accidental quotes at the ends
+            return targetStr.replace(/^["']|["']$/g, '');
+        }
+
         saveProductBtn.addEventListener('click', () => {
             const name = document.getElementById('prodName').value.trim();
             const price = document.getElementById('prodPrice').value.trim();
-            let image = document.getElementById('prodImage').value.trim();
+            let rawImage = document.getElementById('prodImage').value.trim();
             const category = document.getElementById('prodCategory').value;
             const currentId = editingProductId.value;
 
-            if (!name || !image) {
+            if (!name || !rawImage) {
                 alert('Please enter a valid Name and Image URL.');
                 return;
             }
 
-            // Sanitization filter to strip stray HTML snippet data from raw image links
-            if (image.includes('<img') || image.includes('src=')) {
-                const match = image.match(/src=["']([^"']+)["']/);
-                if (match && match[1]) {
-                    image = match[1];
-                }
-            }
+            // Run through the newly upgraded purification cleaner
+            const image = extractCleanUrl(rawImage);
 
             let products = JSON.parse(localStorage.getItem('wig_products')) || [];
 
@@ -214,7 +229,7 @@
                 row.className = 'product-item';
                 row.innerHTML = `
                     <div>
-                        <strong>${prod.name}</strong> (${prod.price})<br>
+                        <strong>${prod.name}</strong> ${prod.price ? `(${prod.price})` : ''}<br>
                         <small style="color:#a1a1aa;">Category: ${prod.category}</small>
                     </div>
                     <div class="action-btns">
