@@ -1,4 +1,4 @@
-l<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,22 +57,47 @@ l<!DOCTYPE html>
             justify-content: space-between;
             align-items: center;
         }
+        .action-btns {
+            display: flex;
+            gap: 8px;
+        }
+        .edit-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 6px 12px;
+            font-size: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
         .delete-btn {
             background: #ef4444;
             color: white;
             padding: 6px 12px;
             font-size: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .cancel-btn {
+            background: #3f3f46;
+            color: white;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Studio inventory Dashboard</h2>
+        <h2>Studio Inventory Dashboard</h2>
         <p><a href="index.html" style="color: #a1a1aa; text-decoration: none;">&larr; Return to Website</a></p>
         
         <div style="background: #111113; padding: 20px; border-radius: 8px; border: 1px solid #27272a; margin-bottom: 30px;">
-            <h3>Add New Product Listing</h3>
+            <h3 id="formTitle">Add New Product Listing</h3>
             
+            <input type="hidden" id="editingProductId" value="">
+
             <div class="form-group">
                 <label>Product Name</label>
                 <input type="text" id="prodName" placeholder="e.g., Luxury Straight Unit">
@@ -100,6 +125,7 @@ l<!DOCTYPE html>
             </div>
 
             <button id="saveProductBtn">Add to Store Inventory</button>
+            <button id="cancelEditBtn" class="cancel-btn" style="display: none;">Cancel Edit</button>
         </div>
 
         <h3>Current Inventory Products</h3>
@@ -113,45 +139,71 @@ l<!DOCTYPE html>
         }
 
         const saveProductBtn = document.getElementById('saveProductBtn');
+        const cancelEditBtn = document.getElementById('cancelEditBtn');
         const adminInventoryList = document.getElementById('adminInventoryList');
+        const editingProductId = document.getElementById('editingProductId');
+        const formTitle = document.getElementById('formTitle');
 
         saveProductBtn.addEventListener('click', () => {
             const name = document.getElementById('prodName').value.trim();
             const price = document.getElementById('prodPrice').value.trim();
             const image = document.getElementById('prodImage').value.trim();
             const category = document.getElementById('prodCategory').value;
+            const currentId = editingProductId.value;
 
             if (!name || !image) {
                 alert('Please enter a valid Name and Image URL.');
                 return;
             }
 
-            const products = JSON.parse(localStorage.getItem('wig_products')) || [];
-            const newProduct = {
-                id: 'custom-' + Date.now(),
-                name: name,
-                price: price || 'Contact for Price',
-                image: image,
-                category: category
-            };
+            let products = JSON.parse(localStorage.getItem('wig_products')) || [];
 
-            products.push(newProduct);
+            if (currentId) {
+                // Editing an existing product
+                products = products.map(prod => {
+                    if (prod.id === currentId) {
+                        return { ...prod, name, price: price || 'Contact for Price', image, category };
+                    }
+                    return prod;
+                });
+                alert('Product updated successfully!');
+            } else {
+                // Creating a brand new product
+                const newProduct = {
+                    id: 'custom-' + Date.now(),
+                    name: name,
+                    price: price || 'Contact for Price',
+                    image: image,
+                    category: category
+                };
+                products.push(newProduct);
+                alert('Product added successfully!');
+            }
+
             localStorage.setItem('wig_products', JSON.stringify(products));
-            
-            // Clear Inputs
+            resetForm();
+            renderAdminList();
+        });
+
+        cancelEditBtn.addEventListener('click', resetForm);
+
+        function resetForm() {
+            editingProductId.value = '';
             document.getElementById('prodName').value = '';
             document.getElementById('prodPrice').value = '';
             document.getElementById('prodImage').value = '';
-
-            alert('Product added successfully!');
-            renderAdminList();
-        });
+            document.getElementById('prodCategory').value = 'STRAIGHT HAIR';
+            
+            formTitle.innerText = 'Add New Product Listing';
+            saveProductBtn.innerText = 'Add to Store Inventory';
+            cancelEditBtn.style.display = 'none';
+        }
 
         function renderAdminList() {
             adminInventoryList.innerHTML = '';
             const products = JSON.parse(localStorage.getItem('wig_products')) || [];
             
-            products.forEach((prod, index) => {
+            products.forEach((prod) => {
                 const row = document.createElement('div');
                 row.className = 'product-item';
                 row.innerHTML = `
@@ -159,17 +211,39 @@ l<!DOCTYPE html>
                         <strong>${prod.name}</strong> (${prod.price})<br>
                         <small style="color:#a1a1aa;">Category: ${prod.category}</small>
                     </div>
-                    <button class="delete-btn" onclick="deleteProduct(${index})">Delete</button>
+                    <div class="action-btns">
+                        <button class="edit-btn" onclick="startEdit('${prod.id}')">Edit</button>
+                        <button class="delete-btn" onclick="deleteProduct('${prod.id}')">Delete</button>
+                    </div>
                 `;
                 adminInventoryList.appendChild(row);
             });
         }
 
-        window.deleteProduct = function(index) {
+        window.startEdit = function(id) {
+            const products = JSON.parse(localStorage.getItem('wig_products')) || [];
+            const productToEdit = products.find(prod => prod.id === id);
+
+            if (productToEdit) {
+                editingProductId.value = productToEdit.id;
+                document.getElementById('prodName').value = productToEdit.name;
+                document.getElementById('prodPrice').value = productToEdit.price === 'Contact for Price' ? '' : productToEdit.price;
+                document.getElementById('prodImage').value = productToEdit.image;
+                document.getElementById('prodCategory').value = productToEdit.category;
+
+                formTitle.innerText = 'Edit Existing Product';
+                saveProductBtn.innerText = 'Save Changes';
+                cancelEditBtn.style.display = 'inline-block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
+        window.deleteProduct = function(id) {
             if(confirm("Are you sure you want to remove this item?")) {
-                const products = JSON.parse(localStorage.getItem('wig_products')) || [];
-                products.splice(index, 1);
+                let products = JSON.parse(localStorage.getItem('wig_products')) || [];
+                products = products.filter(prod => prod.id !== id);
                 localStorage.setItem('wig_products', JSON.stringify(products));
+                if (editingProductId.value === id) resetForm();
                 renderAdminList();
             }
         };
