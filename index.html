@@ -6,6 +6,38 @@
     <title>M'S Wigs and Natural Hair Studio</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* --- SCROLLING ANNOUNCEMENT BAR SYSTEM --- */
+        .announcement-bar {
+            background-color: #000000;
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+            padding: 10px 0;
+            border-bottom: 1px solid #27272a;
+            z-index: 6000;
+            width: 100%;
+        }
+        .announcement-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+        .announcement-text {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding-right: 50px; /* Gap between repeating messages */
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
         header {
             position: relative !important;
             top: auto !important;
@@ -117,7 +149,6 @@
             font-size: 20px;
         }
 
-        /* --- FOOTER BUTTON STYLE --- */
         .footer-admin-link {
             display: block;
             margin-top: 10px;
@@ -152,6 +183,15 @@
     </style>
 </head>
 <body>
+
+    <div class="announcement-bar">
+        <div class="announcement-track">
+            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! ENJOY DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE PURCHASE.</span>
+            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! ENJOY DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE PURCHASE.</span>
+            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! ENJOY DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE PURCHASE.</span>
+            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! ENJOY DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE PURCHASE.</span>
+        </div>
+    </div>
 
     <header>
         <div class="logo-container">
@@ -345,14 +385,12 @@
             if (product.category === "TIWA HAIR") tiwaGrid.appendChild(card);
         });
 
-        // --- NEW SIMPLIFIED FOOTER TRIGGER ENTRY ---
         const footerTrigger = document.getElementById('footerAdminTrigger');
         const adminModal = document.getElementById('adminModal');
         const closeAdminModal = document.getElementById('closeAdminModal');
         const loginAdminBtn = document.getElementById('loginAdminBtn');
         const adminPasswordInput = document.getElementById('adminPasswordInput');
 
-        // Simple click opens the password form instantly
         footerTrigger.addEventListener('click', (e) => {
             e.preventDefault();
             adminModal.style.display = "flex";
