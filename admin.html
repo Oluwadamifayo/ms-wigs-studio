@@ -18,8 +18,8 @@
         .prod-title { font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .prod-meta { font-size: 13px; color: #a1a1aa; margin-top: 2px; }
         .action-btns { display: flex; gap: 6px; flex-shrink: 0; }
-        .btn-edit { background: #2563eb; color: #fff; padding: 6px 12px; font-size: 13px; width: auto; margin: 0; }
-        .btn-delete { background: #dc2626; color: #fff; padding: 6px 12px; font-size: 13px; width: auto; margin: 0; }
+        .btn-edit { background: #2563eb; color: #fff; padding: 6px 12px; font-size: 13px; width: auto; margin: 0; border-radius: 4px; }
+        .btn-delete { background: #dc2626; color: #fff; padding: 6px 12px; font-size: 13px; width: auto; margin: 0; border-radius: 4px; }
     </style>
 </head>
 <body>
@@ -28,7 +28,7 @@
         <h3 id="formTitle">Add New Product</h3>
         <input type="hidden" id="editingId">
         <input type="text" id="prodName" placeholder="Product Name / Title (e.g. HAIR BRUSH)">
-        <input type="text" id="prodPrice" placeholder="Price (e.g. 1000 or Contact for Price)">
+        <input type="text" id="prodPrice" placeholder="Price (e.g. ₦50,000 or Contact for Price)">
         <input type="text" id="prodImage" placeholder="Paste link or image HTML embed code">
         
         <select id="prodCategory">
@@ -49,7 +49,8 @@
     </div>
 
     <script>
-        const cloudStorageUrl = 'https://kvdb.io/AnG9z7K7m8X9P2q4r7sW/wig_products_db';
+        const cloudStorageUrl = 'https://api.jsonbin.io/v3/b/668baa4facd3cb34a8637042';
+        const cloudHeaderKey = '$2a$10$tM2wF4F7bQy6Eshn82kIkeaP/P7qL5Y9hB.oUu5.zW70U9UaI59P6';
         let currentProducts = [];
 
         function extractUrl(raw) {
@@ -62,11 +63,12 @@
 
         async function loadProducts() {
             try {
-                const res = await fetch(cloudStorageUrl);
+                const res = await fetch(cloudStorageUrl + '/latest', {
+                    headers: { 'X-Master-Key': cloudHeaderKey }
+                });
                 if(res.ok) {
-                    currentProducts = await res.json();
-                } else {
-                    currentProducts = [];
+                    const data = await res.json();
+                    currentProducts = data.record || [];
                 }
             } catch(e) {
                 currentProducts = [];
@@ -87,7 +89,7 @@
                 row.innerHTML = `
                     <div class="prod-info">
                         <div class="prod-title">${product.name}</div>
-                        <div class="prod-meta">${product.category} — ₦${product.price}</div>
+                        <div class="prod-meta">${product.category} — ${product.price}</div>
                     </div>
                     <div class="action-btns">
                         <button class="btn-edit" onclick="startEdit('${product.id}')">Edit</button>
@@ -95,6 +97,17 @@
                     </div>
                 `;
                 container.appendChild(row);
+            });
+        }
+
+        async function saveToCloud(arr) {
+            await fetch(cloudStorageUrl, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Master-Key': cloudHeaderKey
+                },
+                body: JSON.stringify(arr)
             });
         }
 
@@ -110,18 +123,13 @@
             const image = extractUrl(rawImg);
 
             if(editId) {
-                // Update existing item values matching active tracking reference
                 currentProducts = currentProducts.map(p => p.id === editId ? { ...p, name, price, image, category } : p);
             } else {
-                // Add new item to catalog array
                 currentProducts.push({ id: 'item-' + Date.now(), name, price, image, category });
             }
 
-            // Sync structural changes live onto global storage network endpoint pipeline
-            await fetch(cloudStorageUrl, {
-                method: 'POST',
-                body: JSON.stringify(currentProducts)
-            });
+            localStorage.setItem('wig_products', JSON.stringify(currentProducts));
+            await saveToCloud(currentProducts);
 
             alert('Database synchronized globally for all users!');
             resetForm();
@@ -145,10 +153,8 @@
             if(!confirm("Are you sure you want to remove this product from the public storefront?")) return;
             currentProducts = currentProducts.filter(p => p.id !== id);
             
-            await fetch(cloudStorageUrl, {
-                method: 'POST',
-                body: JSON.stringify(currentProducts)
-            });
+            localStorage.setItem('wig_products', JSON.stringify(currentProducts));
+            await saveToCloud(currentProducts);
             
             loadProducts();
         };

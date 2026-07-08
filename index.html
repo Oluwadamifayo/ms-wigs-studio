@@ -291,24 +291,22 @@
             dropContent.classList.toggle('open');
         });
 
-        // LIVE PIPELINE CLOUD DATA SOURCE TRACKER
-        const cloudStorageUrl = 'https://kvdb.io/AnG9z7K7m8X9P2q4r7sW/wig_products_db';
+        // HIGH PERFORMANCE CLOUD PIPELINE DATA STREAM
+        const cloudStorageUrl = 'https://api.jsonbin.io/v3/b/668baa4facd3cb34a8637042/latest';
+        const cloudHeaderKey = '$2a$10$tM2wF4F7bQy6Eshn82kIkeaP/P7qL5Y9hB.oUu5.zW70U9UaI59P6';
 
         async function renderProducts() {
             let activeProducts = [];
             try {
-                const res = await fetch(cloudStorageUrl);
+                const res = await fetch(cloudStorageUrl, {
+                    headers: { 'X-Master-Key': cloudHeaderKey }
+                });
                 if(res.ok) {
-                    activeProducts = await res.json();
-                } else {
-                    throw new Error("Empty cloud database setup");
+                    const data = await res.json();
+                    activeProducts = data.record || [];
                 }
             } catch (e) {
-                // Fallback default setup array if cloud store initialization hasn't occurred
-                activeProducts = [
-                    { id: "straight-1", name: "Straight Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
-                    { id: "curly-1", name: "Pissie Curly Unit 1", price: "Contact for Price", image: "https://i.ibb.co/hRkScd6B/IMG-20260707-WA0047.jpg", category: "PISSIE CURLY" }
-                ];
+                activeProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
             }
 
             const grids = {
