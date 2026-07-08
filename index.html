@@ -6,10 +6,19 @@
     <title>M'S Wigs and Natural Hair Studio</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* This ensures the header stays relative and scrolls away with the page instead of sticking */
+        /* Ensures the header stays relative and scrolls away with the page */
         header {
             position: relative !important;
             top: auto !important;
+        }
+        /* Hides shop text details for a completely clean look */
+        .card-details h3, .card-details .price {
+            display: none !important;
+        }
+        /* Style adjustments to make buttons look neat directly under images if items are added */
+        .card-details {
+            padding: 5px 0 0 0 !important;
+            text-align: center;
         }
     </style>
 </head>
@@ -18,7 +27,7 @@
     <header>
         <div class="logo-container">
             <a href="#home">
-                <img src="https://i.ibb.co/4ZXDHZJz/176106-removebg-preview.png" alt="176106 removebg preview" class="site-logo">
+                <img src="https://i.ibb.co/4ZXDHZJz/176106-removebg-preview.png" alt="M'S Wigs Logo" class="site-logo">
             </a>
         </div>
         <nav>
@@ -41,16 +50,16 @@
         <h2>Our Portfolio</h2>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" alt="Featured Custom Unit" class="viewable-img">
-                <div class="gallery-desc">Featured Custom Unit</div>
+                <img src="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" alt="Portfolio Image" class="viewable-img">
             </div>
             <div class="gallery-item">
-                <img src="https://i.ibb.co/Vv6XgY7/portfolio1.jpg" alt="Custom Closure Wig" class="viewable-img">
-                <div class="gallery-desc">Custom Closure Wig</div>
+                <img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" alt="Portfolio Image" class="viewable-img">
             </div>
             <div class="gallery-item">
-                <img src="https://i.ibb.co/m0Y3pX5/portfolio2.jpg" alt="Silk Press & Trim" class="viewable-img">
-                <div class="gallery-desc">Silk Press & Trim</div>
+                <img src="https://i.ibb.co/Vv6XgY7/portfolio1.jpg" alt="Portfolio Image" class="viewable-img">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/m0Y3pX5/portfolio2.jpg" alt="Portfolio Image" class="viewable-img">
             </div>
         </div>
     </section>
@@ -176,11 +185,11 @@
             card.setAttribute('data-id', product.id);
             card.innerHTML = `
                 <div class="card-img-wrapper">
-                    <img src="${product.image || 'https://via.placeholder.com/300x240?text=No+Image'}" alt="${product.name}" class="viewable-img">
+                    <img src="${product.image || 'https://via.placeholder.com/300x240?text=No+Image'}" alt="Wig Unit" class="viewable-img">
                 </div>
                 <div class="card-details">
-                    <h3>${product.name}</h3>
-                    <p class="price">${product.price}</p>
+                    <h3 style="display:none;">${product.name}</h3>
+                    <p class="price" style="display:none;">${product.price}</p>
                     <button class="buy-btn">Add to Cart</button>
                 </div>
             `;
@@ -190,9 +199,9 @@
             if (product.category === "BOUNCY HAIR") bouncyGrid.appendChild(card);
         });
 
-        if (!straightGrid.children.length) { straightGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><h3>Coming Soon</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
-        if (!pissieGrid.children.length) { pissieGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><h3>Coming Soon</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
-        if (!bouncyGrid.children.length) { bouncyGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><h3>Coming Soon</h3><p class="price">₦--,--</p><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!straightGrid.children.length) { straightGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!pissieGrid.children.length) { pissieGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!bouncyGrid.children.length) { bouncyGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
 
         const cart = [];
         const cartCount = document.getElementById('cartCount');
@@ -205,8 +214,8 @@
                 if (btn.hasAttribute('disabled')) return;
                 const card = e.target.closest('.shop-card');
                 const id = card.getAttribute('data-id');
-                const name = card.querySelector('h3').innerText;
-                const price = card.querySelector('.price').innerText;
+                const name = "Wig Unit From Gallery"; 
+                const price = "";
 
                 cart.push({ id, name, price });
                 cartCount.innerText = cart.length;
@@ -225,7 +234,7 @@
             cart.forEach((item, index) => {
                 const row = document.createElement('div');
                 row.className = 'cart-list-item';
-                row.innerHTML = `<span>${item.name} (${item.price})</span><button class="remove-item-btn" onclick="removeItem(${index})">&times;</button>`;
+                row.innerHTML = `<span>${item.name}</span><button class="remove-item-btn" onclick="removeItem(${index})">&times;</button>`;
                 cartItemsList.appendChild(row);
             });
         }
@@ -242,15 +251,14 @@
 
         document.getElementById('checkoutBtn').addEventListener('click', () => {
             if (cart.length === 0) return;
-            let orderText = "Hello M'S Wigs Studio! I would like to place an order for:\n\n";
-            cart.forEach((item, idx) => { orderText += `${idx + 1}. ${item.name} - ${item.price}\n`; });
+            let orderText = "Hello M'S Wigs Studio! I would like to order the items selected from your image gallery link:\n\n";
+            cart.forEach((item, idx) => { orderText += `${idx + 1}. Hair Unit Choice\n`; });
             window.open(`https://wa.me/2348158049021?text=${encodeURIComponent(orderText)}`, '_blank');
         });
 
         const modal = document.getElementById('imageViewer');
         const modalImg = document.getElementById('viewerImg');
         
-        // Dynamic handler ensuring newly elements trigger lightbox modal correctly
         document.body.addEventListener('click', (e) => {
             if(e.target.classList.contains('viewable-img')) {
                 modal.classList.add('visible');
