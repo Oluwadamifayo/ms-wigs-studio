@@ -241,7 +241,7 @@
     </footer>
 
     <script>
-        // Array expanded to include your fifth Pissie Curly product image link
+        // Array expanded to include your sixth Pissie Curly product image link
         const defaultProducts = [
             { id: "straight-1", name: "Straight Hair Unit 1", price: "", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
             { id: "straight-2", name: "Straight Hair Unit 2", price: "", image: "https://i.ibb.co/V0yN6qD2/IMG-20260706-WA0104.jpg", category: "STRAIGHT HAIR" },
@@ -258,7 +258,8 @@
             { id: "curly-2", name: "Pissie Curly Unit 2", price: "", image: "https://i.ibb.co/JwWGy9f7/IMG-20260707-WA0059.jpg", category: "PISSIE CURLY" },
             { id: "curly-3", name: "Pissie Curly Unit 3", price: "", image: "https://i.ibb.co/DfNh0kd7/IMG-20260706-WA0144.jpg", category: "PISSIE CURLY" },
             { id: "curly-4", name: "Pissie Curly Unit 4", price: "", image: "https://i.ibb.co/pvws1pvr/IMG-20260706-WA0136-1.jpg", category: "PISSIE CURLY" },
-            { id: "curly-5", name: "Pissie Curly Unit 5", price: "", image: "https://i.ibb.co/nMJStJLv/IMG-20260707-WA0061.jpg", category: "PISSIE CURLY" }
+            { id: "curly-5", name: "Pissie Curly Unit 5", price: "", image: "https://i.ibb.co/nMJStJLv/IMG-20260707-WA0061.jpg", category: "PISSIE CURLY" },
+            { id: "curly-6", name: "Pissie Curly Unit 6", price: "", image: "https://i.ibb.co/nMZhPvLn/IMG-20260707-WA0063.jpg", category: "PISSIE CURLY" }
         ];
 
         localStorage.setItem('wig_products', JSON.stringify(defaultProducts));
@@ -288,9 +289,9 @@
             if (product.category === "BOUNCY HAIR") bouncyGrid.appendChild(card);
         });
 
-        if (!straightGrid.children.length) { straightGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
-        if (!pissieGrid.children.length) { pissieGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
-        if (!bouncyGrid.children.length) { bouncyGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!straightGrid.children.length) { straightGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!pissieGrid.children.length) { pissieGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!bouncyGrid.children.length) { bouncyGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
 
         const cart = [];
         const cartCount = document.getElementById('cartCount');
