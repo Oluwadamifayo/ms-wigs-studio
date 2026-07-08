@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio Hub - Management Suite</title>
     <script>
-        // Security Check: Kick unauthenticated sessions back to the store homepage instantly
         if (sessionStorage.getItem('admin_authenticated') !== 'true') {
             window.location.replace("index.html");
         }
@@ -124,12 +123,9 @@
         }
 
         const currentStock = JSON.parse(localStorage.getItem('wig_products')) || [];
-        
-        // Count products in this category to calculate the correct automatic sequence number
         const categoryItemsCount = currentStock.filter(item => item.category === category).length;
         const displaySequence = categoryItemsCount + 1;
         
-        // Build clean default item names matching your theme sequence
         let formattedName = name;
         if (!formattedName) {
             if (category === "STRAIGHT HAIR") formattedName = `Straight Hair Unit ${displaySequence}`;
@@ -139,21 +135,13 @@
         }
 
         const uniqueId = `unit-${Date.now()}`;
-        
-        const newUnit = {
-            id: uniqueId,
-            name: formattedName,
-            price: "",
-            image: image,
-            category: category
-        };
+        const newUnit = { id: uniqueId, name: formattedName, price: "", image: image, category: category };
         
         currentStock.push(newUnit);
         localStorage.setItem('wig_products', JSON.stringify(currentStock));
         
         document.getElementById('prodName').value = '';
         document.getElementById('prodImage').value = '';
-        
         renderInventory();
         alert('Product added live successfully!');
     }
@@ -174,6 +162,5 @@
 
     document.addEventListener('DOMContentLoaded', renderInventory);
 </script>
-
 </body>
 </html>
