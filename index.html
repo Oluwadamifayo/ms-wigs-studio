@@ -48,7 +48,34 @@
             display: block;
         }
 
-        /* Desktop layout scales smoothly into 3 columns */
+        /* --- HORIZONTAL SCROLLABLE SHOP ENGINE --- */
+        .shop-grid {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            gap: 15px !important;
+            padding: 10px 5px !important;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Fixed proportions for shop items so they stack neatly horizontally */
+        .shop-card {
+            flex: 0 0 160px !important; /* Forces cards to stay side-by-side without crushing */
+            max-width: 160px !important;
+            box-sizing: border-box;
+        }
+
+        .shop-card .card-img-wrapper img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        /* Desktop layout scales smoothly into 3 columns for portfolio */
         @media (min-width: 768px) {
             .gallery {
                 grid-template-columns: repeat(3, 1fr);
@@ -59,6 +86,13 @@
             }
             .gallery-item.final-centered img {
                 width: 100%;
+            }
+            .shop-card {
+                flex: 0 0 220px !important;
+                max-width: 220px !important;
+            }
+            .shop-card .card-img-wrapper img {
+                height: 250px;
             }
         }
     </style>
@@ -207,16 +241,17 @@
     </footer>
 
     <script>
+        // Updated products array with your first live link under STRAIGHT HAIR
         const defaultProducts = [
-            { id: "straight-1", name: "Collection Unit", price: "", image: "https://i.ibb.co/Vv6XgY7/portfolio1.jpg", category: "STRAIGHT HAIR" },
-            { id: "straight-2", name: "Collection Unit", price: "", image: "https://i.ibb.co/m0Y3pX5/portfolio2.jpg", category: "STRAIGHT HAIR" },
-            { id: "bouncy-1", name: "Collection Unit", price: "", image: "https://i.ibb.co/Vv6XgY7/portfolio1.jpg", category: "PISSIE CURLY" },
-            { id: "bouncy-2", name: "Collection Unit", price: "", image: "https://i.ibb.co/m0Y3pX5/portfolio2.jpg", category: "PISSIE CURLY" }
+            { id: "straight-1", name: "Straight Hair Unit", price: "", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" }
         ];
 
         if (!localStorage.getItem('wig_products')) {
             localStorage.setItem('wig_products', JSON.stringify(defaultProducts));
         }
+        
+        // Clear local storage cache to display the newly modified array structure immediately
+        localStorage.setItem('wig_products', JSON.stringify(defaultProducts));
         const activeProducts = JSON.parse(localStorage.getItem('wig_products'));
 
         const straightGrid = document.getElementById('straight-hair-grid');
@@ -243,9 +278,9 @@
             if (product.category === "BOUNCY HAIR") bouncyGrid.appendChild(card);
         });
 
-        if (!straightGrid.children.length) { straightGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
-        if (!pissieGrid.children.length) { pissieGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
-        if (!bouncyGrid.children.length) { bouncyGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:240px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.85rem;">New Arrival Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!straightGrid.children.length) { straightGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!pissieGrid.children.length) { pissieGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
+        if (!bouncyGrid.children.length) { bouncyGrid.innerHTML = `<div class="shop-card placeholder-card"><div class="card-img-wrapper empty-box" style="background:#222; color:#fff; height:180px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:bold; font-size:0.75rem; text-align:center; padding:10px;">Coming Soon</div><div class="card-details"><button class="buy-btn" disabled>Add to Cart</button></div></div>`; }
 
         const cart = [];
         const cartCount = document.getElementById('cartCount');
