@@ -30,19 +30,22 @@
             padding: 10px 0;
         }
         
-        /* Makes the 7th item span 2 columns and forces content inside to center perfectly */
+        /* Spans the full width of the grid row to allow centering space */
         .gallery-item.final-centered {
             grid-column: span 2;
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
+            background: transparent; /* Removes any accidental frame background spillover */
         }
         
-        /* Keeps the centered image the exact same size as your regular 2x2 grid boxes */
+        /* Restricts the image frame tightly so it matches the 2x2 grid boxes with no extra side spaces */
         .gallery-item.final-centered img {
             width: calc(50% - 6px);
+            max-width: 100%;
             height: auto;
+            display: block;
         }
 
         /* Desktop layout scales smoothly into 3 columns */
@@ -52,10 +55,10 @@
                 gap: 15px;
             }
             .gallery-item.final-centered {
-                grid-column: 2; /* Positions nicely in the middle column on wide desktops */
+                grid-column: 2; /* Naturally aligns directly in the middle column on wide desktop viewports */
             }
             .gallery-item.final-centered img {
-                width: 100%; /* Reverts back to regular column width on desktop scaling */
+                width: 100%; /* Restores full column width fit on desktop grids */
             }
         }
     </style>
