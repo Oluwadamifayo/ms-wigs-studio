@@ -6,6 +6,7 @@
     <title>M'S Wigs and Natural Hair Studio</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* --- STICKY ANNOUNCEMENT BAR --- */
         .announcement-bar {
             background-color: #000000;
             color: #ffffff;
@@ -33,12 +34,12 @@
             padding-right: 50px;
             white-space: nowrap;
         }
-
         @keyframes marquee {
             0% { transform: translate3d(0, 0, 0); }
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
+        /* --- HEADER & LOGO --- */
         header {
             position: relative !important;
             top: auto !important;
@@ -60,6 +61,7 @@
             margin: 0 auto;
         }
 
+        /* --- CARD DETAILS ENGINE --- */
         .card-details {
             padding: 10px 5px !important;
             text-align: center;
@@ -81,6 +83,7 @@
             display: block;
         }
 
+        /* --- BROWSE COLLECTIONS DROPDOWN --- */
         .browse-dropdown-container {
             width: 100%;
             max-width: 600px;
@@ -114,6 +117,7 @@
             border-top: none;
             border-radius: 0 0 8px 8px;
             overflow: hidden;
+            margin-top: -4px;
         }
         .dropdown-content.open { display: block; }
         .dropdown-trigger.open { border-radius: 8px 8px 0 0; }
@@ -128,21 +132,7 @@
             border-bottom: 1px solid #f4f4f5;
         }
 
-        .whatsapp-floating-trigger {
-            position: fixed;
-            bottom: 85px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #25d366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            z-index: 4500;
-        }
-
+        /* --- PORTFOLIO & GALLERY --- */
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -154,13 +144,11 @@
             display: flex;
             justify-content: center;
         }
-        .gallery-item.final-centered img {
-            width: calc(50% - 6px);
-        }
+        .gallery-item.final-centered img { width: calc(50% - 6px); }
 
+        /* --- SCROLLABLE SHOP --- */
         .shop-grid {
             display: flex !important;
-            flex-direction: row !important;
             overflow-x: auto !important;
             gap: 15px !important;
             padding: 10px 5px !important;
@@ -179,6 +167,28 @@
             object-fit: cover;
         }
 
+        .admin-modal {
+            display: none;
+            position: fixed;
+            z-index: 5000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            align-items: center; justify-content: center;
+        }
+        .admin-modal-content {
+            background-color: #18181b;
+            border: 1px solid #27272a;
+            padding: 30px;
+            border-radius: 8px;
+            width: 280px;
+            text-align: center;
+        }
+        .admin-modal-content input {
+            width: 100%; padding: 10px; margin: 15px 0;
+            background: #0f0f11; border: 1px solid #3f3f46; color: #fff; text-align: center;
+        }
+        .admin-modal-btn { background: #fff; color: #000; border: none; padding: 10px 20px; font-weight: bold; width: 100%; }
+
         @media (min-width: 768px) {
             .gallery { grid-template-columns: repeat(3, 1fr); }
             .gallery-item.final-centered { grid-column: 2; }
@@ -192,21 +202,18 @@
 
     <div class="announcement-bar">
         <div class="announcement-track">
-            <span class="announcement-text">DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WEBSITE BOOKINGS GET DISCOUNTS!</span>
-            <span class="announcement-text">DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WEBSITE BOOKINGS GET DISCOUNTS!</span>
+            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE BOOKINGS.</span>
+            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE BOOKINGS.</span>
         </div>
     </div>
 
     <header>
         <div class="logo-container">
-            <a href="#home">
-                <img src="https://i.ibb.co/4ZXDHZJz/176106-removebg-preview.png" alt="M'S Wigs Logo" class="site-logo">
-            </a>
+            <a href="#home"><img src="https://i.ibb.co/4ZXDHZJz/176106-removebg-preview.png" alt="M'S Wigs Logo" class="site-logo"></a>
         </div>
         <nav>
             <a href="#home">Home</a>
             <a href="#portfolio">Portfolio</a>
-            <a href="#services">Services</a>
             <a href="#shop">Shop</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -256,15 +263,23 @@
 
     <div id="floatingCart" class="cart-floating-bar">
         <div class="cart-bar-main" id="cartToggle">
-            <span>Cart (<span id="cartCount">0</span>)</span>
-            <button id="checkoutBtn" class="whatsapp-checkout-btn">WhatsApp Checkout</button>
+            <span>Shopping Cart (<span id="cartCount">0</span>)</span>
+            <button id="checkoutBtn" class="whatsapp-checkout-btn">Checkout via WhatsApp</button>
         </div>
         <div id="cartItemsList" class="cart-items-list"></div>
     </div>
 
+    <div id="adminModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <h3>Admin Portal Gate</h3>
+            <input type="password" id="adminPasswordInput" placeholder="Enter Password">
+            <button class="admin-modal-btn" id="loginAdminBtn">Verify Security</button>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 M'S WIGS. ALL RIGHTS RESERVED.</p>
-        <a href="admin.html" class="footer-admin-link">Staff Portal</a>
+        <p>&copy; 2026 M'S WIGS & NATURAL HAIR STUDIO.</p>
+        <a href="#" id="footerAdminTrigger" style="color:#a1a1aa; text-decoration:none; font-size:13px;">Staff Portal Login</a>
     </footer>
 
     <script>
@@ -276,10 +291,27 @@
             dropContent.classList.toggle('open');
         });
 
-        function renderProducts() {
-            const activeProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
+        // LIVE PIPELINE CLOUD DATA SOURCE TRACKER
+        const cloudStorageUrl = 'https://kvdb.io/AnG9z7K7m8X9P2q4r7sW/wig_products_db';
 
-            const categories = {
+        async function renderProducts() {
+            let activeProducts = [];
+            try {
+                const res = await fetch(cloudStorageUrl);
+                if(res.ok) {
+                    activeProducts = await res.json();
+                } else {
+                    throw new Error("Empty cloud database setup");
+                }
+            } catch (e) {
+                // Fallback default setup array if cloud store initialization hasn't occurred
+                activeProducts = [
+                    { id: "straight-1", name: "Straight Hair Unit 1", price: "Contact for Price", image: "https://i.ibb.co/nWz0sNY/IMG-20260706-WA0095.jpg", category: "STRAIGHT HAIR" },
+                    { id: "curly-1", name: "Pissie Curly Unit 1", price: "Contact for Price", image: "https://i.ibb.co/hRkScd6B/IMG-20260707-WA0047.jpg", category: "PISSIE CURLY" }
+                ];
+            }
+
+            const grids = {
                 "STRAIGHT HAIR": document.getElementById('straight-hair-grid'),
                 "PISSIE CURLY": document.getElementById('pissie-curly-grid'),
                 "BOUNCY HAIR": document.getElementById('bouncy-hair-grid'),
@@ -287,18 +319,18 @@
                 "OUR HAIR PRODUCTS": document.getElementById('our-products-grid')
             };
 
-            Object.values(categories).forEach(grid => { if(grid) grid.innerHTML = ''; });
+            Object.values(grids).forEach(g => { if(g) g.innerHTML = ''; });
 
             activeProducts.forEach(product => {
-                const targetGrid = categories[product.category];
+                const targetGrid = grids[product.category];
                 if (!targetGrid) return;
 
                 const card = document.createElement('div');
                 card.className = 'shop-card';
-                const cleanImg = product.image ? product.image.replace(/"/g, '&quot;') : '';
+                const cleanImgUrl = product.image ? product.image.replace(/"/g, '&quot;') : '';
 
                 card.innerHTML = `
-                    <div class="card-img-wrapper"><img src="${cleanImg}" class="viewable-img"></div>
+                    <div class="card-img-wrapper"><img src="${cleanImgUrl}" class="viewable-img"></div>
                     <div class="card-details">
                         <h3>${product.name}</h3>
                         <span class="price">${product.price}</span>
@@ -312,26 +344,18 @@
                 btn.onclick = () => {
                     cart.push({ id: btn.dataset.id, name: btn.dataset.name, price: btn.dataset.price });
                     document.getElementById('cartCount').innerText = cart.length;
-                    renderCart();
                 };
             });
         }
 
         const cart = [];
-        function renderCart() {
-            const list = document.getElementById('cartItemsList');
-            list.innerHTML = '';
-            cart.forEach((item, idx) => {
-                const div = document.createElement('div');
-                div.innerHTML = `<span>${item.name}</span><button onclick="cart.splice(${idx},1); renderCart();">×</button>`;
-                list.appendChild(div);
-            });
-        }
-
-        document.getElementById('checkoutBtn').onclick = () => {
-            let msg = "Hello M'S Wigs Studio! I want to order:\n";
-            cart.forEach(i => msg += `- ${i.name} (${i.price})\n`);
-            window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(msg)}`);
+        document.getElementById('footerAdminTrigger').onclick = (e) => { e.preventDefault(); document.getElementById('adminModal').style.display = 'flex'; };
+        document.getElementById('loginAdminBtn').onclick = () => {
+            if(document.getElementById('adminPasswordInput').value === "Studio2026") {
+                window.location.href = "admin.html";
+            } else {
+                alert("Incorrect Credentials.");
+            }
         };
 
         window.onload = renderProducts;
