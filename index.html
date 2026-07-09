@@ -317,10 +317,9 @@
 
         /* --- CART STYLES --- */
         .cart-floating-bar {
-            position: fixed; bottom: 20px; right: 20px; z-index: 4000;
+            position: fixed; bottom: 20px; left: 20px; z-index: 4000;
             background: #18181b; border: 1px solid #27272a; border-radius: 8px;
             padding: 12px; color: #fff; font-family: sans-serif;
-            /* UPDATED: Hidden by default, transitions nicely */
             display: none; 
             transition: all 0.3s ease-in-out;
         }
@@ -328,6 +327,31 @@
         .whatsapp-checkout-btn { background: #22c55e; color: #fff; border: none; padding: 6px 12px; font-weight: bold; border-radius: 4px; cursor: pointer; }
         .cart-items-list { display: none; margin-top: 10px; border-top: 1px solid #27272a; padding-top: 10px; max-height: 200px; overflow-y: auto; }
         .cart-items-list.open { display: block; }
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 5000;
+            width: 55px;
+            height: 55px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+        .floating-whatsapp:active {
+            transform: scale(0.9);
+        }
+        .floating-whatsapp svg {
+            width: 30px;
+            height: 30px;
+            fill: #ffffff;
+        }
 
         @media (min-width: 768px) {
             .gallery { grid-template-columns: repeat(3, 1fr); }
@@ -429,6 +453,12 @@
         <div id="cartItemsList" class="cart-items-list"></div>
     </div>
 
+    <a href="https://wa.me/2348138049021" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32">
+            <path d="M16 2a13 13 0 0 0-11.3 19.4L3 29l7.8-2A13 13 0 1 0 16 2zm0 24c-2.2 0-4.3-.6-6.2-1.7l-.4-.3-4.6 1.2 1.2-4.5-.3-.5A10.9 10.9 0 1 1 16 26zm6-8.2c-.3-.2-1.9-1-2.2-1-.3-.2-.5-.2-.7.2-.3.3-.9 1.1-1.1 1.3-.2.2-.4.2-.8 0a10 10 0 0 1-2.9-1.8 11 11 0 0 1-2-2.5c-.2-.4 0-.6.2-.8l.5-.6.3-.5c.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.6-.5-.8-.5H9.4c-.2 0-.6.1-.9.4A2.7 2.7 0 0 0 7.7 9c0 1.6.6 3.2 1.5 4.4a19.7 19.7 0 0 0 8 7c.8.4 1.7.6 2.5.6a6 6 0 0 0 3.6-1.1c.7-.6.7-1.1.7-1.3l-.5-.3z"/>
+        </svg>
+    </a>
+
     <footer style="text-align: center; padding: 20px 0; background: #000; border-top: 1px solid #27272a; margin-top: 40px;">
         <p style="font-size: 12px; margin: 0 0 8px 0; letter-spacing: 0.5px; color: #fff;">&copy; 2026 M'S WIGS & NATURAL HAIR STUDIO. ALL RIGHTS RESERVED.</p>
     </footer>
@@ -516,7 +546,6 @@
         function updateCartUI() {
             const cartBar = document.getElementById('floatingCart');
             
-            // UPDATED: Dynamically show/hide the cart based on item count
             if (cart.length > 0) {
                 cartBar.style.display = 'block';
             } else {
