@@ -124,7 +124,7 @@
         }
         .gallery-item.final-centered img { width: calc(50% - 6px); }
 
-        /* --- SHOP GRID & CARDS (SCREENSHOT STYLING) --- */
+        /* --- SHOP SECTIONS --- */
         #shop h2 {
             text-align: center;
             font-size: 28px;
@@ -154,6 +154,7 @@
             gap: 15px !important;
             padding: 0 15px 15px 15px !important;
             scrollbar-width: none;
+            min-height: 50px;
         }
         .shop-grid::-webkit-scrollbar {
             display: none;
@@ -216,8 +217,14 @@
             padding: 5px 0;
             margin-top: auto;
         }
+        .empty-notice {
+            color: #71717a;
+            font-size: 14px;
+            padding: 10px 15px;
+            font-style: italic;
+        }
 
-        /* --- INQUIRY & CONTACT BOX (SCREENSHOT STYLING) --- */
+        /* --- BOOKING AND INQUIRY FORM --- */
         .inquiry-section {
             max-width: 600px;
             margin: 40px auto;
@@ -268,7 +275,7 @@
             margin-bottom: 30px;
         }
 
-        /* --- DIRECT BOOKINGS ACCENTS --- */
+        /* --- DIRECT BOOKING BOX DASHBOARD --- */
         .direct-bookings-box {
             background: #111113;
             border-radius: 8px;
@@ -307,7 +314,6 @@
         .btn-studio-whatsapp { background: #22c55e; color: #ffffff; }
         .btn-studio-email { background: #0284c7; color: #ffffff; }
 
-        /* --- SYSTEM PORTALS & MODALS --- */
         .admin-modal {
             display: none;
             position: fixed;
@@ -452,10 +458,8 @@
             dropContent.classList.toggle('open');
         });
 
-        // Dedicated live active database path configuration
         const cloudStorageUrl = 'https://kvdb.io/AnG9z7K7m8X9P2q4r7sW/ms_wigs_studio_live_db';
 
-        // Robust link configuration cleaner engine
         function cleanImgBBLink(rawLink) {
             if (!rawLink) return '';
             if (rawLink.includes('<a') || rawLink.includes('src=')) {
@@ -486,16 +490,27 @@
                 "OUR HAIR PRODUCTS": document.getElementById('our-products-grid')
             };
 
-            Object.values(grids).forEach(g => { if(g) g.innerHTML = ''; });
+            Object.keys(grids).forEach(key => {
+                if(grids[key]) {
+                    grids[key].innerHTML = '';
+                    // Structural placeholder so sections are never empty screens
+                    const matchedCount = activeProducts.filter(p => p.category === key).length;
+                    if(matchedCount === 0) {
+                        grids[key].innerHTML = '<div class="empty-notice">No items currently updated in this collection view.</div>';
+                    }
+                }
+            });
 
             activeProducts.forEach(product => {
                 const targetGrid = grids[product.category];
                 if (!targetGrid) return;
 
+                // Remove placeholder warning message if an item arrives
+                const notice = targetGrid.querySelector('.empty-notice');
+                if(notice) notice.remove();
+
                 const card = document.createElement('div');
                 card.className = 'shop-card';
-                
-                // Clean the configuration link before creating element layout blocks
                 const dynamicSanitizedImg = cleanImgBBLink(product.image);
 
                 card.innerHTML = `
@@ -517,7 +532,6 @@
             });
         }
 
-        // WhatsApp Custom Message Inquiry Form Handler
         document.getElementById('submitInquiryBtn').onclick = () => {
             const name = document.getElementById('inquiryName').value.trim();
             const email = document.getElementById('inquiryEmail').value.trim();
