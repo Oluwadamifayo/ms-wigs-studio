@@ -54,5 +54,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/7xzYpQjJ/IMG-20260707-WA0080.jpg",
     "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-9",
+    "name": "Straight Hair Unit 9",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/KzzffdwD/IMG-20260707-WA0075.jpg",
+    "category": "STRAIGHT HAIR"
   }
 ]
