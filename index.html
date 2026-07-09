@@ -206,7 +206,7 @@
         }
         .buy-btn {
             width: 100%;
-            background: transparent;
+            background: #1c1917;
             color: #ffffff;
             border: none;
             font-size: 13px;
@@ -214,8 +214,9 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             cursor: pointer;
-            padding: 5px 0;
+            padding: 8px 0;
             margin-top: auto;
+            border-radius: 4px;
         }
         .empty-notice {
             color: #71717a;
@@ -410,7 +411,7 @@
 
     <section id="inquire" class="inquiry-section">
         <h2>Book An Appointment /<br>Inquire</h2>
-        
+
         <div class="inquiry-form">
             <input type="text" id="inquiryName" placeholder="Your Name" required>
             <input type="email" id="inquiryEmail" placeholder="Your Email" required>
@@ -421,7 +422,7 @@
         <div class="direct-bookings-box">
             <h3>Direct Bookings</h3>
             <p>Need an immediate quote? Connect instantly below.</p>
-            
+
             <a href="tel:+2348138049021" class="action-stack-btn btn-studio-call">Call Us</a>
             <a href="https://wa.me/2348138049021" target="_blank" class="action-stack-btn btn-studio-whatsapp">WhatsApp Chat</a>
             <a href="mailto:oluwamayowasarah442@gmail.com" class="action-stack-btn btn-studio-email">Email Us</a>
@@ -459,6 +460,7 @@
         });
 
         const cloudStorageUrl = 'https://kvdb.io/AnG9z7K7m8X9P2q4r7sW/ms_wigs_studio_live_db';
+        let cart = [];
 
         function cleanImgBBLink(rawLink) {
             if (!rawLink) return '';
@@ -493,7 +495,6 @@
             Object.keys(grids).forEach(key => {
                 if(grids[key]) {
                     grids[key].innerHTML = '';
-                    // Structural placeholder so sections are never empty screens
                     const matchedCount = activeProducts.filter(p => p.category === key).length;
                     if(matchedCount === 0) {
                         grids[key].innerHTML = '<div class="empty-notice">No items currently updated in this collection view.</div>';
@@ -505,7 +506,6 @@
                 const targetGrid = grids[product.category];
                 if (!targetGrid) return;
 
-                // Remove placeholder warning message if an item arrives
                 const notice = targetGrid.querySelector('.empty-notice');
                 if(notice) notice.remove();
 
@@ -518,40 +518,115 @@
                     <div class="card-details">
                         <h3>${product.name}</h3>
                         <span class="price">${product.price}</span>
-                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Add to Cart</button>
+                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Add To Cart</button>
                     </div>
                 `;
                 targetGrid.appendChild(card);
             });
 
+            // Bind click events to Buy Buttons
             document.querySelectorAll('.buy-btn').forEach(btn => {
-                btn.onclick = () => {
-                    cart.push({ id: btn.dataset.id, name: btn.dataset.name, price: btn.dataset.price });
-                    document.getElementById('cartCount').innerText = cart.length;
-                };
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    const name = btn.getAttribute('data-name');
+                    const price = btn.getAttribute('data-price');
+                    addToCart({ id, name, price });
+                });
             });
         }
 
-        document.getElementById('submitInquiryBtn').onclick = () => {
+        // Shopping Cart Implementation
+        function addToCart(item) {
+            cart.push(item);
+            updateCartUI();
+            
+            // Slide cart bar into view if hidden
+            const floatingCart = document.getElementById('floatingCart');
+            floatingCart.classList.add('active');
+            floatingCart.style.bottom = "25px";
+        }
+
+        function updateCartUI() {
+            document.getElementById('cartCount').innerText = cart.length;
+            const itemsListContainer = document.getElementById('cartItemsList');
+            itemsListContainer.innerHTML = '';
+            
+            cart.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'cart-list-item';
+                div.style.display = 'flex';
+                div.style.justifyContent = 'space-between';
+                div.style.padding = '5px 0';
+                div.innerHTML = `
+                    <span>${item.name} (${item.price})</span>
+                    <button class="remove-item-btn" onclick="removeFromCart(${index})" style="color: #ff4d4d; background:none; border:none; cursor:pointer;">Remove</button>
+                `;
+                itemsListContainer.appendChild(div);
+            });
+        }
+
+        window.removeFromCart = function(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+            if(cart.length === 0) {
+                document.getElementById('floatingCart').classList.remove('active');
+                document.getElementById('floatingCart').style.bottom = "-100px";
+                document.getElementById('cartItemsList').classList.remove('open');
+            }
+        };
+
+        // Expand/Collapse mini cart view
+        document.getElementById('cartToggle').addEventListener('click', (e) => {
+            if(e.target.id === 'checkoutBtn') return; // Ignore if checkout clicked
+            document.getElementById('cartItemsList').classList.toggle('open');
+        });
+
+        // WhatsApp Checkout Logic
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
+            if(cart.length === 0) return alert('Your shopping cart is empty!');
+            let text = "Hello MS Wigs Studio, I want to order:\n\n";
+            cart.forEach((item, idx) => {
+                text += `${idx + 1}. ${item.name} - ${item.price}\n`;
+            });
+            const url = `https://wa.me/2348138049021?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        });
+
+        // Form Inquiry submission to WhatsApp directly
+        document.getElementById('submitInquiryBtn').addEventListener('click', () => {
             const name = document.getElementById('inquiryName').value.trim();
             const email = document.getElementById('inquiryEmail').value.trim();
             const details = document.getElementById('inquiryDetails').value.trim();
-
-            if(!name || !email || !details) return alert('Please complete all inquiry inputs fields!');
-
-            const message = `Hello M'S Wigs Studio,\n\nI want to make an inquiry:\nName: ${name}\nEmail: ${email}\n\nRequest Details:\n${details}`;
+            
+            if(!name || !details) return alert('Please enter your name and describe your wig or hair service request.');
+            
+            const message = `Hello MS Wigs Studio, I would like to book an appointment / inquire:\n\nName: ${name}\nEmail: ${email}\n\nDetails:\n${details}`;
             window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(message)}`, '_blank');
-        };
+        });
 
-        const cart = [];
-        document.getElementById('footerAdminTrigger').onclick = (e) => { e.preventDefault(); document.getElementById('adminModal').style.display = 'flex'; };
-        document.getElementById('loginAdminBtn').onclick = () => {
-            if(document.getElementById('adminPasswordInput').value === "Studio2026") {
-                window.location.href = "admin.html";
+        // Staff Admin Portal Triggering Layouts
+        document.getElementById('footerAdminTrigger').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('adminModal').style.display = 'flex';
+        });
+
+        document.getElementById('loginAdminBtn').addEventListener('click', () => {
+            const password = document.getElementById('adminPasswordInput').value;
+            // Enter pass key restriction handling logic 
+            if(password === "msstudio2026") { 
+                window.location.href = 'admin.html';
             } else {
-                alert("Incorrect Credentials.");
+                alert('Invalid security authorization credentials.');
             }
-        };
+        });
+
+        // Close admin modal if tapped outside content window box boundary
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('adminModal');
+            if(e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
 
         window.onload = renderProducts;
     </script>
