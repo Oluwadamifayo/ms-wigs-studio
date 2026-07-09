@@ -320,6 +320,9 @@
             position: fixed; bottom: 20px; right: 20px; z-index: 4000;
             background: #18181b; border: 1px solid #27272a; border-radius: 8px;
             padding: 12px; color: #fff; font-family: sans-serif;
+            /* UPDATED: Hidden by default, transitions nicely */
+            display: none; 
+            transition: all 0.3s ease-in-out;
         }
         .cart-bar-main { display: flex; align-items: center; gap: 15px; cursor: pointer; }
         .whatsapp-checkout-btn { background: #22c55e; color: #fff; border: none; padding: 6px 12px; font-weight: bold; border-radius: 4px; cursor: pointer; }
@@ -446,7 +449,6 @@
         async function renderProducts() {
             let activeProducts = [];
             try {
-                // FIXED: Reading from the local JSON file instead of the cloud URL
                 const res = await fetch('products.json');
                 if(res.ok) {
                     activeProducts = await res.json();
@@ -512,6 +514,16 @@
         }
 
         function updateCartUI() {
+            const cartBar = document.getElementById('floatingCart');
+            
+            // UPDATED: Dynamically show/hide the cart based on item count
+            if (cart.length > 0) {
+                cartBar.style.display = 'block';
+            } else {
+                cartBar.style.display = 'none';
+                document.getElementById('cartItemsList').classList.remove('open');
+            }
+
             document.getElementById('cartCount').innerText = cart.length;
             const listContainer = document.getElementById('cartItemsList');
             listContainer.innerHTML = '';
