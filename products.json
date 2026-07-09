@@ -1,0 +1,149 @@
+[
+  {
+    "id": "straight-1",
+    "name": "Straight Hair Unit 1",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/WNsh08rF/IMG-20260706-WA0058.jpg",
+    "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-2",
+    "name": "Straight Hair Unit 2",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/spgT6c0s/IMG-20260706-WA0095.jpg",
+    "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-3",
+    "name": "Straight Hair Unit 3",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/GQVmrBmh/IMG-20260706-WA0101.jpg",
+    "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-4",
+    "name": "Straight Hair Unit 4",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/sGkh5W4/IMG-20260706-WA0104.jpg",
+    "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-5",
+    "name": "Straight Hair Unit 5",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/chMwhGCv/IMG-20260706-WA0118-1.jpg",
+    "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-6",
+    "name": "Straight Hair Unit 6",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/F4mGdkd4/IMG-20260706-WA0138.jpg",
+    "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-7",
+    "name": "Straight Hair Unit 7",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/LDyy4n6Q/IMG-20260707-WA0079.jpg",
+    "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-8",
+    "name": "Straight Hair Unit 8",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/7xzYpQjJ/IMG-20260707-WA0080.jpg",
+    "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-9",
+    "name": "Straight Hair Unit 9",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/KzzffdwD/IMG-20260707-WA0075.jpg",
+    "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "bouncy-1",
+    "name": "Bouncy Hair Unit 1",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/0RnjNcVz/IMG-20260706-WA0059.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-2",
+    "name": "Bouncy Hair Unit 2",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/46sYT4T/IMG-20260707-WA0069.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-3",
+    "name": "Bouncy Hair Unit 3",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/kgMrKvt5/IMG-20260707-WA0070.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-4",
+    "name": "Bouncy Hair Unit 4",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/mCp0pfsG/IMG-20260707-WA0073.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-5",
+    "name": "Bouncy Hair Unit 5",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/NgCm4Zfh/IMG-20260707-WA0046.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-6",
+    "name": "Bouncy Hair Unit 6",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/HD9rJ2HS/IMG-20260707-WA0048.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-7",
+    "name": "Bouncy Hair Unit 7",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/Z1WJ907b/IMG-20260707-WA0049.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-8",
+    "name": "Bouncy Hair Unit 8",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/QvzhkkXQ/IMG-20260707-WA0052.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-9",
+    "name": "Bouncy Hair Unit 9",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/Q74y20XF/IMG-20260707-WA0082.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-10",
+    "name": "Bouncy Hair Unit 10",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/KjnWyhRh/IMG-20260707-WA0081.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-11",
+    "name": "Bouncy Hair Unit 11",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/wfDCHfx/IMG-20260707-WA0083.jpg",
+    "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-12",
+    "name": "Bouncy Hair Unit 12",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/zVY67SHP/IMG-20260707-WA0084.jpg",
+    "category": "BOUNCY HAIR"
+  }
+]
