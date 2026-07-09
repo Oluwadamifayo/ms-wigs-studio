@@ -1,0 +1,30 @@
+[
+  {
+    "id": "item-1",
+    "name": "TIWA HAIR UNIT 1",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/XYZ123/tiwa1.jpg",
+    "category": "TIWA HAIR"
+  },
+  {
+    "id": "item-2",
+    "name": "TIWA HAIR UNIT 2",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/XYZ123/tiwa2.jpg",
+    "category": "TIWA HAIR"
+  },
+  {
+    "id": "item-3",
+    "name": "HAIR BRUSH",
+    "price": "1000",
+    "image": "https://i.ibb.co/XYZ123/brush.jpg",
+    "category": "OUR HAIR PRODUCTS"
+  },
+  {
+    "id": "item-4",
+    "name": "HAIR PACKER",
+    "price": "500",
+    "image": "https://i.ibb.co/XYZ123/packer.jpg",
+    "category": "OUR HAIR PRODUCTS"
+  }
+]
