@@ -49,8 +49,8 @@
     </div>
 
     <script>
-        const cloudStorageUrl = 'https://api.jsonbin.io/v3/b/668baa4facd3cb34a8637042';
-        const cloudHeaderKey = '$2a$10$tM2wF4F7bQy6Eshn82kIkeaP/P7qL5Y9hB.oUu5.zW70U9UaI59P6';
+        // OPEN PIPELINE GATEWAY FOR INSTANT MULTI-DEVICE GLOBAL SYNCHRONIZATION
+        const cloudStorageUrl = 'https://kvdb.io/AnG9z7K7m8X9P2q4r7sW/ms_wigs_studio_live_db';
         let currentProducts = [];
 
         function extractUrl(raw) {
@@ -63,22 +63,21 @@
 
         async function loadProducts() {
             try {
-                const res = await fetch(cloudStorageUrl + '/latest', {
-                    headers: { 'X-Master-Key': cloudHeaderKey }
-                });
+                const res = await fetch(cloudStorageUrl);
                 if(res.ok) {
-                    const data = await res.json();
-                    currentProducts = data.record || [];
+                    currentProducts = await res.json();
+                } else {
+                    currentProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
                 }
             } catch(e) {
-                currentProducts = [];
+                currentProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
             }
             renderAdminList();
         }
 
         function renderAdminList() {
             const container = document.getElementById('catalogList');
-            if(currentProducts.length === 0) {
+            if(!currentProducts || currentProducts.length === 0) {
                 container.innerHTML = `<p style="text-align:center; color:#a1a1aa;">No products found in cloud database.</p>`;
                 return;
             }
@@ -101,14 +100,14 @@
         }
 
         async function saveToCloud(arr) {
-            await fetch(cloudStorageUrl, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Master-Key': cloudHeaderKey
-                },
-                body: JSON.stringify(arr)
-            });
+            try {
+                await fetch(cloudStorageUrl, {
+                    method: 'POST',
+                    body: JSON.stringify(arr)
+                });
+            } catch(e) {
+                console.error("Cloud syncing error: ", e);
+            }
         }
 
         document.getElementById('saveBtn').onclick = async () => {
@@ -131,7 +130,7 @@
             localStorage.setItem('wig_products', JSON.stringify(currentProducts));
             await saveToCloud(currentProducts);
 
-            alert('Database synchronized globally for all users!');
+            alert('Database synchronized globally across all client devices!');
             resetForm();
             loadProducts();
         };

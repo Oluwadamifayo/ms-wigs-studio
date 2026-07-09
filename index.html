@@ -291,19 +291,17 @@
             dropContent.classList.toggle('open');
         });
 
-        // HIGH PERFORMANCE CLOUD PIPELINE DATA STREAM
-        const cloudStorageUrl = 'https://api.jsonbin.io/v3/b/668baa4facd3cb34a8637042/latest';
-        const cloudHeaderKey = '$2a$10$tM2wF4F7bQy6Eshn82kIkeaP/P7qL5Y9hB.oUu5.zW70U9UaI59P6';
+        // HIGH-PERFORMANCE UNRESTRICTED CLOUD DATABASE PIPELINE
+        const cloudStorageUrl = 'https://kvdb.io/AnG9z7K7m8X9P2q4r7sW/ms_wigs_studio_live_db';
 
         async function renderProducts() {
             let activeProducts = [];
             try {
-                const res = await fetch(cloudStorageUrl, {
-                    headers: { 'X-Master-Key': cloudHeaderKey }
-                });
+                const res = await fetch(cloudStorageUrl);
                 if(res.ok) {
-                    const data = await res.json();
-                    activeProducts = data.record || [];
+                    activeProducts = await res.json();
+                } else {
+                    activeProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
                 }
             } catch (e) {
                 activeProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
