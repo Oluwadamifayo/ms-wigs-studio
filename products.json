@@ -124,5 +124,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/Q74y20XF/IMG-20260707-WA0082.jpg",
     "category": "BOUNCY HAIR"
+  },
+  {
+    "id": "bouncy-10",
+    "name": "Bouncy Hair Unit 10",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/KjnWyhRh/IMG-20260707-WA0081.jpg",
+    "category": "BOUNCY HAIR"
   }
 ]
