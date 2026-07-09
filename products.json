@@ -61,5 +61,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/KzzffdwD/IMG-20260707-WA0075.jpg",
     "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "bouncy-1",
+    "name": "Bouncy Hair Unit 1",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/0RnjNcVz/IMG-20260706-WA0059.jpg",
+    "category": "BOUNCY HAIR"
   }
 ]
