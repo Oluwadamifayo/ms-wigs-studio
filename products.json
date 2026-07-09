@@ -1,37 +1,9 @@
 [
   {
     "id": "straight-1",
-    "name": "STRAIGHT HAIR UNIT 1",
+    "name": "Straight Hair Unit 1",
     "price": "Contact for Price",
-    "image": "https://i.ibb.co/XYZ123/straight1.jpg",
+    "image": "https://i.ibb.co/WNsh08rF/IMG-20260706-WA0058.jpg",
     "category": "STRAIGHT HAIR"
-  },
-  {
-    "id": "pissie-1",
-    "name": "PISSIE CURLY UNIT 1",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/XYZ123/pissie1.jpg",
-    "category": "PISSIE CURLY"
-  },
-  {
-    "id": "bouncy-1",
-    "name": "BOUNCY HAIR UNIT 1",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/XYZ123/bouncy1.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "tiwa-1",
-    "name": "TIWA HAIR UNIT 1",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/XYZ123/tiwa1.jpg",
-    "category": "TIWA HAIR"
-  },
-  {
-    "id": "tiwa-2",
-    "name": "TIWA HAIR UNIT 2",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/XYZ123/tiwa2.jpg",
-    "category": "TIWA HAIR"
   }
 ]
