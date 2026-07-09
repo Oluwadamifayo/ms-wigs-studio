@@ -39,7 +39,7 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* --- HEADER & LOGO --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
             position: relative !important;
             top: auto !important;
@@ -59,28 +59,6 @@
             height: auto !important;
             display: block;
             margin: 0 auto;
-        }
-
-        /* --- CARD DETAILS ENGINE --- */
-        .card-details {
-            padding: 10px 5px !important;
-            text-align: center;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-        .card-details h3 {
-            font-size: 14px;
-            color: #ffffff;
-            margin: 5px 0 2px 0;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .card-details .price {
-            font-size: 13px;
-            color: #a1a1aa;
-            margin-bottom: 8px;
-            font-weight: 500;
-            display: block;
         }
 
         /* --- BROWSE COLLECTIONS DROPDOWN --- */
@@ -132,7 +110,7 @@
             border-bottom: 1px solid #f4f4f5;
         }
 
-        /* --- PORTFOLIO & GALLERY --- */
+        /* --- PORTFOLIO GALLERY --- */
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -146,12 +124,39 @@
         }
         .gallery-item.final-centered img { width: calc(50% - 6px); }
 
-        /* --- SCROLLABLE SHOP --- */
+        /* --- SHOP GRID & CARDS (SCREENSHOT STYLING) --- */
+        #shop h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 40px 0 20px 0;
+            color: #1c1917;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .shop-group {
+            margin-bottom: 30px;
+        }
+        .group-title {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: #1c1917;
+            text-transform: uppercase;
+            padding: 0 15px;
+            margin: 15px 0;
+        }
         .shop-grid {
             display: flex !important;
             overflow-x: auto !important;
             gap: 15px !important;
-            padding: 10px 5px !important;
+            padding: 0 15px 15px 15px !important;
+            scrollbar-width: none;
+        }
+        .shop-grid::-webkit-scrollbar {
+            display: none;
         }
         .shop-card {
             flex: 0 0 170px !important;
@@ -160,14 +165,59 @@
             border-radius: 8px;
             border: 1px solid #1f1f23;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
-        .shop-card .card-img-wrapper img {
+        .card-img-wrapper {
             width: 100%;
             height: 180px;
+            background: #111113;
+            overflow: hidden;
+        }
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
+        .card-details {
+            padding: 15px 10px !important;
+            text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        .card-details h3 {
+            font-size: 14px;
+            color: #ffffff;
+            margin: 0 0 4px 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-details .price {
+            font-size: 13px;
+            color: #a1a1aa;
+            margin-bottom: 15px;
+            font-weight: 500;
+            display: block;
+        }
+        .buy-btn {
+            width: 100%;
+            background: transparent;
+            color: #ffffff;
+            border: none;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            padding: 5px 0;
+            margin-top: auto;
+        }
 
-        /* --- BOOKING & INQUIRY STYLES --- */
+        /* --- INQUIRY & CONTACT BOX (SCREENSHOT STYLING) --- */
         .inquiry-section {
             max-width: 600px;
             margin: 40px auto;
@@ -218,7 +268,7 @@
             margin-bottom: 30px;
         }
 
-        /* --- DIRECT BOOKINGS CONTAINER --- */
+        /* --- DIRECT BOOKINGS ACCENTS --- */
         .direct-bookings-box {
             background: #111113;
             border-radius: 8px;
@@ -257,6 +307,7 @@
         .btn-studio-whatsapp { background: #22c55e; color: #ffffff; }
         .btn-studio-email { background: #0284c7; color: #ffffff; }
 
+        /* --- SYSTEM PORTALS & MODALS --- */
         .admin-modal {
             display: none;
             position: fixed;
@@ -401,7 +452,18 @@
             dropContent.classList.toggle('open');
         });
 
+        // Dedicated live active database path configuration
         const cloudStorageUrl = 'https://kvdb.io/AnG9z7K7m8X9P2q4r7sW/ms_wigs_studio_live_db';
+
+        // Robust link configuration cleaner engine
+        function cleanImgBBLink(rawLink) {
+            if (!rawLink) return '';
+            if (rawLink.includes('<a') || rawLink.includes('src=')) {
+                const match = rawLink.match(/src=["']([^"']+)["']/);
+                return match ? match[1] : rawLink;
+            }
+            return rawLink.trim();
+        }
 
         async function renderProducts() {
             let activeProducts = [];
@@ -432,10 +494,12 @@
 
                 const card = document.createElement('div');
                 card.className = 'shop-card';
-                const cleanImgUrl = product.image ? product.image.replace(/"/g, '&quot;') : '';
+                
+                // Clean the configuration link before creating element layout blocks
+                const dynamicSanitizedImg = cleanImgBBLink(product.image);
 
                 card.innerHTML = `
-                    <div class="card-img-wrapper"><img src="${cleanImgUrl}" class="viewable-img"></div>
+                    <div class="card-img-wrapper"><img src="${dynamicSanitizedImg}" alt="${product.name}" class="viewable-img"></div>
                     <div class="card-details">
                         <h3>${product.name}</h3>
                         <span class="price">${product.price}</span>
@@ -453,7 +517,7 @@
             });
         }
 
-        // Inquiry Handler using your target active number
+        // WhatsApp Custom Message Inquiry Form Handler
         document.getElementById('submitInquiryBtn').onclick = () => {
             const name = document.getElementById('inquiryName').value.trim();
             const email = document.getElementById('inquiryEmail').value.trim();
