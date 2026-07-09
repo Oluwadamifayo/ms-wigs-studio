@@ -167,42 +167,95 @@
             object-fit: cover;
         }
 
-        /* --- BOOKING SECTION RESTORATION --- */
-        .booking-section {
-            padding: 40px 15px;
+        /* --- EXACT SCREENSHOT MATCH: BOOKING & INQUIRY STYLES --- */
+        .inquiry-section {
             max-width: 600px;
-            margin: 0 auto;
-            background: #111113;
-            border-radius: 8px;
-            border: 1px solid #1f1f23;
-            margin-top: 30px;
+            margin: 40px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .inquiry-section h2 {
+            text-align: center;
+            color: #1c1917;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+        .inquiry-form input, .inquiry-form textarea {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+            border-radius: 6px;
+            border: 1px solid #e4e4e7;
+            background: #ffffff;
+            color: #000000;
+            font-size: 15px;
             box-sizing: border-box;
         }
-        .booking-section h2 { text-align: center; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-        .booking-form input, .booking-form select, .booking-form button {
-            width: 100%; padding: 12px; margin: 8px 0; border-radius: 6px; box-sizing: border-box; font-size: 15px;
+        .inquiry-form textarea {
+            height: 120px;
+            resize: none;
         }
-        .booking-form input, .booking-form select { background: #27272a; border: 1px solid #3f3f46; color: #fff; }
-        .booking-form button { background: #ffffff; color: #000000; font-weight: bold; border: none; cursor: pointer; }
+        .inquiry-form input::placeholder, .inquiry-form textarea::placeholder {
+            color: #a1a1aa;
+        }
+        .btn-send-inquiry {
+            width: 100%;
+            background: #1c1917;
+            color: #ffffff;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
 
-        /* --- CONTACT CARDS RESTORATION --- */
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 20px 15px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .contact-card {
-            background: #18181b;
-            border: 1px solid #27272a;
+        /* --- EXACT SCREENSHOT MATCH: DIRECT BOOKINGS CONTAINER --- */
+        .direct-bookings-box {
+            background: #111113;
             border-radius: 8px;
-            padding: 20px;
+            padding: 24px 20px;
             text-align: center;
+            box-sizing: border-box;
         }
-        .contact-card h4 { margin-top: 0; color: #fff; text-transform: uppercase; }
-        .contact-card a { color: #2563eb; text-decoration: none; font-weight: 500; display: inline-block; margin-top: 5px; }
+        .direct-bookings-box h3 {
+            color: #ffffff;
+            font-size: 18px;
+            margin: 0 0 6px 0;
+            font-weight: 600;
+        }
+        .direct-bookings-box p {
+            color: #e4e4e7;
+            font-size: 14px;
+            margin: 0 0 20px 0;
+        }
+        .action-stack-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            box-sizing: border-box;
+            letter-spacing: 0.5px;
+        }
+        .action-stack-btn:last-child {
+            margin-bottom: 0;
+        }
+        .btn-studio-call { background: #27272a; color: #ffffff; }
+        .btn-studio-whatsapp { background: #22c55e; color: #ffffff; }
+        .btn-studio-email { background: #0284c7; color: #ffffff; }
 
         .admin-modal {
             display: none;
@@ -252,8 +305,7 @@
             <a href="#home">Home</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#shop">Shop</a>
-            <a href="#booking">Book Appointment</a>
-            <a href="#contact">Contact</a>
+            <a href="#inquire">Book Appointment</a>
         </nav>
     </header>
 
@@ -299,35 +351,23 @@
         <div class="shop-group" id="our-products-section"><h3 class="group-title">OUR HAIR PRODUCTS</h3><div class="shop-grid" id="our-products-grid"></div></div>
     </section>
 
-    <section id="booking" class="booking-section">
-        <h2>Book An Appointment</h2>
-        <div class="booking-form">
-            <input type="text" id="bookName" placeholder="Your Full Name" required>
-            <input type="tel" id="bookPhone" placeholder="Phone Number" required>
-            <input type="date" id="bookDate" required>
-            <select id="bookService">
-                <option value="Wig Installation">Wig Installation</option>
-                <option value="Wig Revamping">Wig Revamping</option>
-                <option value="Natural Hair Styling">Natural Hair Styling</option>
-                <option value="Hair Treatment">Hair Treatment & Care</option>
-            </select>
-            <button id="submitBookingBtn">Confirm Booking via WhatsApp</button>
+    <section id="inquire" class="inquiry-section">
+        <h2>Book An Appointment /<br>Inquire</h2>
+        
+        <div class="inquiry-form">
+            <input type="text" id="inquiryName" placeholder="Your Name" required>
+            <input type="email" id="inquiryEmail" placeholder="Your Email" required>
+            <textarea id="inquiryDetails" placeholder="Describe the service or wig you want..." required></textarea>
+            <button class="btn-send-inquiry" id="submitInquiryBtn">Send Inquiry</button>
         </div>
-    </section>
 
-    <section id="contact">
-        <h2 style="text-align:center; margin-top:40px; text-transform:uppercase;">Contact Us</h2>
-        <div class="contact-container">
-            <div class="contact-card">
-                <h4>WhatsApp Support</h4>
-                <p>Chat directly with our studio reps.</p>
-                <a href="https://wa.me/2348123456789" target="_blank">Message Us Now →</a>
-            </div>
-            <div class="contact-card">
-                <h4>Instagram Portal</h4>
-                <p>Check out our live catalog portfolio.</p>
-                <a href="https://instagram.com/ms_wigs_studio" target="_blank">@ms_wigs_studio →</a>
-            </div>
+        <div class="direct-bookings-box">
+            <h3>Direct Bookings</h3>
+            <p>Need an immediate quote? Connect instantly below.</p>
+            
+            <a href="tel:+2348123456789" class="action-stack-btn btn-studio-call">Call Studio</a>
+            <a href="https://wa.me/2348123456789" target="_blank" class="action-stack-btn btn-studio-whatsapp">WhatsApp Chat</a>
+            <a href="mailto:info@mswigsstudio.com" class="action-stack-btn btn-studio-email">Email Us</a>
         </div>
     </section>
 
@@ -347,9 +387,9 @@
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 M'S WIGS & NATURAL HAIR STUDIO.</p>
-        <a href="#" id="footerAdminTrigger" style="color:#a1a1aa; text-decoration:none; font-size:13px;">Staff Portal Login</a>
+    <footer style="text-align: center; padding: 20px 0; background: #000; border-top: 1px solid #27272a; margin-top: 40px;">
+        <p style="font-size: 12px; margin: 0 0 8px 0; letter-spacing: 0.5px; color: #fff;">&copy; 2026 M'S WIGS & NATURAL HAIR STUDIO. ALL RIGHTS RESERVED.</p>
+        <a href="#" id="footerAdminTrigger" style="color:#a1a1aa; text-decoration:none; font-size:13px; display: inline-block;">Staff Portal Login</a>
     </footer>
 
     <script>
@@ -413,16 +453,15 @@
             });
         }
 
-        // WhatsApp Booking Dispatcher Script
-        document.getElementById('submitBookingBtn').onclick = () => {
-            const name = document.getElementById('bookName').value.trim();
-            const phone = document.getElementById('bookPhone').value.trim();
-            const date = document.getElementById('bookDate').value;
-            const service = document.getElementById('bookService').value;
+        // Send Inquiry Button Script
+        document.getElementById('submitInquiryBtn').onclick = () => {
+            const name = document.getElementById('inquiryName').value.trim();
+            const email = document.getElementById('inquiryEmail').value.trim();
+            const details = document.getElementById('inquiryDetails').value.trim();
 
-            if(!name || !phone || !date) return alert('Please fill in all booking fields!');
+            if(!name || !email || !details) return alert('Please complete all inquiry inputs fields!');
 
-            const message = `Hello M'S Wigs Studio, I would like to book an appointment:\n\nName: ${name}\nPhone: ${phone}\nDate: ${date}\nService Required: ${service}`;
+            const message = `Hello M'S Wigs Studio,\n\nI want to make an inquiry:\nName: ${name}\nEmail: ${email}\n\nRequest Details:\n${details}`;
             window.open(`https://wa.me/2348123456789?text=${encodeURIComponent(message)}`, '_blank');
         };
 
