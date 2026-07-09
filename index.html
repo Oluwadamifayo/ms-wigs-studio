@@ -337,6 +337,17 @@
         }
         .admin-modal-btn { background: #fff; color: #000; border: none; padding: 10px 20px; font-weight: bold; width: 100%; }
 
+        /* --- CART STYLES --- */
+        .cart-floating-bar {
+            position: fixed; bottom: 20px; right: 20px; z-index: 4000;
+            background: #18181b; border: 1px solid #27272a; border-radius: 8px;
+            padding: 12px; color: #fff; font-family: sans-serif;
+        }
+        .cart-bar-main { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        .whatsapp-checkout-btn { background: #22c55e; color: #fff; border: none; padding: 6px 12px; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        .cart-items-list { display: none; margin-top: 10px; border-top: 1px solid #27272a; padding-top: 10px; max-height: 200px; overflow-y: auto; }
+        .cart-items-list.open { display: block; }
+
         @media (min-width: 768px) {
             .gallery { grid-template-columns: repeat(3, 1fr); }
             .gallery-item.final-centered { grid-column: 2; }
@@ -432,32 +443,25 @@
     <div id="floatingCart" class="cart-floating-bar">
         <div class="cart-bar-main" id="cartToggle">
             <span>Shopping Cart (<span id="cartCount">0</span>)</span>
-            <button id="checkoutBtn" class="whatsapp-checkout-btn">Checkout via WhatsApp</button>
+            <button id="checkoutBtn" class="whatsapp-checkout-btn">Checkout</button>
         </div>
         <div id="cartItemsList" class="cart-items-list"></div>
     </div>
 
-    <div id="adminModal" class="admin-modal">
-        <div class="admin-modal-content">
-            <h3>Admin Portal Gate</h3>
-            <input type="password" id="adminPasswordInput" placeholder="Enter Password">
-            <button class="admin-modal-btn" id="loginAdminBtn">Verify Security</button>
-        </div>
-    </div>
-
     <footer style="text-align: center; padding: 20px 0; background: #000; border-top: 1px solid #27272a; margin-top: 40px;">
         <p style="font-size: 12px; margin: 0 0 8px 0; letter-spacing: 0.5px; color: #fff;">&copy; 2026 M'S WIGS & NATURAL HAIR STUDIO. ALL RIGHTS RESERVED.</p>
-        <a href="#" id="footerAdminTrigger" style="color:#a1a1aa; text-decoration:none; font-size:13px; display: inline-block;">Staff Portal Login</a>
     </footer>
 
     <script>
         const dropBtn = document.getElementById('collectionDropdownBtn');
         const dropContent = document.getElementById('collectionDropdownContent');
-        dropBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropBtn.classList.toggle('open');
-            dropContent.classList.toggle('open');
-        });
+        if(dropBtn && dropContent) {
+            dropBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropBtn.classList.toggle('open');
+                dropContent.classList.toggle('open');
+            });
+        }
 
         const cloudStorageUrl = 'https://kvdb.io/AnG9z7K7m8X9P2q4r7sW/ms_wigs_studio_live_db';
         let cart = [];
@@ -474,9 +478,11 @@
         async function renderProducts() {
             let activeProducts = [];
             try {
-                const res = await fetch(cloudStorageUrl);
+                // FIXED: Appended timestamp parameter to force live synchronization globally
+                const res = await fetch(`${cloudStorageUrl}?_t=${Date.now()}`);
                 if(res.ok) {
                     activeProducts = await res.json();
+                    localStorage.setItem('wig_products', JSON.stringify(activeProducts));
                 } else {
                     activeProducts = JSON.parse(localStorage.getItem('wig_products')) || [];
                 }
@@ -514,7 +520,7 @@
                 const dynamicSanitizedImg = cleanImgBBLink(product.image);
 
                 card.innerHTML = `
-                    <div class="card-img-wrapper"><img src="${dynamicSanitizedImg}" alt="${product.name}" class="viewable-img"></div>
+                    <div class="card-img-wrapper"><img src="${dynamicSanitizedImg}" alt="${product.name}"></div>
                     <div class="card-details">
                         <h3>${product.name}</h3>
                         <span class="price">${product.price}</span>
@@ -524,109 +530,64 @@
                 targetGrid.appendChild(card);
             });
 
-            // Bind click events to Buy Buttons
-            document.querySelectorAll('.buy-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const id = btn.getAttribute('data-id');
-                    const name = btn.getAttribute('data-name');
-                    const price = btn.getAttribute('data-price');
-                    addToCart({ id, name, price });
-                });
-            });
+            setupCartListeners();
         }
 
-        // Shopping Cart Implementation
-        function addToCart(item) {
-            cart.push(item);
-            updateCartUI();
-            
-            // Slide cart bar into view if hidden
-            const floatingCart = document.getElementById('floatingCart');
-            floatingCart.classList.add('active');
-            floatingCart.style.bottom = "25px";
+        function setupCartListeners() {
+            document.querySelectorAll('.buy-btn').forEach(btn => {
+                btn.onclick = (e) => {
+                    const item = {
+                        id: e.target.dataset.id,
+                        name: e.target.dataset.name,
+                        price: e.target.dataset.price
+                    };
+                    cart.push(item);
+                    updateCartUI();
+                };
+            });
         }
 
         function updateCartUI() {
             document.getElementById('cartCount').innerText = cart.length;
-            const itemsListContainer = document.getElementById('cartItemsList');
-            itemsListContainer.innerHTML = '';
-            
+            const listContainer = document.getElementById('cartItemsList');
+            listContainer.innerHTML = '';
             cart.forEach((item, index) => {
-                const div = document.createElement('div');
-                div.className = 'cart-list-item';
-                div.style.display = 'flex';
-                div.style.justifyContent = 'space-between';
-                div.style.padding = '5px 0';
-                div.innerHTML = `
-                    <span>${item.name} (${item.price})</span>
-                    <button class="remove-item-btn" onclick="removeFromCart(${index})" style="color: #ff4d4d; background:none; border:none; cursor:pointer;">Remove</button>
-                `;
-                itemsListContainer.appendChild(div);
+                const p = document.createElement('div');
+                p.style.display = 'flex';
+                p.style.justifyContent = 'space-between';
+                p.style.marginBottom = '6px';
+                p.innerHTML = `<span>${item.name} (${item.price})</span><span style="color:#dc2626;cursor:pointer;" onclick="removeItem(${index})">Remove</span>`;
+                listContainer.appendChild(p);
             });
         }
 
-        window.removeFromCart = function(index) {
+        window.removeItem = function(index) {
             cart.splice(index, 1);
             updateCartUI();
-            if(cart.length === 0) {
-                document.getElementById('floatingCart').classList.remove('active');
-                document.getElementById('floatingCart').style.bottom = "-100px";
-                document.getElementById('cartItemsList').classList.remove('open');
-            }
         };
 
-        // Expand/Collapse mini cart view
-        document.getElementById('cartToggle').addEventListener('click', (e) => {
-            if(e.target.id === 'checkoutBtn') return; // Ignore if checkout clicked
+        document.getElementById('cartToggle').onclick = (e) => {
+            if(e.target.id === 'checkoutBtn') return;
             document.getElementById('cartItemsList').classList.toggle('open');
-        });
+        };
 
-        // WhatsApp Checkout Logic
-        document.getElementById('checkoutBtn').addEventListener('click', () => {
-            if(cart.length === 0) return alert('Your shopping cart is empty!');
-            let text = "Hello MS Wigs Studio, I want to order:\n\n";
-            cart.forEach((item, idx) => {
-                text += `${idx + 1}. ${item.name} - ${item.price}\n`;
+        document.getElementById('checkoutBtn').onclick = () => {
+            if(cart.length === 0) return alert('Your cart is empty!');
+            let text = "Hello M'S Wigs Studio, I want to order:\n";
+            cart.forEach(item => {
+                text += `- ${item.name} (${item.price})\n`;
             });
-            const url = `https://wa.me/2348138049021?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        });
+            window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(text)}`, '_blank');
+        };
 
-        // Form Inquiry submission to WhatsApp directly
-        document.getElementById('submitInquiryBtn').addEventListener('click', () => {
+        document.getElementById('submitInquiryBtn').onclick = () => {
             const name = document.getElementById('inquiryName').value.trim();
             const email = document.getElementById('inquiryEmail').value.trim();
-            const details = document.getElementById('inquiryDetails').value.trim();
-            
-            if(!name || !details) return alert('Please enter your name and describe your wig or hair service request.');
-            
-            const message = `Hello MS Wigs Studio, I would like to book an appointment / inquire:\n\nName: ${name}\nEmail: ${email}\n\nDetails:\n${details}`;
-            window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(message)}`, '_blank');
-        });
-
-        // Staff Admin Portal Triggering Layouts
-        document.getElementById('footerAdminTrigger').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('adminModal').style.display = 'flex';
-        });
-
-        document.getElementById('loginAdminBtn').addEventListener('click', () => {
-            const password = document.getElementById('adminPasswordInput').value;
-            // Enter pass key restriction handling logic 
-            if(password === "msstudio2026") { 
-                window.location.href = 'admin.html';
-            } else {
-                alert('Invalid security authorization credentials.');
-            }
-        });
-
-        // Close admin modal if tapped outside content window box boundary
-        window.addEventListener('click', (e) => {
-            const modal = document.getElementById('adminModal');
-            if(e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
+            const desc = document.getElementById('inquiryDetails').value.trim();
+            if(!name || !desc) return alert('Name and Details are required.');
+            let text = `Inquiry from ${name} (${email}):\n${desc}`;
+            window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(text)}`, '_blank');
+        };
 
         window.onload = renderProducts;
     </script>
