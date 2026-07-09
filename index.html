@@ -189,14 +189,6 @@
             justify-content: space-between;
             flex-grow: 1;
         }
-        .card-details h3 {
-            font-size: 14px;
-            color: #ffffff;
-            margin: 0 0 4px 0;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
         .card-details .price {
             font-size: 13px;
             color: #a1a1aa;
@@ -344,14 +336,8 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             transition: transform 0.2s ease;
         }
-        .floating-whatsapp:active {
-            transform: scale(0.9);
-        }
-        .floating-whatsapp svg {
-            width: 30px;
-            height: 30px;
-            fill: #ffffff;
-        }
+        .floating-whatsapp:active { transform: scale(0.9); }
+        .floating-whatsapp svg { width: 30px; height: 30px; fill: #ffffff; }
 
         @media (min-width: 768px) {
             .gallery { grid-template-columns: repeat(3, 1fr); }
@@ -476,15 +462,24 @@
 
         let cart = [];
 
+        // Helper function to pull source URLs dynamically from HTML inputs safely
+        function cleanImgBBLink(rawLink) {
+            if (!rawLink) return '';
+            rawLink = rawLink.trim();
+            if (rawLink.includes('src=')) {
+                const match = rawLink.match(/src=["']([^"']+)["']/);
+                return match ? match[1] : rawLink;
+            }
+            return rawLink;
+        }
+
         async function renderProducts() {
             let activeProducts = [];
             try {
                 const res = await fetch('products.json');
-                if(res.ok) {
-                    activeProducts = await res.json();
-                }
+                if(res.ok) activeProducts = await res.json();
             } catch (e) {
-                console.error("Error loading products configuration: ", e);
+                console.error("Error loading products: ", e);
             }
 
             const grids = {
@@ -515,12 +510,13 @@
                 const card = document.createElement('div');
                 card.className = 'shop-card';
 
+                const displayImg = cleanImgBBLink(product.image);
+                // Displaying item fallback text to cart array directly while skipping visible name element rendering
                 card.innerHTML = `
-                    <div class="card-img-wrapper"><img src="${product.image}" alt="${product.name}"></div>
+                    <div class="card-img-wrapper"><img src="${displayImg}" alt="Wig Unit"></div>
                     <div class="card-details">
-                        <h3>${product.name}</h3>
                         <span class="price">${product.price}</span>
-                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Add To Cart</button>
+                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name || 'Straight Hair Unit'}" data-price="${product.price}">Add To Cart</button>
                     </div>
                 `;
                 targetGrid.appendChild(card);
@@ -545,7 +541,6 @@
 
         function updateCartUI() {
             const cartBar = document.getElementById('floatingCart');
-            
             if (cart.length > 0) {
                 cartBar.style.display = 'block';
             } else {
