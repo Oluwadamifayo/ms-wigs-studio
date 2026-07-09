@@ -33,5 +33,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/chMwhGCv/IMG-20260706-WA0118-1.jpg",
     "category": "STRAIGHT HAIR"
+  },
+  {
+    "id": "straight-6",
+    "name": "Straight Hair Unit 6",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/F4mGdkd4/IMG-20260706-WA0138.jpg",
+    "category": "STRAIGHT HAIR"
   }
 ]
