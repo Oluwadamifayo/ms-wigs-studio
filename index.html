@@ -167,7 +167,7 @@
             object-fit: cover;
         }
 
-        /* --- EXACT SCREENSHOT MATCH: BOOKING & INQUIRY STYLES --- */
+        /* --- BOOKING & INQUIRY STYLES --- */
         .inquiry-section {
             max-width: 600px;
             margin: 40px auto;
@@ -218,7 +218,7 @@
             margin-bottom: 30px;
         }
 
-        /* --- EXACT SCREENSHOT MATCH: DIRECT BOOKINGS CONTAINER --- */
+        /* --- DIRECT BOOKINGS CONTAINER --- */
         .direct-bookings-box {
             background: #111113;
             border-radius: 8px;
@@ -365,9 +365,9 @@
             <h3>Direct Bookings</h3>
             <p>Need an immediate quote? Connect instantly below.</p>
             
-            <a href="tel:+2348123456789" class="action-stack-btn btn-studio-call">Call Studio</a>
-            <a href="https://wa.me/2348123456789" target="_blank" class="action-stack-btn btn-studio-whatsapp">WhatsApp Chat</a>
-            <a href="mailto:info@mswigsstudio.com" class="action-stack-btn btn-studio-email">Email Us</a>
+            <a href="tel:+2348138049021" class="action-stack-btn btn-studio-call">Call Us</a>
+            <a href="https://wa.me/2348138049021" target="_blank" class="action-stack-btn btn-studio-whatsapp">WhatsApp Chat</a>
+            <a href="mailto:oluwamayowasarah442@gmail.com" class="action-stack-btn btn-studio-email">Email Us</a>
         </div>
     </section>
 
@@ -453,7 +453,7 @@
             });
         }
 
-        // Send Inquiry Button Script
+        // Inquiry Handler using your target active number
         document.getElementById('submitInquiryBtn').onclick = () => {
             const name = document.getElementById('inquiryName').value.trim();
             const email = document.getElementById('inquiryEmail').value.trim();
@@ -462,7 +462,7 @@
             if(!name || !email || !details) return alert('Please complete all inquiry inputs fields!');
 
             const message = `Hello M'S Wigs Studio,\n\nI want to make an inquiry:\nName: ${name}\nEmail: ${email}\n\nRequest Details:\n${details}`;
-            window.open(`https://wa.me/2348123456789?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(message)}`, '_blank');
         };
 
         const cart = [];
