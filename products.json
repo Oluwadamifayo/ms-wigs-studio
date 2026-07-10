@@ -202,27 +202,27 @@
     "name": "Hair packer",
     "price": "Contact for Price",
     "image": "https://i.ibb.co/TxTk12cC/IMG-20260708-WA0053.jpg",
-    "category": "HAIR PRODUCTS"
+    "category": "OUR HAIR PRODUCTS"
   },
   {
     "id": "product-2",
     "name": "Hair Brush",
     "price": "Contact for Price",
     "image": "https://i.ibb.co/Y72cf88K/IMG-20260708-WA0055.jpg",
-    "category": "HAIR PRODUCTS"
+    "category": "OUR HAIR PRODUCTS"
   },
   {
     "id": "product-3",
     "name": "Hair Bonnet",
     "price": "Contact for Price",
     "image": "https://i.ibb.co/YBYvvzV6/IMG-20260708-WA0057.jpg",
-    "category": "HAIR PRODUCTS"
+    "category": "OUR HAIR PRODUCTS"
   },
   {
     "id": "product-4",
     "name": "Hair net",
     "price": "Contact for Price",
     "image": "https://i.ibb.co/3mSzHzkv/IMG-20260708-WA0059.jpg",
-    "category": "HAIR PRODUCTS"
+    "category": "OUR HAIR PRODUCTS"
   }
 ]
