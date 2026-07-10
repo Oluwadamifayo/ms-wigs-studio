@@ -22,13 +22,22 @@ header nav a {
 }
 
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg') no-repeat center center/cover;
+    background-color: #f7f4eb !important; /* Perfect cream color matching your layout */
+    background-image: none !important;    /* Completely removes the wig photo */
     height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
+    color: #111111 !important;            /* Turns the text dark so it's readable on cream */
+}
+
+.hero-overlay {
+    background: transparent !important;   /* Removes the dark tint over the image */
+}
+
+.hero-overlay h2 {
+    color: #111111 !important;            /* Ensures text is completely dark gray/black */
 }
 
 /* --- HORIZONTAL SHOP GRID DISPLAY --- */
