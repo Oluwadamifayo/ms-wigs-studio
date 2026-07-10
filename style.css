@@ -110,7 +110,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. PORTFOLIO GALLERY DESIGN (Light Ivory Cream / Uniform Layout)
+   4. PORTFOLIO GALLERY DESIGN (Light Ivory Cream / Centered Layout)
    ========================================================================== */
 #portfolio {
     padding: 60px 20px;
@@ -136,9 +136,18 @@ nav a:hover {
     flex-direction: column;
     transition: transform 0.3s ease;
     
-    /* FIX: Force every grid element card container to be a strict square aspect ratio box */
+    /* Force every grid element card container to be a strict square aspect ratio box */
     aspect-ratio: 1 / 1;
     overflow: hidden;
+}
+
+/* FIX: If there is a single lone item sitting on the last row of a 2-column grid, span both columns and center it */
+.gallery-item:last-child:nth-child(odd) {
+    grid-column: 1 / span 2;
+    max-width: calc(50% - 12px); /* Matches the size of a normal single column box minus gap space */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .gallery-item:hover {
@@ -396,10 +405,19 @@ footer {
         gap: 14px;
     }
     
-    /* FIX: Keep square format context for gallery items even inside responsive phone viewports */
     .gallery-item {
         aspect-ratio: 1 / 1;
     }
+    
+    /* Mobile-specific fix for the centered last element */
+    .gallery-item:last-child:nth-child(odd) {
+        grid-column: 1 / span 2;
+        max-width: calc(50% - 7px); /* Scaled gap adjustments for mobile */
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    
     .gallery-item img {
         height: 100%;
     }
