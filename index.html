@@ -126,15 +126,6 @@
             display: block;
             border-radius: 8px;
         }
-        /* Forces the odd 7th image to center on both mobile and desktop views */
-        .gallery-item.final-centered {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-        }
-        .gallery-item.final-centered img { 
-            width: calc(50% - 6px); 
-        }
 
         /* --- SHOP SECTIONS --- */
         #shop h2 {
@@ -400,8 +391,6 @@
 
         @media (min-width: 768px) {
             .gallery { grid-template-columns: repeat(3, 1fr); }
-            .gallery-item.final-centered { grid-column: 1 / -1; }
-            .gallery-item.final-centered img { width: calc(33.33% - 8px); }
             .shop-card { flex: 0 0 230px !important; max-width: 230px !important; }
             .shop-card .card-img-wrapper img { height: 250px; }
         }
@@ -457,7 +446,7 @@
             <div class="gallery-item"><img src="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
             <div class="gallery-item"><img src="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
             <div class="gallery-item"><img src="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
-            <div class="gallery-item final-centered"><img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
         </div>
     </section>
 
