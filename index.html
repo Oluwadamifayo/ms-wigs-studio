@@ -356,26 +356,6 @@
                 }
             });
 
-            const hairProductImages = [
-                "https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg",
-                "https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg",
-                "https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg",
-                "https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg",
-                "https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg",
-                "https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg",
-                "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg",
-                "https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg",
-                "https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg",
-                "https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg",
-                "https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg",
-                "https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg",
-                "https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg",
-                "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg",
-                "https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg"
-            ];
-
-            let hairProdIndex = 0;
-
             activeProducts.forEach(product => {
                 const targetGrid = grids[product.category];
                 if (!targetGrid) return;
@@ -387,10 +367,6 @@
                 card.className = 'shop-card';
 
                 let displayImg = cleanImgBBLink(product.image);
-                if (product.category === "OUR HAIR PRODUCTS" && hairProdIndex < hairProductImages.length) {
-                    displayImg = hairProductImages[hairProdIndex];
-                    hairProdIndex++;
-                }
 
                 let finalName = product.name;
                 let finalPrice = product.price;
