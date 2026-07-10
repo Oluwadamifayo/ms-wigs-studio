@@ -231,5 +231,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/N6zYWvFY/IMG-20260708-WA0060.jpg",
     "category": "OUR HAIR PRODUCTS"
+  },
+  {
+    "id": "product-6",
+    "name": "Hair relaxer",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/3y12wNxQ/IMG-20260708-WA0062.jpg",
+    "category": "OUR HAIR PRODUCTS"
   }
 ]
