@@ -252,5 +252,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/DHNxP1Yw/IMG-20260708-WA0068.jpg",
     "category": "OUR HAIR PRODUCTS"
+  },
+  {
+    "id": "product-9",
+    "name": "Wig oil",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/6RKKTqVF/IMG-20260708-WA0069.jpg",
+    "category": "OUR HAIR PRODUCTS"
   }
 ]
