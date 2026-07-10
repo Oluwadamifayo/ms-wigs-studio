@@ -270,7 +270,7 @@
   {
     "id": "product-11",
     "name": "Luodias",
-    "price": "Contact for Price",
+    "price": "Contact Price",
     "image": "https://i.ibb.co/B2cfL00w/IMG-20260708-WA0070.jpg",
     "category": "OUR HAIR PRODUCTS"
   },
@@ -293,6 +293,13 @@
     "name": "Hair conditioner",
     "price": "Contact for Price",
     "image": "https://i.ibb.co/9kDqSgNC/IMG-20260708-WA0065.jpg",
+    "category": "OUR HAIR PRODUCTS"
+  },
+  {
+    "id": "product-15",
+    "name": "Hair Bonnet",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/xKWStdP5/IMG-20260708-WA0061.jpg",
     "category": "OUR HAIR PRODUCTS"
   }
 ]
