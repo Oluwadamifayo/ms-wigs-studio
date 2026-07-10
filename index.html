@@ -467,12 +467,12 @@
     <section id="inquire" class="inquiry-section">
         <h2>Book An Appointment /<br>Inquire</h2>
 
-        <div class="inquiry-form">
-            <input type="text" id="inquiryName" placeholder="Your Name" required>
-            <input type="email" id="inquiryEmail" placeholder="Your Email" required>
-            <textarea id="inquiryDetails" placeholder="Describe the service or wig you want..." required></textarea>
-            <button class="btn-send-inquiry" id="submitInquiryBtn">Send Inquiry</button>
-        </div>
+        <form action="https://formspree.io/f/mdarvwjq" method="POST" class="inquiry-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Describe the service or wig you want..." required></textarea>
+            <button type="submit" class="btn-send-inquiry">Send Inquiry</button>
+        </form>
 
         <div class="direct-bookings-box">
             <h3>Direct Bookings</h3>
@@ -656,15 +656,6 @@
             cart.forEach(item => {
                 text += `- ${item.name} (${item.price})\n`;
             });
-            window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(text)}`, '_blank');
-        };
-
-        document.getElementById('submitInquiryBtn').onclick = () => {
-            const name = document.getElementById('inquiryName').value.trim();
-            const email = document.getElementById('inquiryEmail').value.trim();
-            const desc = document.getElementById('inquiryDetails').value.trim();
-            if(!name || !desc) return alert('Name and Details are required.');
-            let text = `Inquiry from ${name} (${email}):\n${desc}`;
             window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(text)}`, '_blank');
         };
 
