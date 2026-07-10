@@ -245,5 +245,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/Qv8vQTL7/IMG-20260708-WA0066.jpg",
     "category": "OUR HAIR PRODUCTS"
+  },
+  {
+    "id": "product-8",
+    "name": "Edge control",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/DHNxP1Yw/IMG-20260708-WA0068.jpg",
+    "category": "OUR HAIR PRODUCTS"
   }
 ]
