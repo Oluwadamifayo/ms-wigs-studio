@@ -1,306 +1,107 @@
 [
   {
-    "id": "straight-1",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/WNsh08rF/IMG-20260706-WA0058.jpg",
-    "category": "STRAIGHT HAIR"
+    "id": "prod_1",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Hair Packer",
+    "price": "₦1,200",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "straight-2",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/spgT6c0s/IMG-20260706-WA0095.jpg",
-    "category": "STRAIGHT HAIR"
-  },
-  {
-    "id": "straight-3",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/GQVmrBmh/IMG-20260706-WA0101.jpg",
-    "category": "STRAIGHT HAIR"
-  },
-  {
-    "id": "straight-4",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/sGkh5W4/IMG-20260706-WA0104.jpg",
-    "category": "STRAIGHT HAIR"
-  },
-  {
-    "id": "straight-5",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/chMwhGCv/IMG-20260706-WA0118-1.jpg",
-    "category": "STRAIGHT HAIR"
-  },
-  {
-    "id": "straight-6",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/F4mGdkd4/IMG-20260706-WA0138.jpg",
-    "category": "STRAIGHT HAIR"
-  },
-  {
-    "id": "straight-7",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/LDyy4n6Q/IMG-20260707-WA0079.jpg",
-    "category": "STRAIGHT HAIR"
-  },
-  {
-    "id": "straight-8",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/7xzYpQjJ/IMG-20260707-WA0080.jpg",
-    "category": "STRAIGHT HAIR"
-  },
-  {
-    "id": "straight-9",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/KzzffdwD/IMG-20260707-WA0075.jpg",
-    "category": "STRAIGHT HAIR"
-  },
-  {
-    "id": "bouncy-1",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/0RnjNcVz/IMG-20260706-WA0059.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-2",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/46sYT4T/IMG-20260707-WA0069.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-3",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/kgMrKvt5/IMG-20260707-WA0070.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-4",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/mCp0pfsG/IMG-20260707-WA0073.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-5",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/NgCm4Zfh/IMG-20260707-WA0046.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-6",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/HD9rJ2HS/IMG-20260707-WA0048.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-7",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/Z1WJ907b/IMG-20260707-WA0049.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-8",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/QvzhkkXQ/IMG-20260707-WA0052.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-9",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/Q74y20XF/IMG-20260707-WA0082.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-10",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/KjnWyhRh/IMG-20260707-WA0081.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-11",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/wfDCHfx/IMG-20260707-WA0083.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-12",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/zVY67SHP/IMG-20260707-WA0084.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "bouncy-13",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/SD3v6TXm/IMG-20260707-WA0085.jpg",
-    "category": "BOUNCY HAIR"
-  },
-  {
-    "id": "pixie-1",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/hJM3jzs2/IMG-20260708-WA0016.jpg",
-    "category": "PISSIE CURLY"
-  },
-  {
-    "id": "pixie-2",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/TB863RSq/IMG-20260707-WA0063.jpg",
-    "category": "PISSIE CURLY"
-  },
-  {
-    "id": "pixie-3",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/DgGnZFLc/IMG-20260706-WA0144.jpg",
-    "category": "PISSIE CURLY"
-  },
-  {
-    "id": "pixie-4",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/NnVvfjY5/IMG-20260707-WA0059.jpg",
-    "category": "PISSIE CURLY"
-  },
-  {
-    "id": "pixie-5",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/RGZjh4mP/IMG-20260707-WA0066.jpg",
-    "category": "PISSIE CURLY"
-  },
-  {
-    "id": "pixie-6",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/WNCVPHs5/IMG-20260707-WA0061.jpg",
-    "category": "PISSIE CURLY"
-  },
-  {
-    "id": "pixie-7",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/QFn557WH/IMG-20260708-WA0014.jpg",
-    "category": "PISSIE CURLY"
-  },
-  {
-    "id": "tiwa-1",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/Cpsbqk8b/IMG-20260706-WA0139-1.jpg",
-    "category": "TIWA HAIR"
-  },
-  {
-    "id": "tiwa-2",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/JwdN2K5B/IMG-20260706-WA0150-1.jpg",
-    "category": "TIWA HAIR"
-  },
-  {
-    "id": "tiwa-3",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/kVQYfR1B/IMG-20260707-WA0051.jpg",
-    "category": "TIWA HAIR"
-  },
-  {
-    "id": "tiwa-4",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/8nC9bqdZ/IMG-20260708-WA0039.jpg",
-    "category": "TIWA HAIR"
-  },
-  {
-    "id": "product-1",
-    "name": "Hair packer",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/TxTk12cC/IMG-20260708-WA0053.jpg",
-    "category": "OUR HAIR PRODUCTS"
-  },
-  {
-    "id": "product-2",
+    "id": "prod_2",
+    "category": "OUR HAIR PRODUCTS",
     "name": "Hair Brush",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/Y72cf88K/IMG-20260708-WA0055.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "price": "₦1,000",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-3",
-    "name": "Hair Bonnet",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/YBYvvzV6/IMG-20260708-WA0057.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_3",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Hair Bonnet (Standard)",
+    "price": "₦1,800",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-4",
-    "name": "Hair net",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/3mSzHzkv/IMG-20260708-WA0059.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_4",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Hair Net (Premium)",
+    "price": "₦800",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-5",
-    "name": "Hair net",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/N6zYWvFY/IMG-20260708-WA0060.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_5",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Hair Net (Regular)",
+    "price": "₦500",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-6",
-    "name": "Hair relaxer",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/3y12wNxQ/IMG-20260708-WA0062.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_6",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Hair Relaxer",
+    "price": "₦1,500",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-7",
-    "name": "Cur la la",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/Qv8vQTL7/IMG-20260708-WA0066.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_7",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Curl La La",
+    "price": "₦15,000",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-8",
-    "name": "Edge control",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/DHNxP1Yw/IMG-20260708-WA0068.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_8",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Edge Control (Regular)",
+    "price": "₦3,000",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-9",
-    "name": "Wig oil",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/6RKKTqVF/IMG-20260708-WA0069.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_9",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Wig Oil",
+    "price": "₦2,000",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-10",
-    "name": "Butterfly shadow",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/0xxzsF3/IMG-20260708-WA0071.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_10",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Butterfly Shadow",
+    "price": "₦2,500",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-11",
+    "id": "prod_11",
+    "category": "OUR HAIR PRODUCTS",
     "name": "Luodias",
-    "price": "Contact Price",
-    "image": "https://i.ibb.co/B2cfL00w/IMG-20260708-WA0070.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "price": "₦4,000",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-12",
-    "name": "Edge control",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/bMSR22GQ/IMG-20260708-WA0067.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_12",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Edge Control (Premium)",
+    "price": "₦4,000",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-13",
+    "id": "prod_13",
+    "category": "OUR HAIR PRODUCTS",
     "name": "Hair Shampoo",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/XZTKKbqb/IMG-20260708-WA0064.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "price": "₦1,500",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-14",
-    "name": "Hair conditioner",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/9kDqSgNC/IMG-20260708-WA0065.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_14",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Hair Conditioner",
+    "price": "₦1,500",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   },
   {
-    "id": "product-15",
-    "name": "Hair Bonnet",
-    "price": "Contact for Price",
-    "image": "https://i.ibb.co/xKWStdP5/IMG-20260708-WA0061.jpg",
-    "category": "OUR HAIR PRODUCTS"
+    "id": "prod_15",
+    "category": "OUR HAIR PRODUCTS",
+    "name": "Hair Bonnet (Premium)",
+    "price": "₦2,000",
+    "image": "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg"
   }
 ]
-
