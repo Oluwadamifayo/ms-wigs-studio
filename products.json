@@ -224,5 +224,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/3mSzHzkv/IMG-20260708-WA0059.jpg",
     "category": "OUR HAIR PRODUCTS"
+  },
+  {
+    "id": "product-5",
+    "name": "Hair net",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/N6zYWvFY/IMG-20260708-WA0060.jpg",
+    "category": "OUR HAIR PRODUCTS"
   }
 ]
