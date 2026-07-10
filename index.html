@@ -110,7 +110,7 @@
             border-bottom: 1px solid #f4f4f5;
         }
 
-        /* --- DYNAMIC OVERLAY SETTINGS FOR RENDERING COHESION --- */
+        /* --- DYNAMIC OVERLAY SETTINGS --- */
         .shop-group {
             margin-bottom: 40px;
             padding: 0 15px;
@@ -139,7 +139,7 @@
         }
         .card-details .price {
             font-size: 0.95rem;
-            color: #e28743; /* Warm attractive price highlights */
+            color: #e28743;
             font-weight: bold;
             display: block;
             margin-bottom: 10px;
@@ -332,7 +332,7 @@
         async function renderProducts() {
             let activeProducts = [];
             try {
-                const res = await fetch('products.json');
+                const res = await fetch('products.json?v=' + Date.now());
                 if(res.ok) activeProducts = await res.json();
             } catch (e) {
                 console.error("Error loading products: ", e);
@@ -357,21 +357,21 @@
             });
 
             const hairProductImages = [
-                "https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg", // Hair packer
-                "https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg", // Hair Brush
-                "https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg", // Hair Bonnet 1800
-                "https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg", // Hair net 800
-                "https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg", // Hair net 500
-                "https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg", // Hair relaxer
-                "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg", // Curl la la
-                "https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg", // Edge control 3000
-                "https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg", // Wig oil
-                "https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg", // Butterfly shadow
-                "https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg", // Luodias
-                "https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg", // Edge control 4000
-                "https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg", // Hair shampoo
-                "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg", // Hair conditioner
-                "https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg"  // Hair Bonnet 2000
+                "https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg",
+                "https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg",
+                "https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg",
+                "https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg",
+                "https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg",
+                "https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg",
+                "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg",
+                "https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg",
+                "https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg",
+                "https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg",
+                "https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg",
+                "https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg",
+                "https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg",
+                "https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg",
+                "https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg"
             ];
 
             let hairProdIndex = 0;
@@ -392,8 +392,8 @@
                     hairProdIndex++;
                 }
 
-                let finalName = product.name || "Premium Unit";
-                let finalPrice = product.price && product.price.trim() !== "" ? product.price : "₦1,200";
+                let finalName = product.name;
+                let finalPrice = product.price;
 
                 card.innerHTML = `
                     <div class="card-img-wrapper" onclick="openImageViewer('${displayImg}')">
