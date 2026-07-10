@@ -179,6 +179,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            cursor: pointer;
         }
         .card-details {
             padding: 15px 10px !important;
@@ -399,13 +400,13 @@
     <section id="portfolio">
         <h2>Our Portfolio</h2>
         <div class="gallery">
-            <div class="gallery-item"><img src="https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg" class="viewable-img"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" class="viewable-img"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" class="viewable-img"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" class="viewable-img"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" class="viewable-img"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" class="viewable-img"></div>
-            <div class="gallery-item final-centered"><img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" class="viewable-img"></div>
+            <div class="gallery-item"><a href="https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg" target="_blank"><img src="https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg" class="viewable-img"></a></div>
+            <div class="gallery-item"><a href="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" target="_blank"><img src="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" class="viewable-img"></a></div>
+            <div class="gallery-item"><a href="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" target="_blank"><img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" class="viewable-img"></a></div>
+            <div class="gallery-item"><a href="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" target="_blank"><img src="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" class="viewable-img"></a></div>
+            <div class="gallery-item"><a href="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" target="_blank"><img src="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" class="viewable-img"></a></div>
+            <div class="gallery-item"><a href="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" target="_blank"><img src="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" class="viewable-img"></a></div>
+            <div class="gallery-item final-centered"><a href="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" target="_blank"><img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" class="viewable-img"></a></div>
         </div>
     </section>
 
@@ -518,18 +519,22 @@
                 card.className = 'shop-card';
 
                 const displayImg = cleanImgBBLink(product.image);
-                
+
                 // Determine layout names based on category context if blank
                 let fallbackName = "Premium Unit";
                 if(product.category === "STRAIGHT HAIR") fallbackName = "Straight Hair Unit";
                 if(product.category === "PISSIE CURLY") fallbackName = "Pixie Curly Unit";
                 if(product.category === "BOUNCY HAIR") fallbackName = "Bouncy Hair Unit";
                 if(product.category === "TIWA HAIR") fallbackName = "Tiwa Hair Unit";
-                
+
                 const finalName = product.name || fallbackName;
 
                 card.innerHTML = `
-                    <div class="card-img-wrapper"><img src="${displayImg}" alt="${finalName}"></div>
+                    <div class="card-img-wrapper">
+                        <a href="${displayImg}" target="_blank">
+                            <img src="${displayImg}" alt="${finalName}">
+                        </a>
+                    </div>
                     <div class="card-details">
                         <span class="product-title">${finalName}</span>
                         <span class="price">${product.price}</span>
