@@ -117,6 +117,9 @@
             gap: 12px;
             padding: 10px 0;
         }
+        .gallery-item {
+            cursor: pointer;
+        }
         .gallery-item.final-centered {
             grid-column: span 2;
             display: flex;
@@ -174,12 +177,12 @@
             height: 180px;
             background: #111113;
             overflow: hidden;
+            cursor: pointer;
         }
         .card-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            cursor: pointer;
         }
         .card-details {
             padding: 15px 10px !important;
@@ -223,6 +226,45 @@
             font-size: 14px;
             padding: 10px 15px;
             font-style: italic;
+        }
+
+        /* --- TAP TO VIEW OVERLAY / LIGHTBOX MODAL --- */
+        .image-viewer-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Slightly transparent background */
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .image-viewer-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+        }
+        .image-viewer-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.2s ease;
+            font-family: Arial, sans-serif;
+            line-height: 1;
+        }
+        .image-viewer-close:hover {
+            color: #a1a1aa;
         }
 
         /* --- BOOKING AND INQUIRY FORM --- */
@@ -400,13 +442,13 @@
     <section id="portfolio">
         <h2>Our Portfolio</h2>
         <div class="gallery">
-            <div class="gallery-item"><a href="https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg" target="_blank"><img src="https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg" class="viewable-img"></a></div>
-            <div class="gallery-item"><a href="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" target="_blank"><img src="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" class="viewable-img"></a></div>
-            <div class="gallery-item"><a href="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" target="_blank"><img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" class="viewable-img"></a></div>
-            <div class="gallery-item"><a href="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" target="_blank"><img src="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" class="viewable-img"></a></div>
-            <div class="gallery-item"><a href="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" target="_blank"><img src="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" class="viewable-img"></a></div>
-            <div class="gallery-item"><a href="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" target="_blank"><img src="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" class="viewable-img"></a></div>
-            <div class="gallery-item final-centered"><a href="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" target="_blank"><img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" class="viewable-img"></a></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
+            <div class="gallery-item final-centered"><img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
         </div>
     </section>
 
@@ -418,6 +460,11 @@
         <div class="shop-group" id="tiwa-hair-section"><h3 class="group-title">TIWA HAIR</h3><div class="shop-grid" id="tiwa-hair-grid"></div></div>
         <div class="shop-group" id="our-products-section"><h3 class="group-title">OUR HAIR PRODUCTS</h3><div class="shop-grid" id="our-products-grid"></div></div>
     </section>
+
+    <div id="imageViewerModal" class="image-viewer-modal" onclick="closeImageViewer()">
+        <span class="image-viewer-close" onclick="closeImageViewer()">&times;</span>
+        <img class="image-viewer-content" id="viewerTargetImage" src="" alt="Expanded View" onclick="event.stopPropagation()">
+    </div>
 
     <section id="inquire" class="inquiry-section">
         <h2>Book An Appointment /<br>Inquire</h2>
@@ -481,6 +528,23 @@
             return rawLink;
         }
 
+        // Functions to control lightbox viewing actions
+        window.openImageViewer = function(imageSrc) {
+            const viewerModal = document.getElementById('imageViewerModal');
+            const viewerImage = document.getElementById('viewerTargetImage');
+            if(viewerModal && viewerImage) {
+                viewerImage.src = imageSrc;
+                viewerModal.style.display = 'flex';
+            }
+        };
+
+        window.closeImageViewer = function() {
+            const viewerModal = document.getElementById('imageViewerModal');
+            if(viewerModal) {
+                viewerModal.style.display = 'none';
+            }
+        };
+
         async function renderProducts() {
             let activeProducts = [];
             try {
@@ -530,10 +594,8 @@
                 const finalName = product.name || fallbackName;
 
                 card.innerHTML = `
-                    <div class="card-img-wrapper">
-                        <a href="${displayImg}" target="_blank">
-                            <img src="${displayImg}" alt="${finalName}">
-                        </a>
+                    <div class="card-img-wrapper" onclick="openImageViewer('${displayImg}')">
+                        <img src="${displayImg}" alt="${finalName}">
                     </div>
                     <div class="card-details">
                         <span class="product-title">${finalName}</span>
