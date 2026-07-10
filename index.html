@@ -467,11 +467,11 @@
     <section id="inquire" class="inquiry-section">
         <h2>Book An Appointment /<br>Inquire</h2>
 
-        <form action="https://formspree.io/f/mdarvwjq" method="POST" class="inquiry-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Describe the service or wig you want..." required></textarea>
-            <button type="submit" class="btn-send-inquiry">Send Inquiry</button>
+        <form id="studioInquiryForm" class="inquiry-form">
+            <input type="text" id="inquiryName" name="name" placeholder="Your Name" required>
+            <input type="email" id="inquiryEmail" name="email" placeholder="Your Email" required>
+            <textarea id="inquiryDetails" name="message" placeholder="Describe the service or wig you want..." required></textarea>
+            <button type="submit" class="btn-send-inquiry" id="submitInquiryBtn">Send Inquiry</button>
         </form>
 
         <div class="direct-bookings-box">
@@ -658,6 +658,42 @@
             });
             window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(text)}`, '_blank');
         };
+
+        // NEW: Handles seamless Formspree submission and clears fields instantly
+        const inquiryForm = document.getElementById('studioInquiryForm');
+        if (inquiryForm) {
+            inquiryForm.addEventListener('submit', async function(event) {
+                event.preventDefault(); // Prevents page from redirecting away
+                
+                const submitBtn = document.getElementById('submitInquiryBtn');
+                submitBtn.innerText = "Sending...";
+                submitBtn.disabled = true;
+
+                const formData = new FormData(inquiryForm);
+
+                try {
+                    const response = await fetch('https://formspree.io/f/mdarvwjq', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        alert("Thank you! Your inquiry has been submitted successfully.");
+                        inquiryForm.reset(); // Clears out all the text values back to empty placeholders
+                    } else {
+                        alert("Oops! There was a problem submitting your form. Please try again.");
+                    }
+                } catch (error) {
+                    alert("Error connecting to server. Please check your network connection.");
+                } finally {
+                    submitBtn.innerText = "Send Inquiry";
+                    submitBtn.disabled = false;
+                }
+            });
+        }
 
         window.onload = renderProducts;
     </script>
