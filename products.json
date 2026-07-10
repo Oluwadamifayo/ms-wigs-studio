@@ -196,5 +196,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/8nC9bqdZ/IMG-20260708-WA0039.jpg",
     "category": "TIWA HAIR"
+  },
+  {
+    "id": "product-1",
+    "name": "Hair packer",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/TxTk12cC/IMG-20260708-WA0053.jpg",
+    "category": "HAIR PRODUCTS"
   }
 ]
