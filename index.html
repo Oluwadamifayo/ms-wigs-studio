@@ -120,12 +120,21 @@
         .gallery-item {
             cursor: pointer;
         }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        /* Forces the odd 7th image to center on both mobile and desktop views */
         .gallery-item.final-centered {
-            grid-column: span 2;
+            grid-column: 1 / -1;
             display: flex;
             justify-content: center;
         }
-        .gallery-item.final-centered img { width: calc(50% - 6px); }
+        .gallery-item.final-centered img { 
+            width: calc(50% - 6px); 
+        }
 
         /* --- SHOP SECTIONS --- */
         #shop h2 {
@@ -236,7 +245,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); /* Slightly transparent background */
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: 9999;
             justify-content: center;
             align-items: center;
@@ -391,8 +400,8 @@
 
         @media (min-width: 768px) {
             .gallery { grid-template-columns: repeat(3, 1fr); }
-            .gallery-item.final-centered { grid-column: 2; }
-            .gallery-item.final-centered img { width: 100%; }
+            .gallery-item.final-centered { grid-column: 1 / -1; }
+            .gallery-item.final-centered img { width: calc(33.33% - 8px); }
             .shop-card { flex: 0 0 230px !important; max-width: 230px !important; }
             .shop-card .card-img-wrapper img { height: 250px; }
         }
@@ -517,7 +526,6 @@
 
         let cart = [];
 
-        // Helper function to pull source URLs dynamically from HTML inputs safely
         function cleanImgBBLink(rawLink) {
             if (!rawLink) return '';
             rawLink = rawLink.trim();
@@ -528,7 +536,6 @@
             return rawLink;
         }
 
-        // Functions to control lightbox viewing actions
         window.openImageViewer = function(imageSrc) {
             const viewerModal = document.getElementById('imageViewerModal');
             const viewerImage = document.getElementById('viewerTargetImage');
@@ -584,7 +591,6 @@
 
                 const displayImg = cleanImgBBLink(product.image);
 
-                // Determine layout names based on category context if blank
                 let fallbackName = "Premium Unit";
                 if(product.category === "STRAIGHT HAIR") fallbackName = "Straight Hair Unit";
                 if(product.category === "PISSIE CURLY") fallbackName = "Pixie Curly Unit";
