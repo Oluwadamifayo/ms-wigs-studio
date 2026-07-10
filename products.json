@@ -238,5 +238,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/3y12wNxQ/IMG-20260708-WA0062.jpg",
     "category": "OUR HAIR PRODUCTS"
+  },
+  {
+    "id": "product-7",
+    "name": "Cur la la",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/Qv8vQTL7/IMG-20260708-WA0066.jpg",
+    "category": "OUR HAIR PRODUCTS"
   }
 ]
