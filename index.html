@@ -110,7 +110,7 @@
             border-bottom: 1px solid #f4f4f5;
         }
 
-        /* --- SHOP GROUP LAYOUTS --- */
+        /* --- LAYOUT DISPLAY --- */
         .shop-group {
             margin-bottom: 40px;
             padding: 0 15px;
@@ -132,14 +132,14 @@
         }
         .card-details .product-title {
             font-size: 1rem;
-            color: #ffffff;
+            color: #ffffff !important;
             font-weight: 600;
             display: block;
             margin-bottom: 5px;
         }
         .card-details .price {
             font-size: 0.95rem;
-            color: #a1a1aa;
+            color: #a1a1aa !important;
             display: block;
             margin-bottom: 10px;
         }
@@ -181,43 +181,14 @@
         .floating-whatsapp:active { transform: scale(0.9); }
         .floating-whatsapp svg { width: 30px; height: 30px; fill: #ffffff; }
 
-        /* --- DIRECT BOOKING CARD STYLES --- */
-        .direct-booking-card {
-            background-color: #000000;
-            border: 1px solid #27272a;
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 30px;
-            color: #ffffff;
+        /* --- CONTACT FORM --- */
+        .contact-section h2 {
+            font-family: 'Segoe UI', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
         }
-        .direct-booking-card h3 {
-            margin-top: 0;
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .booking-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .btn-action {
-            display: block;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 14px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 15px;
-            text-align: center;
-            transition: opacity 0.2s ease;
-        }
-        .btn-call { background-color: #000000; border: 1px solid #27272a; }
-        .btn-whatsapp { background-color: #22c55e; }
-        .btn-email { background-color: #000000; border: 1px solid #27272a; }
     </style>
 </head>
 <body>
@@ -298,13 +269,13 @@
             <button type="submit" class="submit-inquiry-btn" id="submitInquiryBtn">Send Inquiry</button>
         </form>
 
-        <div class="direct-booking-card">
-            <h3>Direct Bookings</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 15px; color: #a1a1aa;">Need an immediate booking? Connect instantly below.</p>
+        <div class="direct-booking-card" style="margin-top: 30px; background: #000; padding: 20px; border-radius: 8px; border: 1px solid #3f3f46;">
+            <h3 style="color: #fff; margin-top: 0;">Direct Bookings</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 15px; color: #71717a;">Need an immediate booking? Connect instantly below.</p>
             <div class="booking-buttons">
-                <a href="tel:+2348138049021" class="btn-action btn-call">Call Us</a>
-                <a href="https://wa.me/2348138049021" target="_blank" class="btn-action btn-whatsapp">WhatsApp Chat</a>
-                <a href="mailto:oluwamayowasarah442@gmail.com" class="btn-action btn-email">Email Us</a>
+                <a href="tel:+2348138049021" class="btn-action btn-call" style="background: #27272a; border: 1px solid #3f3f46; display: block; text-align: center; padding: 12px; border-radius: 6px; color: #fff; text-decoration: none; margin-bottom: 8px; font-weight: bold;">Call Us</a>
+                <a href="https://wa.me/2348138049021" target="_blank" class="btn-action btn-whatsapp" style="background: #22c55e; display: block; text-align: center; padding: 12px; border-radius: 6px; color: #fff; text-decoration: none; margin-bottom: 8px; font-weight: bold;">WhatsApp Chat</a>
+                <a href="mailto:oluwamayowasarah442@gmail.com" class="btn-action btn-email" style="background: #27272a; border: 1px solid #3f3f46; display: block; text-align: center; padding: 12px; border-radius: 6px; color: #fff; text-decoration: none; font-weight: bold;">Email Us</a>
             </div>
         </div>
     </section>
