@@ -189,6 +189,13 @@
             justify-content: space-between;
             flex-grow: 1;
         }
+        .card-details .product-title {
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 6px;
+            font-weight: 600;
+            display: block;
+        }
         .card-details .price {
             font-size: 13px;
             color: #a1a1aa;
@@ -312,7 +319,7 @@
             position: fixed; bottom: 20px; left: 20px; z-index: 4000;
             background: #18181b; border: 1px solid #27272a; border-radius: 8px;
             padding: 12px; color: #fff; font-family: sans-serif;
-            display: none; 
+            display: none;
             transition: all 0.3s ease-in-out;
         }
         .cart-bar-main { display: flex; align-items: center; gap: 15px; cursor: pointer; }
@@ -511,12 +518,22 @@
                 card.className = 'shop-card';
 
                 const displayImg = cleanImgBBLink(product.image);
-                // Displaying item fallback text to cart array directly while skipping visible name element rendering
+                
+                // Determine layout names based on category context if blank
+                let fallbackName = "Premium Unit";
+                if(product.category === "STRAIGHT HAIR") fallbackName = "Straight Hair Unit";
+                if(product.category === "PISSIE CURLY") fallbackName = "Pixie Curly Unit";
+                if(product.category === "BOUNCY HAIR") fallbackName = "Bouncy Hair Unit";
+                if(product.category === "TIWA HAIR") fallbackName = "Tiwa Hair Unit";
+                
+                const finalName = product.name || fallbackName;
+
                 card.innerHTML = `
-                    <div class="card-img-wrapper"><img src="${displayImg}" alt="Wig Unit"></div>
+                    <div class="card-img-wrapper"><img src="${displayImg}" alt="${finalName}"></div>
                     <div class="card-details">
+                        <span class="product-title">${finalName}</span>
                         <span class="price">${product.price}</span>
-                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name || 'Straight Hair Unit'}" data-price="${product.price}">Add To Cart</button>
+                        <button class="buy-btn" data-id="${product.id}" data-name="${finalName}" data-price="${product.price}">Add To Cart</button>
                     </div>
                 `;
                 targetGrid.appendChild(card);
