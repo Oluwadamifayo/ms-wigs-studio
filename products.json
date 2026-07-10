@@ -259,5 +259,12 @@
     "price": "Contact for Price",
     "image": "https://i.ibb.co/6RKKTqVF/IMG-20260708-WA0069.jpg",
     "category": "OUR HAIR PRODUCTS"
+  },
+  {
+    "id": "product-10",
+    "name": "Butterfly shadow",
+    "price": "Contact for Price",
+    "image": "https://i.ibb.co/0xxzsF3/IMG-20260708-WA0071.jpg",
+    "category": "OUR HAIR PRODUCTS"
   }
 ]
