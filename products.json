@@ -5,5 +5,12 @@
     "price": "Contact for Price",
     "category": "OUR HAIR PRODUCTS",
     "image": "https://i.ibb.co/tp3gZF4s/IMG-20260708-WA0053.jpg"
+  },
+  {
+    "id": "hair_brush_1",
+    "name": "Hair Brush",
+    "price": "Contact for Price",
+    "category": "OUR HAIR PRODUCTS",
+    "image": "https://i.ibb.co/fzB7q5qh/IMG-20260708-WA0055.jpg"
   }
 ]
