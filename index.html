@@ -179,7 +179,19 @@
 
     <section id="shop">
         <h2>Shop Our Collection</h2>
-        <div class="shop-group" id="straight-hair-section"><h3 class="group-title">STRAIGHT HAIR</h3><div class="shop-grid" id="straight-hair-grid"></div></div>
+        <div class="shop-group" id="straight-hair-section">
+            <h3 class="group-title">STRAIGHT HAIR</h3>
+            <div class="shop-grid" id="straight-hair-grid">
+                <div class="shop-card">
+                    <div class="card-img-wrapper" onclick="openImageViewer('https://i.ibb.co/tptrZCm9/IMG-20260706-WA0099-1.jpg')">
+                        <img src="https://i.ibb.co/tptrZCm9/IMG-20260706-WA0099-1.jpg" alt="Straight Hair">
+                    </div>
+                    <div class="card-details">
+                        <button class="buy-btn" data-id="straight_hair_1" data-name="Straight Hair" data-price="Contact for Price">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="shop-group" id="pissie-curly-section"><h3 class="group-title">PISSIE CURLY</h3><div class="shop-grid" id="pissie-curly-grid"></div></div>
         <div class="shop-group" id="bouncy-hair-section"><h3 class="group-title">BOUNCY HAIR</h3><div class="shop-grid" id="bouncy-hair-grid"></div></div>
         <div class="shop-group" id="tiwa-hair-section"><h3 class="group-title">TIWA HAIR</h3><div class="shop-grid" id="tiwa-hair-grid"></div></div>
@@ -288,10 +300,13 @@
 
             Object.keys(grids).forEach(key => {
                 if(grids[key]) {
-                    grids[key].innerHTML = '';
-                    const matchedCount = activeProducts.filter(p => p.category === key).length;
-                    if(matchedCount === 0) {
-                        grids[key].innerHTML = '<div class="empty-notice">No items currently updated in this collection view.</div>';
+                    // ONLY clear the grid if it's the dynamic products section
+                    if (key === "OUR HAIR PRODUCTS") {
+                        grids[key].innerHTML = '';
+                        const matchedCount = activeProducts.filter(p => p.category === key).length;
+                        if(matchedCount === 0) {
+                            grids[key].innerHTML = '<div class="empty-notice">No items currently updated in this collection view.</div>';
+                        }
                     }
                 }
             });
@@ -300,27 +315,30 @@
                 const targetGrid = grids[product.category];
                 if (!targetGrid) return;
 
-                const notice = targetGrid.querySelector('.empty-notice');
-                if(notice) notice.remove();
+                // Only render items dynamically into OUR HAIR PRODUCTS section
+                if (product.category === "OUR HAIR PRODUCTS") {
+                    const notice = targetGrid.querySelector('.empty-notice');
+                    if(notice) notice.remove();
 
-                const card = document.createElement('div');
-                card.className = 'shop-card';
+                    const card = document.createElement('div');
+                    card.className = 'shop-card';
 
-                let displayImg = cleanImgBBLink(product.image);
-                let finalName = product.name;
-                let finalPrice = product.price;
+                    let displayImg = cleanImgBBLink(product.image);
+                    let finalName = product.name;
+                    let finalPrice = product.price;
 
-                card.innerHTML = `
-                    <div class="card-img-wrapper" onclick="openImageViewer('${displayImg}')">
-                        <img src="${displayImg}" alt="${finalName}">
-                    </div>
-                    <div class="card-details">
-                        <span class="product-title">${finalName}</span>
-                        <span class="price">${finalPrice}</span>
-                        <button class="buy-btn" data-id="${product.id}" data-name="${finalName}" data-price="${finalPrice}">Add To Cart</button>
-                    </div>
-                `;
-                targetGrid.appendChild(card);
+                    card.innerHTML = `
+                        <div class="card-img-wrapper" onclick="openImageViewer('${displayImg}')">
+                            <img src="${displayImg}" alt="${finalName}">
+                        </div>
+                        <div class="card-details">
+                            <span class="product-title">${finalName}</span>
+                            <span class="price">${finalPrice}</span>
+                            <button class="buy-btn" data-id="${product.id}" data-name="${finalName}" data-price="${finalPrice}">Add To Cart</button>
+                        </div>
+                    `;
+                    targetGrid.appendChild(card);
+                }
             });
 
             setupCartListeners();
