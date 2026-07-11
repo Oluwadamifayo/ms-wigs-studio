@@ -397,7 +397,12 @@
             </div>
         </div>
         
-        <div class="shop-group" id="tiwa-hair-section"><h3 class="group-title">TIWA HAIR</h3><div class="shop-grid" id="tiwa-hair-grid"></div></div>
+        <div class="shop-group" id="tiwa-hair-section">
+            <h3 class="group-title">TIWA HAIR</h3>
+            <div class="shop-grid" id="tiwa-hair-grid">
+                </div>
+        </div>
+        
         <div class="shop-group" id="our-products-section"><h3 class="group-title">OUR HAIR PRODUCTS</h3><div class="shop-grid" id="our-products-grid"></div></div>
     </section>
 
@@ -503,7 +508,7 @@
 
             Object.keys(grids).forEach(key => {
                 if(grids[key]) {
-                    if (key === "OUR HAIR PRODUCTS") {
+                    if (key === "OUR HAIR PRODUCTS" || key === "TIWA HAIR") {
                         grids[key].innerHTML = '';
                         const matchedCount = activeProducts.filter(p => p.category === key).length;
                         if(matchedCount === 0) {
@@ -517,7 +522,7 @@
                 const targetGrid = grids[product.category];
                 if (!targetGrid) return;
 
-                if (product.category === "OUR HAIR PRODUCTS") {
+                if (product.category === "OUR HAIR PRODUCTS" || product.category === "TIWA HAIR") {
                     const notice = targetGrid.querySelector('.empty-notice');
                     if(notice) notice.remove();
 
