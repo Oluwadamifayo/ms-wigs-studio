@@ -31,7 +31,7 @@ header nav a {
     letter-spacing: 1px;
 }
 
-/* --- THE EXACT HERO LAYOUT FROM YOUR SCREENSHOT --- */
+/* --- HERO LAYOUT FROM SCREENSHOT --- */
 .hero {
     background-color: #fcfaf2 !important; /* Forces solid clean cream */
     background-image: none !important;    /* Guaranteed no photo leaks */
@@ -50,13 +50,74 @@ header nav a {
 }
 
 .hero-overlay h2 {
-    color: #2c2c2c !important;            /* Clean dark charcol soft-black tone */
+    color: #2c2c2c !important;            /* Clean dark charcoal soft-black tone */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
     font-size: 2.3rem !important;         /* Matches screenshot thickness and size */
     font-weight: 500 !important;
     line-height: 1.4 !important;
     margin: 0;
     letter-spacing: -0.5px;
+}
+
+/* --- BROWSE COLLECTIONS DROPDOWN STYLING --- */
+.browse-dropdown-container {
+    width: 100%;
+    max-width: 92%; /* Gives it that nice balanced padding from the screen edges */
+    margin: 30px auto 10px auto !important; /* Perfect spacing between hero and sections */
+    box-sizing: border-box;
+}
+
+.dropdown-trigger {
+    width: 100% !important;
+    background-color: #f4f4f5 !important; /* The precise light-gray shade from your image */
+    color: #09090b !important; /* Clear black text */
+    border: 1px solid #e4e4e7 !important; /* Subtle thin border */
+    border-radius: 6px !important; /* Slightly rounded edges */
+    padding: 16px 20px !important; /* Generous inside spacing */
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+
+.dropdown-icon {
+    font-size: 10px !important; /* Small clean down arrow */
+    color: #09090b !important;
+    transition: transform 0.2s ease;
+}
+
+/* Dropdown Content Link Box */
+.dropdown-content {
+    display: none;
+    background: #ffffff !important;
+    border: 1px solid #e4e4e7 !important;
+    border-top: none !important;
+    border-radius: 0 0 6px 6px !important;
+    overflow: hidden;
+}
+
+.dropdown-content.open {
+    display: block !important;
+}
+
+.dropdown-trigger.open {
+    border-radius: 6px 6px 0 0 !important;
+}
+
+.dropdown-link {
+    display: block !important;
+    padding: 14px 20px !important;
+    color: #111111 !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    border-bottom: 1px solid #f4f4f5 !important;
+}
+
+.dropdown-link:last-child {
+    border-bottom: none !important;
 }
 
 /* --- HORIZONTAL COLLECTIONS GRIDS --- */
