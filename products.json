@@ -12,5 +12,12 @@
     "price": "Contact for Price",
     "category": "OUR HAIR PRODUCTS",
     "image": "https://i.ibb.co/fzB7q5qh/IMG-20260708-WA0055.jpg"
+  },
+  {
+    "id": "hair_bonnet_1",
+    "name": "Hair Bonnet",
+    "price": "Contact for Price",
+    "category": "OUR HAIR PRODUCTS",
+    "image": "https://i.ibb.co/38TDjg1/IMG-20260708-WA0057.jpg"
   }
 ]
