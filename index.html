@@ -184,10 +184,18 @@
             <div class="shop-grid" id="straight-hair-grid">
                 <div class="shop-card">
                     <div class="card-img-wrapper" onclick="openImageViewer('https://i.ibb.co/tptrZCm9/IMG-20260706-WA0099-1.jpg')">
-                        <img src="https://i.ibb.co/tptrZCm9/IMG-20260706-WA0099-1.jpg" alt="Straight Hair">
+                        <img src="https://i.ibb.co/tptrZCm9/IMG-20260706-WA0099-1.jpg" alt="Straight Hair 1">
                     </div>
                     <div class="card-details">
-                        <button class="buy-btn" data-id="straight_hair_1" data-name="Straight Hair" data-price="Contact for Price">Add To Cart</button>
+                        <button class="buy-btn" data-id="straight_hair_1" data-name="Straight Hair Unit 1" data-price="Contact for Price">Add To Cart</button>
+                    </div>
+                </div>
+                <div class="shop-card">
+                    <div class="card-img-wrapper" onclick="openImageViewer('https://i.ibb.co/9mNX96Pr/IMG-20260706-WA0113-1.jpg')">
+                        <img src="https://i.ibb.co/9mNX96Pr/IMG-20260706-WA0113-1.jpg" alt="Straight Hair 2">
+                    </div>
+                    <div class="card-details">
+                        <button class="buy-btn" data-id="straight_hair_2" data-name="Straight Hair Unit 2" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
             </div>
@@ -300,7 +308,6 @@
 
             Object.keys(grids).forEach(key => {
                 if(grids[key]) {
-                    // ONLY clear the grid if it's the dynamic products section
                     if (key === "OUR HAIR PRODUCTS") {
                         grids[key].innerHTML = '';
                         const matchedCount = activeProducts.filter(p => p.category === key).length;
@@ -315,7 +322,6 @@
                 const targetGrid = grids[product.category];
                 if (!targetGrid) return;
 
-                // Only render items dynamically into OUR HAIR PRODUCTS section
                 if (product.category === "OUR HAIR PRODUCTS") {
                     const notice = targetGrid.querySelector('.empty-notice');
                     if(notice) notice.remove();
