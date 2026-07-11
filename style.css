@@ -5,11 +5,50 @@ html, body {
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: #111111;
+    overflow-x: hidden; /* Prevents unwanted side-scrolling */
+    width: 100%;
 }
 
 /* Ensure all primary layout containers adopt the exact light-cream tone */
 main, section, #portfolio, #shop, .contact-section {
     background-color: #fcfaf2 !important;
+    box-sizing: border-box;
+}
+
+/* --- STICKY ANNOUNCEMENT BAR --- */
+.announcement-bar {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 10px 0;
+    border-bottom: 1px solid #27272a;
+    z-index: 6000;
+    width: 100%;
+}
+
+.announcement-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+
+.announcement-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-right: 50px;
+    white-space: nowrap;
+}
+
+@keyframes marquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
 }
 
 /* --- THE BLACK MAIN HEADER --- */
@@ -18,12 +57,28 @@ header {
     padding: 20px 10px !important;
     text-align: center;
     border-bottom: none !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsive Logo Containment Fix */
+.logo-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.site-logo {
+    max-width: 180px !important; /* Prevents the image from breaking the layout */
+    width: 100%;
+    height: auto;
+    display: inline-block;
 }
 
 header nav {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap; /* Allows menu links to wrap nicely on small screens */
+    gap: 15px;
     margin-top: 15px;
 }
 
@@ -31,33 +86,34 @@ header nav a {
     color: #ffffff !important;
     text-decoration: none;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 /* --- HERO LAYOUT --- */
 .hero {
-    background-color: #fcfaf2 !important; /* Forces solid clean cream */
-    background-image: none !important;    /* Guaranteed no photo leaks */
-    padding: 60px 20px !important;       /* Balanced vertical spacing */
+    background-color: #111111 !important; /* Clean dark tone matching your black header style */
+    padding: 60px 20px !important;       
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     border: none !important;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-overlay {
-    background: transparent !important;   /* Wipes any dark gray background boxes */
+    background: transparent !important;   
     max-width: 800px;
     margin: 0 auto;
 }
 
 .hero-overlay h2 {
-    color: #2c2c2c !important;            /* Clean dark charcoal soft-black tone */
+    color: #ffffff !important;            
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-    font-size: 2.3rem !important;         /* Matches screenshot thickness and size */
+    font-size: 2.1rem !important;         
     font-weight: 500 !important;
     line-height: 1.4 !important;
     margin: 0;
@@ -67,18 +123,18 @@ header nav a {
 /* --- BROWSE COLLECTIONS DROPDOWN STYLING --- */
 .browse-dropdown-container {
     width: 100%;
-    max-width: 92%; /* Gives it that nice balanced padding from the screen edges */
-    margin: 30px auto 10px auto !important; /* Perfect spacing between hero and sections */
+    max-width: 92%; 
+    margin: 30px auto 10px auto !important; 
     box-sizing: border-box;
 }
 
 .dropdown-trigger {
     width: 100% !important;
-    background-color: #f4f4f5 !important; /* The precise light-gray shade from your image */
-    color: #09090b !important; /* Clear black text */
-    border: 1px solid #e4e4e7 !important; /* Subtle thin border */
-    border-radius: 6px !important; /* Slightly rounded edges */
-    padding: 16px 20px !important; /* Generous inside spacing */
+    background-color: #f4f4f5 !important; 
+    color: #09090b !important; 
+    border: 1px solid #e4e4e7 !important; 
+    border-radius: 6px !important; 
+    padding: 16px 20px !important; 
     font-size: 15px !important;
     font-weight: 500 !important;
     display: flex !important;
@@ -89,12 +145,11 @@ header nav a {
 }
 
 .dropdown-icon {
-    font-size: 10px !important; /* Small clean down arrow */
+    font-size: 10px !important; 
     color: #09090b !important;
     transition: transform 0.2s ease;
 }
 
-/* Dropdown Content Link Box */
 .dropdown-content {
     display: none;
     background: #ffffff !important;
@@ -126,61 +181,68 @@ header nav a {
 }
 
 /* --- 2-COLUMN GRID PORTFOLIO LAYOUT --- */
-#portfolio h2 {
+#portfolio h2, #shop h2, .contact-section h2 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #111111;
+    font-size: 1.8rem !important;
+    font-weight: 600 !important;
+    color: #111111 !important;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 25px;
+    margin-top: 50px !important;
+    margin-bottom: 25px !important;
 }
 
 .gallery {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important; /* Creates exactly two columns side-by-side */
-    gap: 14px !important; /* Elegant modern layout spacing */
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 14px !important; 
     padding: 0 16px 40px 16px !important;
     max-width: 800px;
     margin: 0 auto;
-    overflow-x: hidden !important; /* Removes horizontal sliding completely */
+    overflow-x: hidden !important; 
 }
 
 .gallery-item {
     width: 100% !important;
     height: auto !important;
-    aspect-ratio: 1 / 1 !important; /* Keeps the container a perfect clean square */
+    aspect-ratio: 1 / 1 !important; 
     background: #ffffff;
-    border: 1px solid #e4e4e7 !important; /* Thin framing border from the image */
-    border-radius: 10px !important; /* Smooth soft corners */
+    border: 1px solid #e4e4e7 !important; 
+    border-radius: 10px !important; 
     overflow: hidden;
     box-sizing: border-box;
 }
 
-/* Special Centering Rule: Handles odd item at the end of the grid row */
+/* Centering layout rule for odd final item row layout */
 .gallery-item:nth-child(odd):last-child {
     grid-column: span 2 !important;
     justify-self: center !important;
-    width: calc(50% - 7px) !important; /* Perfect math to match regular column sizes exactly */
+    width: calc(50% - 7px) !important; 
 }
 
 .gallery-item img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Fills image area tightly and cleanly */
+    object-fit: cover !important; 
     display: block;
 }
 
 /* --- HORIZONTAL COLLECTIONS GRIDS --- */
-#shop h2 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-    font-size: 1.6rem;
-    font-weight: 600;
+.shop-group {
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.group-title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
     color: #111111;
-    margin-top: 40px;
-    padding-left: 15px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .shop-grid {
@@ -189,9 +251,11 @@ header nav a {
     flex-wrap: nowrap;
     gap: 16px;
     overflow-x: auto;
-    padding: 10px 5px;
+    padding: 10px 16px;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .shop-grid::-webkit-scrollbar {
@@ -202,7 +266,7 @@ header nav a {
     border-radius: 4px;
 }
 
-/* --- TIMELY DARK CARD LAYOUTS --- */
+/* --- LUXURIOUS DARK CARD LAYOUTS --- */
 .shop-card {
     background: #18181b !important;
     border-radius: 12px;
@@ -213,6 +277,7 @@ header nav a {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
+    border: 1px solid #27272a !important;
 }
 
 .card-img-wrapper {
@@ -228,6 +293,28 @@ header nav a {
     object-fit: cover;
 }
 
+.card-details {
+    padding: 12px 0 0 0;
+    text-align: center;
+}
+
+.card-details .product-title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.card-details .price {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9rem;
+    color: #a1a1aa;
+    display: block;
+    margin-bottom: 12px;
+}
+
 .buy-btn {
     width: 100%;
     background: #27272a !important;
@@ -240,7 +327,86 @@ header nav a {
     margin-top: 8px;
 }
 
-/* --- SAFE FIX FOR BROKEN EXPANDED VIEW TEXT --- */
+.empty-notice {
+    color: #71717a;
+    font-size: 14px;
+    padding: 15px;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+}
+
+/* --- FLOATING CART & CHAT STYLING --- */
+.cart-floating-bar {
+    position: fixed; 
+    bottom: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 4000;
+    background: #111111; 
+    border: 1px solid #333333; 
+    border-radius: 30px;
+    padding: 10px 20px; 
+    color: #ffffff; 
+    font-family: sans-serif; 
+    width: 90%; 
+    max-width: 460px;
+    display: none;
+    box-sizing: border-box;
+}
+
+.cart-bar-main { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    cursor: pointer; 
+}
+
+.whatsapp-checkout-btn { 
+    background: #22c55e; 
+    color: #ffffff; 
+    border: none; 
+    padding: 8px 16px; 
+    font-weight: bold; 
+    border-radius: 20px; 
+    cursor: pointer; 
+}
+
+.cart-items-list { 
+    display: none; 
+    margin-top: 10px; 
+    border-top: 1px solid #333333; 
+    padding-top: 10px; 
+    max-height: 200px; 
+    overflow-y: auto; 
+}
+
+.cart-items-list.open { 
+    display: block; 
+}
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5000;
+    width: 55px;
+    height: 55px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.floating-whatsapp svg { 
+    width: 30px; 
+    height: 30px; 
+    fill: #ffffff; 
+}
+
+/* --- IMAGE VIEWER MODAL --- */
 .image-viewer-modal {
     display: none;
     position: fixed;
@@ -268,17 +434,6 @@ img[alt="Expanded View"][src=""] {
     margin: 50px auto 20px auto !important;
     padding: 0 !important;
     box-sizing: border-box;
-}
-
-.contact-section h2 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-    font-size: 1.8rem !important;
-    font-weight: 500 !important;
-    color: #1c1917 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-    margin-bottom: 30px !important;
 }
 
 .contact-section form {
@@ -390,4 +545,6 @@ footer {
     color: #71717a;
     background: #000000;
     margin-top: 40px;
+    width: 100%;
+    box-sizing: border-box;
 }

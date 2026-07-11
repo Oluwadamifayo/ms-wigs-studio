@@ -5,193 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M'S Wigs and Natural Hair Studio</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* --- GLOBAL BASE BACKGROUNDS --- */
-        html, body {
-            margin: 0;
-            padding: 0;
-            background-color: #fdfbf7; 
-            color: #111111;
-        }
-
-        /* --- STICKY ANNOUNCEMENT BAR --- */
-        .announcement-bar {
-            background-color: #000000;
-            color: #ffffff;
-            overflow: hidden;
-            position: sticky;
-            top: 0;
-            left: 0;
-            box-sizing: border-box;
-            padding: 10px 0;
-            border-bottom: 1px solid #27272a;
-            z-index: 6000;
-            width: 100%;
-        }
-        .announcement-track {
-            display: flex;
-            width: max-content;
-            animation: marquee 25s linear infinite;
-        }
-        .announcement-text {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding-right: 50px;
-            white-space: nowrap;
-        }
-        @keyframes marquee {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-
-        /* --- DARK HEADER ZONE --- */
-        header {
-            background-color: #111111; 
-            padding: 20px;
-        }
-        header nav a {
-            color: #ffffff !important;
-        }
-
-        /* --- HERO AREA BACKGROUND --- */
-        .hero {
-            background-color: #111111; 
-            color: #ffffff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .hero h2 {
-            color: #ffffff;
-        }
-        .hero-overlay h2 {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-        }
-
-        /* --- CONTENT SECTION STRUCTURING --- */
-        #portfolio, #shop, .contact-section {
-            background-color: #fdfbf7; 
-            padding: 40px 15px;
-        }
-
-        #shop h2, #portfolio h2, .contact-section h2 {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #111111;
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        #shop h2::after, #portfolio h2::after {
-            content: '';
-            display: block;
-            width: 60%;
-            height: 2px;
-            background-color: #c5a880; 
-            margin: 8px auto 0 auto;
-        }
-        
-        .shop-group {
-            margin-bottom: 40px;
-        }
-        
-        .group-title {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 1.1rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            color: #111111;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        /* --- CARDS & INTERIORS --- */
-        .shop-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            border: 1px solid #eae6df;
-        }
-
-        .card-details {
-            padding: 15px 10px;
-            text-align: center;
-            background: #ffffff;
-        }
-        .card-details .product-title {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 1rem;
-            color: #111111;
-            font-weight: 500;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .card-details .price {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 0.9rem;
-            color: #71717a;
-            display: block;
-            margin-bottom: 12px;
-        }
-        .empty-notice {
-            color: #71717a;
-            font-size: 14px;
-            padding: 15px;
-            font-style: italic;
-        }
-
-        /* --- FLOATING CART BAR --- */
-        .cart-floating-bar {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 4000;
-            background: #111; border: 1px solid #333; border-radius: 30px;
-            padding: 10px 20px; color: #fff; font-family: sans-serif; width: 90%; max-width: 460px;
-            display: none;
-        }
-        .cart-bar-main { display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
-        .whatsapp-checkout-btn { background: #22c55e; color: #fff; border: none; padding: 8px 16px; font-weight: bold; border-radius: 20px; cursor: pointer; }
-        .cart-items-list { display: none; margin-top: 10px; border-top: 1px solid #333; padding-top: 10px; max-height: 200px; overflow-y: auto; }
-        .cart-items-list.open { display: block; }
-
-        /* --- FLOATING WHATSAPP --- */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 5000;
-            width: 55px;
-            height: 55px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        .floating-whatsapp svg { width: 30px; height: 30px; fill: #ffffff; }
-
-        /* --- FOOTER AT BOTTOM --- */
-        footer {
-            background-color: #111111;
-            color: #ffffff;
-            text-align: center;
-            padding: 25px 10px;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-    </style>
 </head>
 <body>
 
@@ -258,6 +71,8 @@
                         <img src="https://i.ibb.co/tptrZCm9/IMG-20260706-WA0099-1.jpg" alt="Straight Hair 1">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Straight Hair Unit 1</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="straight_hair_1" data-name="Straight Hair Unit 1" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -266,6 +81,8 @@
                         <img src="https://i.ibb.co/9mNX96Pr/IMG-20260706-WA0113-1.jpg" alt="Straight Hair 2">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Straight Hair Unit 2</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="straight_hair_2" data-name="Straight Hair Unit 2" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -274,6 +91,8 @@
                         <img src="https://i.ibb.co/MDrcV0sX/IMG-20260706-WA0142.jpg" alt="Straight Hair 3">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Straight Hair Unit 3</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="straight_hair_3" data-name="Straight Hair Unit 3" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -282,6 +101,8 @@
                         <img src="https://i.ibb.co/JRvdNhdZ/IMG-20260707-WA0043.jpg" alt="Straight Hair 4">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Straight Hair Unit 4</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="straight_hair_4" data-name="Straight Hair Unit 4" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -290,6 +111,8 @@
                         <img src="https://i.ibb.co/DD2DKjMD/IMG-20260706-WA0135.jpg" alt="Straight Hair 5">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Straight Hair Unit 5</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="straight_hair_5" data-name="Straight Hair Unit 5" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -298,6 +121,8 @@
                         <img src="https://i.ibb.co/dsYQCsxY/WA-1783754779227.jpg" alt="Straight Hair 6">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Straight Hair Unit 6</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="straight_hair_6" data-name="Straight Hair Unit 6" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -312,6 +137,8 @@
                         <img src="https://i.ibb.co/zHxm3chC/IMG-20260708-WA0014.jpg" alt="Pissie Curly 1">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Pissie Curly Unit 1</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="pissie_curly_1" data-name="Pissie Curly Unit 1" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -320,6 +147,8 @@
                         <img src="https://i.ibb.co/7qNfZ20/IMG-20260707-WA0059.jpg" alt="Pissie Curly 2">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Pissie Curly Unit 2</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="pissie_curly_2" data-name="Pissie Curly Unit 2" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -328,6 +157,8 @@
                         <img src="https://i.ibb.co/GQnTwjsL/IMG-20260707-WA0061.jpg" alt="Pissie Curly 3">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Pissie Curly Unit 3</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="pissie_curly_3" data-name="Pissie Curly Unit 3" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -336,6 +167,8 @@
                         <img src="https://i.ibb.co/zVrKWvcn/IMG-20260707-WA0066.jpg" alt="Pissie Curly 4">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Pissie Curly Unit 4</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="pissie_curly_4" data-name="Pissie Curly Unit 4" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -344,6 +177,8 @@
                         <img src="https://i.ibb.co/qSLpt6V/IMG-20260707-WA0063.jpg" alt="Pissie Curly 5">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Pissie Curly Unit 5</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="pissie_curly_5" data-name="Pissie Curly Unit 5" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -352,6 +187,8 @@
                         <img src="https://i.ibb.co/Y7Xmx0F8/IMG-20260707-WA0047.jpg" alt="Pissie Curly 6">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Pissie Curly Unit 6</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="pissie_curly_6" data-name="Pissie Curly Unit 6" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -360,6 +197,8 @@
                         <img src="https://i.ibb.co/vv1cTT91/IMG-20260706-WA0136-1.jpg" alt="Pissie Curly 7">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Pissie Curly Unit 7</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="pissie_curly_7" data-name="Pissie Curly Unit 7" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -368,6 +207,8 @@
                         <img src="https://i.ibb.co/zHxm3chC/IMG-20260708-WA0014.jpg" alt="Pissie Curly 8">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Pissie Curly Unit 8</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="pissie_curly_8" data-name="Pissie Curly Unit 8" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -376,6 +217,8 @@
                         <img src="https://i.ibb.co/Jjjqn2Y2/IMG-20260706-WA0144.jpg" alt="Pissie Curly 9">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Pissie Curly Unit 9</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="pissie_curly_9" data-name="Pissie Curly Unit 9" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -390,6 +233,8 @@
                         <img src="https://i.ibb.co/QvscZVyG/IMG-20260707-WA0046.jpg" alt="Bouncy Hair 1">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 1</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_1" data-name="Bouncy Hair Unit 1" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -398,6 +243,8 @@
                         <img src="https://i.ibb.co/kg08sqvB/IMG-20260707-WA0069.jpg" alt="Bouncy Hair 2">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 2</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_2" data-name="Bouncy Hair Unit 2" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -406,6 +253,8 @@
                         <img src="https://i.ibb.co/ZptJ008K/IMG-20260707-WA0070.jpg" alt="Bouncy Hair 3">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 3</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_3" data-name="Bouncy Hair Unit 3" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -414,6 +263,8 @@
                         <img src="https://i.ibb.co/Y7S6LK7v/IMG-20260707-WA0073.jpg" alt="Bouncy Hair 4">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 4</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_4" data-name="Bouncy Hair Unit 4" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -422,6 +273,8 @@
                         <img src="https://i.ibb.co/GfQHgnXJ/IMG-20260707-WA0049.jpg" alt="Bouncy Hair 5">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 5</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_5" data-name="Bouncy Hair Unit 5" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -430,6 +283,8 @@
                         <img src="https://i.ibb.co/gFZFFRbp/IMG-20260707-WA0081.jpg" alt="Bouncy Hair 6">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 6</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_6" data-name="Bouncy Hair Unit 6" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -438,6 +293,8 @@
                         <img src="https://i.ibb.co/mYGSLRR/IMG-20260707-WA0052.jpg" alt="Bouncy Hair 7">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 7</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_7" data-name="Bouncy Hair Unit 7" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -446,6 +303,8 @@
                         <img src="https://i.ibb.co/tpCWY7VD/IMG-20260707-WA0082.jpg" alt="Bouncy Hair 8">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 8</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_8" data-name="Bouncy Hair Unit 8" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -454,6 +313,8 @@
                         <img src="https://i.ibb.co/xSB8PtRm/IMG-20260707-WA0083.jpg" alt="Bouncy Hair 9">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 9</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_9" data-name="Bouncy Hair Unit 9" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -462,6 +323,8 @@
                         <img src="https://i.ibb.co/1fXTKr1X/IMG-20260706-WA0059.jpg" alt="Bouncy Hair 10">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Bouncy Hair Unit 10</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="bouncy_hair_10" data-name="Bouncy Hair Unit 10" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -476,6 +339,8 @@
                         <img src="https://i.ibb.co/k2YbwynW/IMG-20260706-WA0139-1.jpg" alt="Tiwa Hair 1">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Tiwa Hair Unit 1</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="tiwa_hair_1" data-name="Tiwa Hair Unit 1" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -484,6 +349,8 @@
                         <img src="https://i.ibb.co/KxHBwNR1/IMG-20260707-WA0051.jpg" alt="Tiwa Hair 2">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Tiwa Hair Unit 2</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="tiwa_hair_2" data-name="Tiwa Hair Unit 2" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -492,6 +359,8 @@
                         <img src="https://i.ibb.co/GQvFYbrJ/IMG-20260708-WA0039.jpg" alt="Tiwa Hair 3">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Tiwa Hair Unit 3</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="tiwa_hair_3" data-name="Tiwa Hair Unit 3" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
@@ -500,13 +369,18 @@
                         <img src="https://i.ibb.co/8DYVdvmz/IMG-20260706-WA0150-1.jpg" alt="Tiwa Hair 4">
                     </div>
                     <div class="card-details">
+                        <span class="product-title">Tiwa Hair Unit 4</span>
+                        <span class="price">Contact for Price</span>
                         <button class="buy-btn" data-id="tiwa_hair_4" data-name="Tiwa Hair Unit 4" data-price="Contact for Price">Add To Cart</button>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="shop-group" id="our-products-section"><h3 class="group-title">OUR HAIR PRODUCTS</h3><div class="shop-grid" id="our-products-grid"></div></div>
+        <div class="shop-group" id="our-products-section">
+            <h3 class="group-title">OUR HAIR PRODUCTS</h3>
+            <div class="shop-grid" id="our-products-grid"></div>
+        </div>
     </section>
 
     <div id="imageViewerModal" class="image-viewer-modal" onclick="closeImageViewer()">
