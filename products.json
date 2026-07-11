@@ -82,5 +82,12 @@
     "price": "Contact for Price",
     "category": "OUR HAIR PRODUCTS",
     "image": "https://i.ibb.co/q3K34tN7/IMG-20260708-WA0068.jpg"
+  },
+  {
+    "id": "hair_shampoo_1",
+    "name": "Hair Shampoo",
+    "price": "Contact for Price",
+    "category": "OUR HAIR PRODUCTS",
+    "image": "https://i.ibb.co/DPXX2Nqf/IMG-20260708-WA0064.jpg"
   }
 ]
