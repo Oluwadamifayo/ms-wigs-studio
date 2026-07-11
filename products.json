@@ -89,5 +89,12 @@
     "price": "Contact for Price",
     "category": "OUR HAIR PRODUCTS",
     "image": "https://i.ibb.co/DPXX2Nqf/IMG-20260708-WA0064.jpg"
+  },
+  {
+    "id": "hair_conditioner_1",
+    "name": "Hair Conditioner",
+    "price": "Contact for Price",
+    "category": "OUR HAIR PRODUCTS",
+    "image": "https://i.ibb.co/KccMgZN4/IMG-20260708-WA0065.jpg"
   }
 ]
