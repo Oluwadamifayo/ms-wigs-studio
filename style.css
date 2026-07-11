@@ -1,10 +1,15 @@
 /* --- GLOBAL THEME & BACKGROUNDS --- */
-body {
+html, body {
     background-color: #fcfaf2 !important; /* Perfect signature light-cream shade */
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: #111111;
+}
+
+/* Ensure all primary layout containers adopt the exact light-cream tone */
+main, section, #portfolio, #shop, .contact-section {
+    background-color: #fcfaf2 !important;
 }
 
 /* --- THE BLACK MAIN HEADER --- */
@@ -230,7 +235,7 @@ header nav a {
 
 /* --- SAFE FIX FOR BROKEN EXPANDED VIEW TEXT --- */
 .image-viewer-modal {
-    display: none; /* Keeps it completely hidden until an item is tapped */
+    display: none;
     position: fixed;
     z-index: 9999 !important;
     left: 0;
@@ -242,7 +247,6 @@ header nav a {
     justify-content: center;
 }
 
-/* Forces any stray, unlinked text image placeholders to disappear */
 img[alt="Expanded View"]:not([src]), 
 img[alt="Expanded View"][src=""] {
     display: none !important;
