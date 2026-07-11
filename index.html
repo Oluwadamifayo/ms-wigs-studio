@@ -3,414 +3,445 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M'S Wigs and Natural Hair Studio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Premium Hair Collection</title>
     <style>
-        /* --- STICKY ANNOUNCEMENT BAR --- */
-        .announcement-bar {
-            background-color: #000000;
-            color: #ffffff;
-            overflow: hidden;
-            position: sticky;
-            top: 0;
-            left: 0;
-            box-sizing: border-box;
-            padding: 10px 0;
-            border-bottom: 1px solid #27272a;
-            z-index: 6000;
-            width: 100%;
-        }
-        .announcement-track {
-            display: flex;
-            width: max-content;
-            animation: marquee 25s linear infinite;
-        }
-        .announcement-text {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding-right: 50px;
-            white-space: nowrap;
-        }
-        @keyframes marquee {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
+        :root {
+            --primary-color: #111111;
+            --accent-color: #c5a880;
+            --text-color: #333333;
+            --bg-color: #faf9f6;
+            --card-bg: #ffffff;
         }
 
-        /* --- SHOP SECTIONS & HEADERS --- */
-        #shop h2, #portfolio h2, .contact-section h2 {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 2rem;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #111111;
-            text-align: center;
-            margin-top: 40px;
-            margin-bottom: 30px;
-        }
-        
-        .shop-group {
-            margin-bottom: 40px;
-            padding: 0 10px;
-        }
-        
-        .group-title {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 0.9rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: #333333;
-            text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 0.5rem;
         }
 
-        /* --- DYNAMIC CARD INTERIOR CORRECTIONS --- */
-        .card-details {
-            padding: 15px 10px;
-            text-align: center;
-        }
-        .card-details .product-title {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 1rem;
-            color: #ffffff;
-            font-weight: 500;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .card-details .price {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 0.9rem;
-            color: #a1a1aa;
-            display: block;
-            margin-bottom: 12px;
-        }
-        .empty-notice {
-            color: #71717a;
-            font-size: 14px;
-            padding: 15px;
+        header p {
+            color: var(--accent-color);
+            font-size: 1.1rem;
             font-style: italic;
         }
 
-        /* --- FLOATING CART BAR --- */
-        .cart-floating-bar {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 4000;
-            background: #111; border: 1px solid #333; border-radius: 30px;
-            padding: 10px 20px; color: #fff; font-family: sans-serif; width: 90%; max-width: 460px;
-            display: none;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
-        .cart-bar-main { display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
-        .whatsapp-checkout-btn { background: #22c55e; color: #fff; border: none; padding: 8px 16px; font-weight: bold; border-radius: 20px; cursor: pointer; }
-        .cart-items-list { display: none; margin-top: 10px; border-top: 1px solid #333; padding-top: 10px; max-height: 200px; overflow-y: auto; }
-        .cart-items-list.open { display: block; }
 
-        /* --- FLOATING WHATSAPP --- */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 5000;
-            width: 55px;
-            height: 55px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            text-align: center;
         }
-        .floating-whatsapp svg { width: 30px; height: 30px; fill: #ffffff; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-image-container {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: capitalize;
+        }
+
+        .order-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: 1px solid var(--primary-color);
+        }
+
+        .order-btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 5rem;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--accent-color);
+        }
     </style>
 </head>
 <body>
 
-    <div class="announcement-bar">
-        <div class="announcement-track">
-            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE BOOKINGS.</span>
-            <span class="announcement-text">PLEASE NOTE THAT DELIVERY TAKES 3-7 WORKING DAYS. IG: @ms_wigs_studio &nbsp;•&nbsp; WELCOME! DISCOUNTS ON SELECTED UNITS STRICTLY ON WEBSITE BOOKINGS.</span>
-        </div>
-    </div>
-
     <header>
-        <div class="logo-container">
-            <a href="#home"><img src="https://i.ibb.co/4ZXDHZJz/176106-removebg-preview.png" alt="M'S Wigs Logo" class="site-logo"></a>
-        </div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#shop">Shop</a>
-            <a href="#inquire">Book Appointment</a>
-        </nav>
+        <h1>Premium Hair Collection</h1>
+        <p>Exquisite Quality & Hair Care Essentials</p>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-overlay">
-            <h2>Premium Wigs & Natural Hair Care</h2>
-        </div>
-    </section>
+    <div class="container">
 
-    <div class="browse-dropdown-container">
-        <button class="dropdown-trigger" id="collectionDropdownBtn">
-            <span>Browse Collections</span>
-            <span class="dropdown-icon">▼</span>
-        </button>
-        <div class="dropdown-content" id="collectionDropdownContent">
-            <a href="#straight-hair-section" class="dropdown-link">Straight Hair</a>
-            <a href="#pissie-curly-section" class="dropdown-link">Pissie Curly</a>
-            <a href="#bouncy-hair-section" class="dropdown-link">Bouncy Hair</a>
-            <a href="#tiwa-hair-section" class="dropdown-link">Tiwa Hair</a>
-            <a href="#our-products-section" class="dropdown-link">Our Hair Products</a>
-        </div>
-    </div>
-
-    <section id="portfolio">
-        <h2>Our Portfolio</h2>
-        <div class="gallery">
-            <div class="gallery-item"><img src="https://i.ibb.co/5hWhX6pQ/IMG-20260708-013335.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/DDZcRFKf/IMG-20260708-013318.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/cKpSwvtT/IMG-20260708-013241.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/mC1zG4WX/IMG-20260708-013354.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/KzQ5353v/IMG-20260708-013454.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/Lh5mX180/IMG-20260708-013416.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
-            <div class="gallery-item"><img src="https://i.ibb.co/8gXKLBFG/IMG-20260708-013530.jpg" class="viewable-img" onclick="openImageViewer(this.src)"></div>
-        </div>
-    </section>
-
-    <section id="shop">
-        <h2>Shop Our Collection</h2>
-        <div class="shop-group" id="straight-hair-section"><h3 class="group-title">STRAIGHT HAIR</h3><div class="shop-grid" id="straight-hair-grid"></div></div>
-        <div class="shop-group" id="pissie-curly-section"><h3 class="group-title">PISSIE CURLY</h3><div class="shop-grid" id="pissie-curly-grid"></div></div>
-        <div class="shop-group" id="bouncy-hair-section"><h3 class="group-title">BOUNCY HAIR</h3><div class="shop-grid" id="bouncy-hair-grid"></div></div>
-        <div class="shop-group" id="tiwa-hair-section"><h3 class="group-title">TIWA HAIR</h3><div class="shop-grid" id="tiwa-hair-grid"></div></div>
-        <div class="shop-group" id="our-products-section"><h3 class="group-title">OUR HAIR PRODUCTS</h3><div class="shop-grid" id="our-products-grid"></div></div>
-    </section>
-
-    <div id="imageViewerModal" class="image-viewer-modal" onclick="closeImageViewer()">
-        <span class="image-viewer-close" onclick="closeImageViewer()">&times;</span>
-        <img class="image-viewer-content" id="viewerTargetImage" src="" alt="Expanded View" onclick="event.stopPropagation()">
-    </div>
-
-    <section id="inquire" class="contact-section">
-        <h2>Book An Appointment / Inquire</h2>
-
-        <form id="studioInquiryForm">
-            <input type="text" id="inquiryName" name="name" placeholder="Your Name" required>
-            <input type="email" id="inquiryEmail" name="email" placeholder="Your Email" required>
-            <textarea id="inquiryDetails" name="message" placeholder="Describe the service or wig you want..." required></textarea>
-            <button type="submit" class="submit-inquiry-btn" id="submitInquiryBtn">Send Inquiry</button>
-        </form>
-
-        <div class="direct-booking-card">
-            <h3>Direct Bookings</h3>
-            <p>Need an immediate booking? Connect instantly below.</p>
-            <div class="booking-buttons">
-                <a href="tel:+2348138049021" class="btn-action btn-call">Call Us</a>
-                <a href="https://wa.me/2348138049021" target="_blank" class="btn-action btn-whatsapp">WhatsApp Chat</a>
-                <a href="mailto:oluwamayowasarah442@gmail.com" class="btn-action btn-email">Email Us</a>
+        <h2 class="section-title">Bouncy Hair Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/6cw6pY02/IMG-20260708-WA0037.jpg" alt="Bouncy Hair Item 1">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Elegant</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/XrnZxtWh/IMG-20260708-WA0038.jpg" alt="Bouncy Hair Item 2">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Glamour</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/VWVwKsmg/IMG-20260708-WA0039.jpg" alt="Bouncy Hair Item 3">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Classic</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/7t6LhVv0/IMG-20260708-WA0040.jpg" alt="Bouncy Hair Item 4">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Luxury</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/wZ99K9g5/IMG-20260708-WA0041.jpg" alt="Bouncy Hair Item 5">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Volume</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/dms0CqZ5/IMG-20260708-WA0044.jpg" alt="Bouncy Hair Item 6">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Divine</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/p6V7vjSm/IMG-20260708-WA0045.jpg" alt="Bouncy Hair Item 7">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Grace</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/8g8rCpyD/IMG-20260708-WA0046.jpg" alt="Bouncy Hair Item 8">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Radiant</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/4gnZ7jS1/IMG-20260708-WA0047.jpg" alt="Bouncy Hair Item 9">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Silk</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/Kcm8wSg7/IMG-20260708-WA0048.jpg" alt="Bouncy Hair Item 10">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bouncy Hair Sovereign</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
             </div>
         </div>
-    </section>
 
-    <div id="floatingCart" class="cart-floating-bar">
-        <div class="cart-bar-main" id="cartToggle">
-            <span>Shopping Cart (<span id="cartCount">0</span>)</span>
-            <button id="checkoutBtn" class="whatsapp-checkout-btn">Checkout</button>
+
+        <h2 class="section-title">Tiwa Hair Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/tpm9b6p5/IMG-20260708-WA0049.jpg" alt="Tiwa Hair Item 1">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Tiwa Hair Premium</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/tM3m9XyB/IMG-20260708-WA0050.jpg" alt="Tiwa Hair Item 2">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Tiwa Hair Deluxe</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/Y7T0xW4W/IMG-20260708-WA0051.jpg" alt="Tiwa Hair Item 3">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Tiwa Hair Essence</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/Z68Mby6L/IMG-20260708-WA0052.jpg" alt="Tiwa Hair Item 4">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Tiwa Hair Signature</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
         </div>
-        <div id="cartItemsList" class="cart-items-list"></div>
+
+
+        <h2 class="section-title">Our Hair Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/tp3gZF4s/IMG-20260708-WA0053.jpg" alt="Hair Packer">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Packer</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/fzB7q5qh/IMG-20260708-WA0055.jpg" alt="Hair Brush">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Brush</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/38TDjg1/IMG-20260708-WA0057.jpg" alt="Hair Bonnet">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Bonnet</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/RG5stS3Q/IMG-20260708-WA0059.jpg" alt="Hair Net">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Net</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/7dJgvfh1/IMG-20260708-WA0060.jpg" alt="Hair Net">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Net</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/GhrxT3J/IMG-20260708-WA0062.jpg" alt="Hair Relaxer">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Relaxer</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/N64bHXTb/IMG-20260708-WA0066.jpg" alt="Cur la la">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Cur la la</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/5XZphLsD/IMG-20260708-WA0067.jpg" alt="Edge Control">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Edge Control</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/3ySjXdWj/IMG-20260708-WA0069.jpg" alt="Wig Oil">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Wig Oil</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/DDLn5n9W/IMG-20260708-WA0071.jpg" alt="Butterfly Shadow">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Butterfly Shadow</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/NggSwgsD/IMG-20260708-WA0070.jpg" alt="Luodias">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Luodias</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/q3K34tN7/IMG-20260708-WA0068.jpg" alt="Edge Control">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Edge Control</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/DPXX2Nqf/IMG-20260708-WA0064.jpg" alt="Hair Shampoo">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Shampoo</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/KccMgZN4/IMG-20260708-WA0065.jpg" alt="Hair Conditioner">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Conditioner</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img class="product-image" src="https://i.ibb.co/wr7Ndmgp/IMG-20260708-WA0061.jpg" alt="Hair Bonnet">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hair Bonnet</h3>
+                    <a href="#" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <a href="https://wa.me/2348138049021" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
-        <svg viewBox="0 0 32 32">
-            <path d="M16 2a13 13 0 0 0-11.3 19.4L3 29l7.8-2A13 13 0 1 0 16 2zm0 24c-2.2 0-4.3-.6-6.2-1.7l-.4-.3-4.6 1.2 1.2-4.5-.3-.5A10.9 10.9 0 1 1 16 26zm6-8.2c-.3-.2-1.9-1-2.2-1-.3-.2-.5-.2-.7.2-.3.3-.9 1.1-1.1 1.3-.2.2-.4.2-.8 0a10 10 0 0 1-2.9-1.8 11 11 0 0 1-2-2.5c-.2-.4 0-.6.2-.8l.5-.6.3-.5c.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.6-.5-.8-.5H9.4c-.2 0-.6.1-.9.4A2.7 2.7 0 0 0 7.7 9c0 1.6.6 3.2 1.5 4.4a19.7 19.7 0 0 0 8 7c.8.4 1.7.6 2.5.6a6 6 0 0 0 3.6-1.1c.7-.6.7-1.1.7-1.3l-.5-.3z"/>
-        </svg>
-    </a>
-
     <footer>
-        <p>&copy; 2026 M'S WIGS & NATURAL HAIR STUDIO. ALL RIGHTS RESERVED.</p>
+        <p>&copy; 2026 Premium Hair Collection. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        const dropBtn = document.getElementById('collectionDropdownBtn');
-        const dropContent = document.getElementById('collectionDropdownContent');
-        if(dropBtn && dropContent) {
-            dropBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                dropBtn.classList.toggle('open');
-                dropContent.classList.toggle('open');
-            });
-        }
-
-        let cart = [];
-
-        function cleanImgBBLink(rawLink) {
-            if (!rawLink) return '';
-            rawLink = rawLink.trim();
-            if (rawLink.includes('src=')) {
-                const match = rawLink.match(/src=["']([^"']+)["']/);
-                return match ? match[1] : rawLink;
-            }
-            return rawLink;
-        }
-
-        window.openImageViewer = function(imageSrc) {
-            const viewerModal = document.getElementById('imageViewerModal');
-            const viewerTarget = document.getElementById('viewerTargetImage');
-            if(viewerModal && viewerTarget) {
-                viewerTarget.src = imageSrc;
-                viewerModal.style.display = 'flex';
-            }
-        };
-
-        window.closeImageViewer = function() {
-            const viewerModal = document.getElementById('imageViewerModal');
-            if(viewerModal) {
-                viewerModal.style.display = 'none';
-            }
-        };
-
-        async function renderProducts() {
-            let activeProducts = [];
-            try {
-                const res = await fetch('products.json?v=' + Date.now());
-                if(res.ok) activeProducts = await res.json();
-            } catch (e) {
-                console.error("Error loading products: ", e);
-            }
-
-            const grids = {
-                "STRAIGHT HAIR": document.getElementById('straight-hair-grid'),
-                "PISSIE CURLY": document.getElementById('pissie-curly-grid'),
-                "BOUNCY HAIR": document.getElementById('bouncy-hair-grid'),
-                "TIWA HAIR": document.getElementById('tiwa-hair-grid'),
-                "OUR HAIR PRODUCTS": document.getElementById('our-products-grid')
-            };
-
-            Object.keys(grids).forEach(key => {
-                if(grids[key]) {
-                    grids[key].innerHTML = '';
-                    const matchedCount = activeProducts.filter(p => p.category === key).length;
-                    if(matchedCount === 0) {
-                        grids[key].innerHTML = '<div class="empty-notice">No items currently updated in this collection view.</div>';
-                    }
-                }
-            });
-
-            activeProducts.forEach(product => {
-                const targetGrid = grids[product.category];
-                if (!targetGrid) return;
-
-                const notice = targetGrid.querySelector('.empty-notice');
-                if(notice) notice.remove();
-
-                const card = document.createElement('div');
-                card.className = 'shop-card';
-
-                let displayImg = cleanImgBBLink(product.image);
-                let finalName = product.name;
-                let finalPrice = product.price;
-
-                card.innerHTML = `
-                    <div class="card-img-wrapper" onclick="openImageViewer('${displayImg}')">
-                        <img src="${displayImg}" alt="${finalName}">
-                    </div>
-                    <div class="card-details">
-                        <span class="product-title">${finalName}</span>
-                        <span class="price">${finalPrice}</span>
-                        <button class="buy-btn" data-id="${product.id}" data-name="${finalName}" data-price="${finalPrice}">Add To Cart</button>
-                    </div>
-                `;
-                targetGrid.appendChild(card);
-            });
-
-            setupCartListeners();
-        }
-
-        function setupCartListeners() {
-            document.querySelectorAll('.buy-btn').forEach(btn => {
-                btn.onclick = (e) => {
-                    const item = {
-                        id: e.target.dataset.id,
-                        name: e.target.dataset.name,
-                        price: e.target.dataset.price
-                    };
-                    cart.push(item);
-                    updateCartUI();
-                };
-            });
-        }
-
-        function updateCartUI() {
-            const cartBar = document.getElementById('floatingCart');
-            if (cart.length > 0) {
-                cartBar.style.display = 'block';
-            } else {
-                cartBar.style.display = 'none';
-                document.getElementById('cartItemsList').classList.remove('open');
-            }
-
-            document.getElementById('cartCount').innerText = cart.length;
-            const listContainer = document.getElementById('cartItemsList');
-            listContainer.innerHTML = '';
-            cart.forEach((item, index) => {
-                const p = document.createElement('div');
-                p.style.display = 'flex';
-                p.style.justifyContent = 'space-between';
-                p.style.padding = '8px 0';
-                p.innerHTML = `<span>${item.name} (${item.price})</span><span style="color:#ff4d4d;cursor:pointer;" onclick="removeItem(${index})">Remove</span>`;
-                listContainer.appendChild(p);
-            });
-        }
-
-        window.removeItem = function(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        };
-
-        document.getElementById('cartToggle').onclick = (e) => {
-            if(e.target.id === 'checkoutBtn') return;
-            document.getElementById('cartItemsList').classList.toggle('open');
-        };
-
-        document.getElementById('checkoutBtn').onclick = () => {
-            if(cart.length === 0) return alert('Your cart is empty!');
-            let text = "Hello M'S Wigs Studio, I want to order:\n";
-            cart.forEach(item => {
-                text += `- ${item.name} (${item.price})\n`;
-            });
-            window.open(`https://wa.me/2348138049021?text=${encodeURIComponent(text)}`, '_blank');
-        };
-
-        const inquiryForm = document.getElementById('studioInquiryForm');
-        if (inquiryForm) {
-            inquiryForm.addEventListener('submit', async function(event) {
-                event.preventDefault();
-                const submitBtn = document.getElementById('submitInquiryBtn');
-                submitBtn.innerText = "Sending...";
-                submitBtn.disabled = true;
-                const formData = new FormData(inquiryForm);
-                try {
-                    const response = await fetch('https://formspree.io/f/mdarvwjq', {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (response.ok) {
-                        alert("Thank you! Your inquiry has been submitted successfully.");
-                        inquiryForm.reset();
-                    } else {
-                        alert("Oops! There was a problem submitting your form.");
-                    }
-                } catch (error) {
-                    alert("Error connecting to server.");
-                } finally {
-                    submitBtn.innerText = "Send Inquiry";
-                    submitBtn.disabled = false;
-                }
-            });
-        }
-
-        window.onload = renderProducts;
-    </script>
 </body>
 </html>
+
