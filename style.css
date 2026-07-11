@@ -54,7 +54,7 @@ main, section, #portfolio, #shop, .contact-section {
 /* --- THE BLACK MAIN HEADER --- */
 header {
     background: #000000 !important;
-    padding: 20px 10px !important;
+    padding: 15px 10px !important;
     text-align: center;
     border-bottom: none !important;
     width: 100%;
@@ -65,15 +65,16 @@ header {
 .logo-container {
     max-width: 100%;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 .site-logo {
-    max-width: 180px !important; /* Dynamic mobile size safety bounds */
+    max-width: 200px !important; /* Dynamic mobile size safety bounds */
     width: 100%;
     height: auto;
-    display: inline-block;
-    mix-blend-mode: multiply; /* Drops white backgrounds seamlessly onto black backgrounds */
-    filter: invert(1) brightness(2); /* Transforms dark elements to premium luminous gold/white */
+    display: block;
+    border-radius: 4px; /* Softens corners if visible */
 }
 
 header nav {
