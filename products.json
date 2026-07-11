@@ -26,5 +26,19 @@
     "price": "Contact for Price",
     "category": "OUR HAIR PRODUCTS",
     "image": "https://i.ibb.co/RG5stS3Q/IMG-20260708-WA0059.jpg"
+  },
+  {
+    "id": "hair_net_2",
+    "name": "Hair net",
+    "price": "Contact for Price",
+    "category": "OUR HAIR PRODUCTS",
+    "image": "https://i.ibb.co/7dJgvfh1/IMG-20260708-WA0060.jpg"
+  },
+  {
+    "id": "hair_relaxer_1",
+    "name": "Hair Relaxer",
+    "price": "Contact for Price",
+    "category": "OUR HAIR PRODUCTS",
+    "image": "https://i.ibb.co/GhrxT3J/IMG-20260708-WA0062.jpg"
   }
 ]
