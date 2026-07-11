@@ -589,15 +589,6 @@
             }
         };
 
-        window.openImageViewer = function(imageSrc) {
-            const viewerModal = document.getElementById('imageViewerModal');
-            const viewerTarget = document.getElementById('viewerTargetImage');
-            if(viewerModal && viewerTarget) {
-                viewerTarget.src = imageSrc;
-                viewerModal.style.display = 'flex';
-            }
-        };
-
         window.closeImageViewer = function() {
             const viewerModal = document.getElementById('imageViewerModal');
             if(viewerModal) {

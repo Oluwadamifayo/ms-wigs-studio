@@ -159,6 +159,13 @@ header nav a {
     box-sizing: border-box;
 }
 
+/* Special Centering Rule: Handles odd item at the end of the grid row */
+.gallery-item:nth-child(odd):last-child {
+    grid-column: span 2 !important;
+    justify-self: center !important;
+    width: calc(50% - 7px) !important; /* Perfect math to match regular column sizes exactly */
+}
+
 .gallery-item img {
     width: 100% !important;
     height: 100% !important;
@@ -195,7 +202,7 @@ header nav a {
     border-radius: 4px;
 }
 
-/* --- LUXURIOUS DARK CARD LAYOUTS --- */
+/* --- TIMELY DARK CARD LAYOUTS --- */
 .shop-card {
     background: #18181b !important;
     border-radius: 12px;
