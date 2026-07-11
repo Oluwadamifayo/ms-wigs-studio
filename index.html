@@ -6,6 +6,14 @@
     <title>M'S Wigs and Natural Hair Studio</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* --- GLOBAL BASE BACKGROUNDS --- */
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #fdfbf7; /* Exact warm cream background from video */
+            color: #111111;
+        }
+
         /* --- STICKY ANNOUNCEMENT BAR --- */
         .announcement-bar {
             background-color: #000000;
@@ -39,7 +47,37 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* --- SHOP SECTIONS & HEADERS --- */
+        /* --- DARK HEADER ZONE --- */
+        header {
+            background-color: #111111; /* Sleek dark header */
+            padding: 20px;
+        }
+        header nav a {
+            color: #ffffff !important;
+        }
+
+        /* --- HERO AREA BACKGROUND --- */
+        .hero {
+            background-color: #111111; /* Seamless blend from the header down */
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero h2 {
+            color: #ffffff;
+        }
+        .hero-overlay h2 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+        }
+
+        /* --- CONTENT SECTION STRUCTURING --- */
+        #portfolio, #shop, .contact-section {
+            background-color: #fdfbf7; /* Force sections onto the cream background */
+            padding: 40px 15px;
+        }
+
         #shop h2, #portfolio h2, .contact-section h2 {
             font-family: 'Times New Roman', Times, serif;
             font-size: 2rem;
@@ -47,34 +85,57 @@
             text-transform: uppercase;
             color: #111111;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 20px;
             margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Video Underline Accents */
+        #shop h2::after, #portfolio h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 2px;
+            background-color: #c5a880; /* Elegant gold tone divider */
+            margin: 8px auto 0 auto;
         }
         
         .shop-group {
             margin-bottom: 40px;
-            padding: 0 10px;
         }
         
         .group-title {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            letter-spacing: 1px;
-            color: #333333;
+            letter-spacing: 2px;
+            color: #111111;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
-        /* --- DYNAMIC CARD INTERIOR CORRECTIONS --- */
+        /* --- CARDS & INTERIORS --- */
+        .shop-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Soft premium shadow */
+            border: 1px solid #eae6df;
+        }
+
         .card-details {
             padding: 15px 10px;
             text-align: center;
+            background: #ffffff;
         }
         .card-details .product-title {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-size: 1rem;
-            color: #ffffff;
+            color: #111111;
             font-weight: 500;
             display: block;
             margin-bottom: 4px;
@@ -82,7 +143,7 @@
         .card-details .price {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-size: 0.9rem;
-            color: #a1a1aa;
+            color: #71717a;
             display: block;
             margin-bottom: 12px;
         }
@@ -121,6 +182,16 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
         .floating-whatsapp svg { width: 30px; height: 30px; fill: #ffffff; }
+
+        /* --- FOOTER AT BOTTOM --- */
+        footer {
+            background-color: #111111;
+            color: #ffffff;
+            text-align: center;
+            padding: 25px 10px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
@@ -147,6 +218,7 @@
     <section id="home" class="hero">
         <div class="hero-overlay">
             <h2>Premium Wigs & Natural Hair Care</h2>
+            <p style="color: #a1a1aa; max-width: 500px; margin: 15px auto 0 auto; font-size: 0.95rem; font-family: sans-serif; line-height: 1.5;">Unleash your inner confidence with our custom units and expert styling.</p>
         </div>
     </section>
 
