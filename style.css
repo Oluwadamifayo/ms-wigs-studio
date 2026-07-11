@@ -120,7 +120,7 @@ header nav a {
     border-bottom: none !important;
 }
 
-/* --- THE EXACT 2-COLUMN GRID PORTFOLIO LAYOUT --- */
+/* --- 2-COLUMN GRID PORTFOLIO LAYOUT --- */
 #portfolio h2 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
     font-size: 1.8rem;
@@ -228,45 +228,133 @@ header nav a {
     margin-top: 8px;
 }
 
-/* --- CONTACT / INQUIRY INPUTS --- */
-.contact-section h2 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: #111111;
-    margin-top: 40px;
-}
-
+/* --- MATCHING BOOK AN APPOINTMENT & CONTACT CARD LAYOUT --- */
 .contact-section {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.contact-section input, .contact-section textarea {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 10px;
-    border: 1px solid #e4e4e7;
-    border-radius: 6px;
-    background: #ffffff;
+    max-width: 100%;
+    width: 92%;
+    margin: 50px auto 20px auto !important;
+    padding: 0 !important;
     box-sizing: border-box;
 }
 
-.submit-inquiry-btn {
-    width: 100%;
-    background: #111111;
-    color: #ffffff;
-    padding: 14px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
+.contact-section h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 1.8rem !important;
+    font-weight: 500 !important;
+    color: #1c1917 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 30px !important;
 }
 
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.contact-section input, .contact-section textarea {
+    width: 100% !important;
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    border: 1px solid #e4e4e7 !important;
+    border-radius: 6px !important;
+    padding: 16px 18px !important;
+    font-size: 15px !important;
+    box-sizing: border-box !important;
+}
+
+.contact-section textarea {
+    min-height: 120px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.submit-inquiry-btn {
+    width: 100% !important;
+    background: #1c1917 !important; /* Premium off-black look */
+    color: #ffffff !important;
+    padding: 16px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* Premium Dark Direct Booking Card */
+.direct-booking-card {
+    background: #1c1917 !important; /* Exact deep charcoal box base */
+    border-radius: 8px !important;
+    padding: 30px 20px !important;
+    margin-top: 45px !important;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.direct-booking-card h3 {
+    color: #ffffff !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    margin: 0 0 8px 0 !important;
+}
+
+.direct-booking-card p {
+    color: #d6d3d1 !important; /* Soft descriptive gray text */
+    font-size: 14px !important;
+    margin: 0 0 25px 0 !important;
+}
+
+.booking-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.btn-action {
+    display: block !important;
+    width: 100% !important;
+    padding: 15px !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none !important;
+    text-align: center;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    border: none !important;
+}
+
+.btn-call {
+    background: #2e2a27 !important; /* Solid matte charcoal dark gray */
+    color: #ffffff !important;
+}
+
+.btn-whatsapp {
+    background: #22c55e !important; /* Vibrant green checkout/chat */
+    color: #ffffff !important;
+}
+
+.btn-email {
+    background: #0284c7 !important; /* Clean premium ocean blue email */
+    color: #ffffff !important;
+}
+
+/* --- FOOTER AT BOTTOM --- */
 footer {
     text-align: center;
-    padding: 30px 10px;
+    padding: 40px 10px 30px 10px;
     font-size: 11px;
     color: #71717a;
+    background: #000000;
+    margin-top: 40px;
 }
