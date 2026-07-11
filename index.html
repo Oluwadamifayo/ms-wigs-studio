@@ -400,7 +400,15 @@
         <div class="shop-group" id="tiwa-hair-section">
             <h3 class="group-title">TIWA HAIR</h3>
             <div class="shop-grid" id="tiwa-hair-grid">
+                <div class="shop-card">
+                    <div class="card-img-wrapper" onclick="openImageViewer('https://i.ibb.co/k2YbwynW/IMG-20260706-WA0139-1.jpg')">
+                        <img src="https://i.ibb.co/k2YbwynW/IMG-20260706-WA0139-1.jpg" alt="Tiwa Hair 1">
+                    </div>
+                    <div class="card-details">
+                        <button class="buy-btn" data-id="tiwa_hair_1" data-name="Tiwa Hair Unit 1" data-price="Contact for Price">Add To Cart</button>
+                    </div>
                 </div>
+            </div>
         </div>
         
         <div class="shop-group" id="our-products-section"><h3 class="group-title">OUR HAIR PRODUCTS</h3><div class="shop-grid" id="our-products-grid"></div></div>
@@ -509,10 +517,19 @@
             Object.keys(grids).forEach(key => {
                 if(grids[key]) {
                     if (key === "OUR HAIR PRODUCTS" || key === "TIWA HAIR") {
-                        grids[key].innerHTML = '';
+                        // We do not clear completely if we have static inline items
+                        // Or if handling purely dynamic setups, but we keep the inline static intact.
+                        const dynamicItems = grids[key].querySelectorAll('.dynamic-product-card');
+                        dynamicItems.forEach(el => el.remove());
+                        
+                        const currentStaticCount = grids[key].querySelectorAll('.shop-card').length;
                         const matchedCount = activeProducts.filter(p => p.category === key).length;
-                        if(matchedCount === 0) {
+                        
+                        if(matchedCount === 0 && currentStaticCount === 0) {
                             grids[key].innerHTML = '<div class="empty-notice">No items currently updated in this collection view.</div>';
+                        } else {
+                            const notice = grids[key].querySelector('.empty-notice');
+                            if(notice) notice.remove();
                         }
                     }
                 }
@@ -523,11 +540,8 @@
                 if (!targetGrid) return;
 
                 if (product.category === "OUR HAIR PRODUCTS" || product.category === "TIWA HAIR") {
-                    const notice = targetGrid.querySelector('.empty-notice');
-                    if(notice) notice.remove();
-
                     const card = document.createElement('div');
-                    card.className = 'shop-card';
+                    card.className = 'shop-card dynamic-product-card';
 
                     let displayImg = cleanImgBBLink(product.image);
                     let finalName = product.name;
